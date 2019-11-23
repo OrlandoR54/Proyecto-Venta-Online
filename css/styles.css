@@ -33,6 +33,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+
+
+
+
 /* En pantallas pequenas,decrese el tamaño del texto */
 @media only screen and (max-width: 300px) {
   .atras, .siguiente,.text {font-size: 11px}
@@ -381,3 +385,7 @@ img {vertical-align: middle;}
   to {opacity: 1}
 }
 /*------------------------------------------------------------------------*/
+.centro .w3-bar{display:inline-block;width:auto}
+.w3-bar-block.centro .w3-bar-item{text-align:center}.w3-block{display:block;width:100%}
+.centro{text-align:center!important}
+.relleno-16{padding-top:16px!important;padding-bottom:16px!important}
