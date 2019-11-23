@@ -181,7 +181,11 @@ html {
     clear:both
 }
 
+
+
 .fa-shopping-cart:before{content:"\f07a"}
+.w3-margin-right{margin-right:16px!important}
+
 
 .barra .boton {
     white-space:normal
