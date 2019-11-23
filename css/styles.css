@@ -181,7 +181,7 @@ html {
     clear:both
 }
 
-
+.fa-shopping-cart:before{content:"\f07a"}
 
 .barra .boton {
     white-space:normal
