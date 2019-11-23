@@ -383,3 +383,11 @@ img {vertical-align: middle;}
     padding-top:16px!important;
     padding-bottom:16px!important
 }
+
+.contenedor:after,.contenedor:before {
+    content:"";
+    display:table;
+    clear:both
+}
+
+.relleno-32{padding-top:32px!important;padding-bottom:32px!important}
