@@ -176,17 +176,12 @@ html {
 }
 
 .barra:before,.barra:after {
-    content:"";display:table;clear:both
+    content:"";
+    display:table;
+    clear:both
 }
 
-.barra .barraItem {
-    padding:8px 16px;
-    float:left;
-    width:auto;
-    border:none;
-    display:block;
-    outline:0
-}
+
 
 .barra .boton {
     white-space:normal
@@ -204,13 +199,7 @@ html {
     margin-top:16px!important
 }
 
-.centro {
-    text-align:center!important
-}
 
-.centro .barra {
-    display:inline-block;width:auto
-}
 
 .opacidad {
     opacity:0.75
@@ -228,9 +217,7 @@ html {
     color:#fff!important
 }
 
-.contenido,.w3-auto {
-    margin-left:auto;margin-right:auto
-}
+
 
 img {
     border-style:none
@@ -257,9 +244,7 @@ img {
     user-select:none
 }
 
-.barra,.barra {
-    position:static;float:left
-}
+
 
 
 .sombra, .w3-card-2 {
@@ -297,12 +282,6 @@ img {
 .slides {display: none}
 img {vertical-align: middle;}
 
-/* Contenedor Slider */
-.slider-contenedor {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
 
 /* Botones siguiente & atras */
 .atras, .siguiente {
@@ -385,7 +364,18 @@ img {vertical-align: middle;}
   to {opacity: 1}
 }
 /*------------------------------------------------------------------------*/
-.centro .w3-bar{display:inline-block;width:auto}
-.w3-bar-block.centro .w3-bar-item{text-align:center}.w3-block{display:block;width:100%}
+.centro .barra {
+    display:inline-block;
+    width:auto
+}
+
+.centro .barraItem {
+    text-align:center
+}
+
 .centro{text-align:center!important}
-.relleno-16{padding-top:16px!important;padding-bottom:16px!important}
+
+.relleno-16 {
+    padding-top:16px!important;
+    padding-bottom:16px!important
+}

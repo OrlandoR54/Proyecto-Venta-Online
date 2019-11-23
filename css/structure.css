@@ -11,6 +11,40 @@ body {
 .cabecera {
     top:0
 }
+
+.centro {
+    text-align:center!important
+}
+
+.barra {
+    position:static;
+    float:left
+}
+
+.barra {
+    width:100%;
+    overflow:hidden
+}
+
+.barra .barraItem {
+    padding:8px 16px;
+    float:left;
+    width:auto;
+    border:none;
+    display:block;
+    outline:0
+}
+
+.centro .barra {
+    display:inline-block;
+    width:auto
+}
+
+.contenido,.w3-auto {
+    margin-left:auto;
+    margin-right:auto
+}
+
 /*
 html {
     -ms-text-size-adjust:100%;
@@ -28,4 +62,12 @@ html {
 .derecha {
     float:right!important
 }
+
+/*---------SLIDER---------*/
+/* Contenedor Slider */
+.slider-contenedor {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
 
