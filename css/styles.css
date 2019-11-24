@@ -220,7 +220,10 @@ img {
 
 /*------------------SLIDER------------------*/
 .slides {display: none}
-img {vertical-align: middle;}
+
+img {
+    vertical-align: middle;
+}
 
 
 /* Botones siguiente & atras */
@@ -342,4 +345,30 @@ img {vertical-align: middle;}
 
 .fila-relleno,.fila-relleno>.w3-half,.fila-relleno>.w3-third,.fila-relleno>.w3-twothird,.fila-relleno>.w3-threequarter,.fila-relleno>.w3-quarter,.fila-relleno>.w3-col {
     padding:0 8px
+}
+
+.escala-gris {
+    filter:grayscale(75%)
+}
+
+.w3-col {
+    float:left;
+    width:100%}
+.w3-col.l3{width:24.99999%}.w3-col.l4{width:33.33333%}
+.w3-col.m6{width:49.99999%}
+.w3-margin-bottom{margin-bottom:16px!important}
+.main{
+    padding: 3%;
+}
+
+#media iframe {
+	width: 350px;
+	margin: 10px;
+	padding: 5px;
+	border:1px solid #484848;
+}
+
+#media iframe:hover{
+	border: 2px solid whitesmoke;
+    opacity: 1;
 }
