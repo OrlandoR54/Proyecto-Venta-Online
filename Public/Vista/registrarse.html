@@ -10,7 +10,7 @@
         <section>
                 <div id="form">
                     <h1>FORMULARIO</h1>
-                    <form method="POST" action="" onsubmit="return validar()">
+                    <form method="POST" action="">
                         <table>
                             <tr>
                                 <td> <label>Cedula: </label></td>
@@ -55,12 +55,11 @@
                             <tr>
                                 <td colspan="2">
                                     <div id="btn">
-                                        <input type="submit" id="crear" name="crear" value="Aceptar">
-                                        <input type="reset" id="cancelar" name="cancelar" value="Cancelar">
+                                        <input type="submit" id="crear" name="crear" value="Aceptar" >
+                                        <input type="button" onclick="history.back()" id="cancelar" name="cancelar" value="Cancelar" >
                                     </div>
                                 </td>
                             </tr>
-        
                         </table>
                     </form>
                 </div>
