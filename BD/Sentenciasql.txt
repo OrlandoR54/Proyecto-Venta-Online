@@ -1,0 +1,216 @@
+CREATE TABLE mh_persons (
+    per_id          INTEGER NOT NULL,
+    per_num_ced     VARCHAR(10) NOT NULL,
+    per_nombre      VARCHAR(50) NOT NULL,
+    per_apellido    VARCHAR(50) NOT NULL,
+    per_direccion   VARCHAR(100) NOT NULL,
+    per_telefono    VARCHAR(10) NOT NULL,
+    per_rol         CHAR(1) NOT NULL,
+    per_correo      VARCHAR(50) NOT NULL,
+    per_password    VARCHAR(50) NOT NULL
+);
+
+ALTER TABLE mh_persons ADD CONSTRAINT mh_persons_pk PRIMARY KEY ( per_id );
+
+
+
+
+
+CREATE TABLE mh_tarjet_credit (
+    tarjet_cred_id              INTEGER NOT NULL,
+    tarjet_cred_num             VARCHAR(12) NOT NULL,
+    tarjet_cred_fech_venc       DATE NOT NULL,
+    tarjet_cred_cod_seg         VARCHAR(4) NOT NULL,
+    trajet_nomb_titular         VARCHAR(50) NOT NULL,
+    mh_persons_per_id           INTEGER NOT NULL,
+    mh_carrito_cabc_carrit_id   INTEGER NOT NULL
+);
+
+CREATE UNIQUE INDEX mh_tarjet_credit__idx ON
+    mh_tarjet_credit (
+        mh_carrito_cabc_carrit_id
+    ASC );
+
+ALTER TABLE mh_tarjet_credit ADD CONSTRAINT mh_tarjet_credit_pk PRIMARY KEY ( tarjet_cred_id );
+
+
+
+
+CREATE TABLE mh_provs (
+    prov_id            INTEGER NOT NULL,
+    prov_nombre_empr   VARCHAR(50) NOT NULL,
+    prod_ruc_empresa   VARCHAR(13) NOT NULL
+);
+
+
+ALTER TABLE mh_provs ADD CONSTRAINT mh_provs_pk PRIMARY KEY ( prov_id );
+
+
+
+CREATE TABLE mh_products (
+    prod_id                            INTEGER NOT NULL,
+    prod_nombre                        VARCHAR(50) NOT NULL,
+    prod_descripcion                   VARCHAR(50),
+    prod_precio_compra                 INTEGER NOT NULL,
+    pro_precio_venta                   INTEGER NOT NULL,
+    prod_stock                         INTEGER NOT NULL,
+    prod_fecha_venc                    DATE NOT NULL,
+    mh_detal_vent_fd_vent_id           INTEGER NOT NULL,
+    mh_provs_prov_id                   INTEGER, 
+    mh_car_det_car_det_id   INTEGER NOT NULL,
+    mh_detalle_comp_fd_comp_id         INTEGER NOT NULL,
+    prod_coment                        VARCHAR(50),
+    prod_califi                        FLOAT(4)
+);
+
+ALTER TABLE mh_products ADD CONSTRAINT mh_products_pk PRIMARY KEY ( prod_id );
+
+
+
+CREATE TABLE mh_carrito_cabc (
+    carrit_id                          INTEGER NOT NULL,
+    carrit_fecha_compr                 DATE NOT NULL, 
+    mh_car_det_car_det_id   INTEGER NOT NULL, 
+    mh_tar_cred_tar_cred_id    INTEGER NOT NULL
+);
+
+CREATE UNIQUE INDEX mh_carrito_cabc__idx ON
+    mh_carrito_cabc (
+        mh_tar_cred_tar_cred_id
+    ASC );
+
+ALTER TABLE mh_carrito_cabc ADD CONSTRAINT mh_carrito_cabc_pk PRIMARY KEY ( carrit_id );
+
+
+CREATE TABLE mh_carrito_detalle (
+    carrit_det_id      INTEGER NOT NULL,
+    carrit_prod_vent   INTEGER NOT NULL,
+    carrt_prod_iva     INTEGER NOT NULL,
+    carrit_prod_desc   INTEGER,
+    carrt_total        INTEGER NOT NULL
+);
+ALTER TABLE mh_carrito_detalle ADD CONSTRAINT mh_carrito_detalle_pk PRIMARY KEY ( carrit_det_id );
+
+
+
+
+CREATE TABLE mh_fact_cabec_vent (
+    fc_vent_id          INTEGER NOT NULL,
+    fc_fecha_vent       DATE NOT NULL,
+    fc_vent_iva         INTEGER NOT NULL,
+    fc_vent_subtotal    INTEGER NOT NULL,
+    fc_vent_total       INTEGER NOT NULL,
+    mh_persons_per_id   INTEGER NOT NULL,
+    fc_vent_estado      CHAR(1) NOT NULL,
+    fc_estado           CHAR(1) NOT NULL
+);
+
+ALTER TABLE mh_fact_cabec_vent ADD CONSTRAINT mh_fact_cabec_vent_pk PRIMARY KEY ( fc_vent_id );
+
+
+CREATE TABLE mh_detal_vent (
+    fd_vent_id                      INTEGER NOT NULL,
+    fd_vent_cantidad                INTEGER NOT NULL,
+    fd_vent_precio                  INTEGER NOT NULL,
+    mh_fact_cabec_vent_fc_vent_id   INTEGER NOT NULL,
+    fc_vent_subtotal                INTEGER NOT NULL
+);
+
+ALTER TABLE mh_detal_vent ADD CONSTRAINT mh_detal_vent_pk PRIMARY KEY ( fd_vent_id );
+
+
+
+CREATE TABLE mh_cabec_comp (
+    fc_comp_id          INTEGER NOT NULL,
+    fc_comp_fecha       DATE NOT NULL,
+    fc_comp_iva         INTEGER NOT NULL,
+    fc_comp_subtotal    INTEGER NOT NULL,
+    fc_comp_total       INTEGER NOT NULL,
+    mh_provs_prov_id    INTEGER,
+    mh_persons_per_id   INTEGER NOT NULL
+);
+
+ALTER TABLE mh_cabec_comp ADD CONSTRAINT mh_cabec_comp_pk PRIMARY KEY ( fc_comp_id );
+
+
+
+CREATE TABLE mh_detalle_comp (
+    fd_comp_id                 INTEGER NOT NULL,
+    fd_comp_cantidad           INTEGER NOT NULL,
+    fd_comp_precio             INTEGER NOT NULL,
+    mh_cabec_comp_fc_comp_id   INTEGER NOT NULL
+);
+
+ALTER TABLE mh_detalle_comp ADD CONSTRAINT mh_detalle_comp_pk PRIMARY KEY ( fd_comp_id );
+
+
+
+ALTER TABLE mh_cabec_comp
+    ADD CONSTRAINT mh_cabec_comp_mh_persons_fk FOREIGN KEY ( mh_persons_per_id )
+        REFERENCES mh_persons ( per_id );
+
+ALTER TABLE mh_cabec_comp
+    ADD CONSTRAINT mh_cabec_comp_mh_provs_fk FOREIGN KEY ( mh_provs_prov_id )
+        REFERENCES mh_provs ( prov_id );
+
+ALTER TABLE mh_carrito_cabc
+    ADD CONSTRAINT mh_car_cab_mh_car_det_fk FOREIGN KEY ( mh_car_det_car_det_id )
+        REFERENCES mh_carrito_detalle ( carrit_det_id );
+
+
+
+ALTER TABLE mh_carrito_cabc
+    ADD CONSTRAINT mh_car_cab_mh_tar_cred_fk FOREIGN KEY ( mh_tar_cred_tar_cred_id )
+        REFERENCES mh_tarjet_credit ( tarjet_cred_id );
+
+
+ALTER TABLE mh_detal_vent
+    ADD CONSTRAINT mh_det_ven_mh_fac_cab_ven_fk FOREIGN KEY ( mh_fact_cabec_vent_fc_vent_id )
+        REFERENCES mh_fact_cabec_vent ( fc_vent_id );
+
+
+ALTER TABLE mh_detalle_comp
+    ADD CONSTRAINT mh_det_comp_mh_cabec_comp_fk FOREIGN KEY ( mh_cabec_comp_fc_comp_id )
+        REFERENCES mh_cabec_comp ( fc_comp_id );
+
+ALTER TABLE mh_fact_cabec_vent
+    ADD CONSTRAINT mh_fac_cab_vent_mh_per_fk FOREIGN KEY ( mh_persons_per_id )
+        REFERENCES mh_persons ( per_id );
+
+ALTER TABLE mh_products
+    ADD CONSTRAINT mh_prod_mh_car_det_fk FOREIGN KEY ( mh_car_det_car_det_id )
+        REFERENCES mh_carrito_detalle ( carrit_det_id );
+
+ALTER TABLE mh_products
+    ADD CONSTRAINT mh_products_mh_detal_vent_fk FOREIGN KEY ( mh_detal_vent_fd_vent_id )
+        REFERENCES mh_detal_vent ( fd_vent_id );
+
+ALTER TABLE mh_products
+    ADD CONSTRAINT mh_products_mh_detalle_comp_fk FOREIGN KEY ( mh_detalle_comp_fd_comp_id )
+        REFERENCES mh_detalle_comp ( fd_comp_id );
+
+
+ALTER TABLE mh_products
+    ADD CONSTRAINT mh_products_mh_provs_fk FOREIGN KEY ( mh_provs_prov_id )
+        REFERENCES mh_provs ( prov_id );
+
+ALTER TABLE mh_tarjet_credit
+    ADD CONSTRAINT mh_tar_cred_mh_car_cabc_fk FOREIGN KEY ( mh_carrito_cabc_carrit_id )
+        REFERENCES mh_carrito_cabc ( carrit_id );
+
+ALTER TABLE mh_tarjet_credit
+    ADD CONSTRAINT mh_tarjet_credit_mh_persons_fk FOREIGN KEY ( mh_persons_per_id )
+        REFERENCES mh_persons ( per_id );
+
+
+ALTER TABLE mh_detalle_comp
+    ADD CONSTRAINT mh_det_comp_mh_cab_comp_fk FOREIGN KEY ( mh_cabec_comp_fc_comp_id )
+        REFERENCES mh_cabec_comp ( fc_comp_id );
+
+
+
+
+
+
+
+
