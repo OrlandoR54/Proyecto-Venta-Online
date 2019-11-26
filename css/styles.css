@@ -22,10 +22,6 @@ h6 {
     font-size:16px
 }
 
-.w3-serif {
-    font-family:serif
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family:"Segoe UI",Arial,sans-serif;
     font-weight:400;
@@ -99,8 +95,6 @@ html {
 .margRelleno {
     padding:8px 16px!important
 }
-
-.w3-padding-large{padding:12px 24px!important}
 
 .cabColor {
     color:#000!important;
@@ -335,10 +329,6 @@ img {
     padding-bottom:32px!important
 }
 
-.w3-border-bottom {
-    border-bottom:1px solid #ccc!important
-}
-
 .borde-inferior, .color-borde {
     border-color:#f1f1f1!important
 }
@@ -352,13 +342,23 @@ img {
 }
 
 .w3-col {
-    float:left;
-    width:100%}
-.w3-col.l3{width:24.99999%}.w3-col.l4{width:33.33333%}
+    float:right;
+    width:100%
+}
+
+.w3-col.l3{width:24.99999%}
 .w3-col.m6{width:49.99999%}
-.w3-margin-bottom{margin-bottom:16px!important}
+
+.w3-margin-bottom {
+    margin-bottom:16px!important
+}
+
 .main{
     padding: 3%;
+}
+
+#media {
+    grid: 3%;
 }
 
 #media iframe {
@@ -371,4 +371,12 @@ img {
 #media iframe:hover{
 	border: 2px solid whitesmoke;
     opacity: 1;
+}
+
+.contenido {
+    margin-left:auto;
+    margin-right:auto
+}
+
+.contenido { max-width:980px
 }
