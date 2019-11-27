@@ -12,5 +12,5 @@ if($conn->connect_error){
     die("connnection falied ".$conn->connect_error);
 
 }else{
-   // echo "<p> Conexion exitosa!</p>";
+   echo "<p> Conexion exitosa!</p>";
 }
