@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Login.</title>
+
 </head>
 <body>
+
     <h1>Login</h1>
-    yUNGA 
+    <form action="login.html" id="login" method="POST"  action="../Controlador/login.php">
+        <label class="lblusuario" for="usuario">Usuario :</label>
+        <input class="usuario" type="text" id="usuario" name="usuario" value="" placeholder="Usuario">
+        <br>
+        <label class="contraseña" for="contrasena">Contraseña :</label>
+        <input class="contrasena" type="password" id="contrasena" name="contrasena" value="" placeholder="Contraseña">
+        <br>
+        <input type="submit" id="login" name="login" value="Iniciar Sesion">
+        <br>
+    </form>
+    <form action="registrarse.html" id="registarse" method="POST">
+        <input type="submit" id="registrar" name="registrar" value="Registrarse" >
+    </form>
     
 </body>
 </html>

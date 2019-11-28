@@ -69,5 +69,8 @@ html {
     max-width: 1000px;
     position: relative;
     margin: auto;
-  }
+}
 
+.contenedor {
+    padding:0.01em 16px
+}
