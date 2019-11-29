@@ -478,3 +478,5 @@ button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[
 .w3-col.m8,.w3-twothird{width:66.66666%}
 
 .w3-twothird{float:left;width:100%}
+
+.w3-margin-bottom{margin-bottom:16px!important}
