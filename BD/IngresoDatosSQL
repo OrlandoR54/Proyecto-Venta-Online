@@ -1,0 +1,50 @@
+Ingreso de personas
+
+INSERT INTO `mh_persons` (`per_id`, `per_num_ced`, `per_nombre`, `per_apellido`, `per_direccion`, `per_telefono`, `per_rol`, `per_correo`, `per_password`) VALUES ('1', '0106673940', 'Hugo', 'Zhindon', 'Cuenca-Ecuador', '0999202926', 'A', 'admin@gmail.com', MD5('hugohugo')), ('2', '0109745655', 'Jorge', 'Campoverde', 'Cuenca-Ecuador', '099202425', 'U', 'jorge@gmail.com', MD5('jorgejorge'));
+INSERT INTO `mh_persons` (`per_id`, `per_num_ced`, `per_nombre`, `per_apellido`, `per_direccion`, `per_telefono`, `per_rol`, `per_correo`, `per_password`) VALUES ('3', '1303753618', 'David', 'Torres', 'PRESIDENTE CORDOVA Y LUIS CORDERO', '072805122', 'U', 'david@gmail.com', MD5('daviddavid')), ('4', '1706172647', 'Pedro', 'Berrezueta', 'CALLE MARISCAL LAMAR Y CALLE GENERAL TORRES', '072833813', 'U', 'pedro@gmail.com', MD5('pedropedro'));
+
+Ingreso Tarjeta de credito
+INSERT INTO `mh_tarjet_credit` (`tarjet_cred_id`, `tarjet_cred_num`, `tarjet_cred_fech_venc`, `tarjet_cred_cod_seg`, `trajet_nomb_titular`, `mh_persons_per_id`) VALUES ('1', '5218403275534132', '2027-05-06', '573', 'Jorge Campoverde', '2'), ('2', '4339282912755277', '2024-04-10', '302', 'David Torres', '3');
+
+
+Ingreso de datos de proveedores
+
+INSERT INTO `mh_provs` (`prov_id`, `prov_nombre_empr`, `prod_ruc_empresa`) VALUES ('1', 'Cannabis.Csa', '1790550176001 ');
+INSERT INTO `mh_provs` (`prov_id`, `prov_nombre_empr`, `prod_ruc_empresa`) VALUES ('2', 'Ganesh GrowShop', '1790615103001');
+
+Ingreso Productos
+ACEITE----
+INSERT INTO `mh_products` (`prod_id`, `prod_nombre`, `prod_descripcion`, `prod_img`, `prod_precio_compra`, `pro_precio_venta`, `prod_stock`, `prod_fecha_venc`, `mh_provs_prov_id`) VALUES ('1', 'ACEITE DE CBD 5%', 'Extracto de flores de cáñamo diluido en aceite de semillas de cáñamo\r\n\r\n5% de CBD/CBDa (500mg.) Disponible en envases de 10 ml.', NULL, '20', '30', '10', '2022-05-2', '1'), ('2', 'ACEITE DE CBD 10% (FULL SPECTRUM)', 'Extracto de flores de cáñamo diluido en aceite de semillas de cáñamo\r\n\r\n10% de CBD/CBDa (500mg.) Disponible en envases de 10 ml.', NULL, '40.50', '55.50', '10', '2022-05-2', '1');
+CREMA--- 
+INSERT INTO `mh_products` (`prod_id`, `prod_nombre`, `prod_descripcion`, `prod_img`, `prod_precio_compra`, `pro_precio_venta`, `prod_stock`, `prod_fecha_venc`, `mh_provs_prov_id`) VALUES ('3', 'CANNABIX CBD CREMA ARTHROCANN 75ML', 'Cannabix crema Arthrocann gel,a base de cáñamo medicinal y plata coloidal, se utiliza para dar masaje cuando hay dolor, ayuda en la regeneración y rehabilitación después de operaciones, fracturas, hemorragias, deporte y ejercicios extenuantes.', NULL, '12.50', '18.50', '15', '2025-8-5', '2'), ('4', 'GEL DE MASAJE CON ACEITE DE CANNABIS', 'Gel para masajes con aceite de cannabis, efecto regenerativo en pieles secas.Envase de 600ml.', NULL, '8.25', '12.50', '12', '2022-10-5', '2');
+TE DE CBD
+INSERT INTO `mh_products` (`prod_id`, `prod_nombre`, `prod_descripcion`, `prod_img`, `prod_precio_compra`, `pro_precio_venta`, `prod_stock`, `prod_fecha_venc`, `mh_provs_prov_id`) VALUES (NULL, 'TE CBD CAÑAMO DR. GREENLOVE', 'Benefíciate de los efectos del Cannabidiol con estos relajantes tes. No tiene efectos secundarios y no es adictivo.', NULL, '5', '8', '5', '2020-01-20', '1')
+
+
+Ingreso de comentarios 
+INSERT INTO `mh_comentarios` (`com_id`, `com_comentario`, `com_calificacion`, `mh_products_prod_id`, `mh_persons_per_id`) VALUES ('1', 'Producto muy eficiente', 'Bueno', '1', '2');
+INSERT INTO `mh_comentarios` (`com_id`, `com_comentario`, `com_calificacion`, `mh_products_prod_id`, `mh_persons_per_id`) VALUES ('2', 'Producto de mala calidad', 'Bueno', '1', '3');
+
+Ingreso carrito cabecera
+INSERT INTO `mh_carrito_cabc` (`carrit_id`, `carrit_fecha_compr`, `mh_persons_per_id`, `carr_tot`) VALUES ('1', '2019-11-15', '2', '16');
+INSERT INTO `mh_carrito_cabc` (`carrit_id`, `carrit_fecha_compr`, `mh_persons_per_id`, `carr_tot`) VALUES (NULL, '2019-11-24', '3', '30')
+
+Ingreso carrito detalle
+INSERT INTO `mh_carrito_detalle` (`carrit_det_id`, `carrit_prod_vent`, `carrt_prod_iva`, `carrit_prod_desc`, `carrt_total`, `mh_carrito_cabc_carrit_id`, `carri_subt`, `mh_products_prod_id`) VALUES ('1', '2', '0.12', '0', '16', '1', '16', '5');
+INSERT INTO `mh_carrito_detalle` (`carrit_det_id`, `carrit_prod_vent`, `carrt_prod_iva`, `carrit_prod_desc`, `carrt_total`, `mh_carrito_cabc_carrit_id`, `carri_subt`, `mh_products_prod_id`) VALUES (NULL, '1', '0.12', '0', '30', '2', '30', '1')
+
+Ingreso factura de compra de productos cabecera
+INSERT INTO `mh_cabec_comp` (`fc_comp_id`, `fc_comp_fecha`, `fc_comp_iva`, `fc_comp_total`, `mh_provs_prov_id`, `mh_persons_per_id`, `fc_comp_cabc`) VALUES ('1', '2019-10-01', '0.12', '655', '1', '1', 'A'), ('2', '2019-10-03', '0.12', '286.5', '2', '1', 'A');
+
+
+Ingreso factura detalle de compra de productos
+INSERT INTO `mh_detalle_comp` (`fd_comp_id`, `fd_comp_cantidad`, `fd_comp_precio`, `mh_cabec_comp_fc_comp_id`, `fd_comp_subt`, `fd_comp_tot`, `mh_products_prod_id`) VALUES ('1', '10', '20', '1', '200', '200', '1'), ('2', '10', '40.5', '1', '405', '405', '2');
+INSERT INTO `mh_detalle_comp` (`fd_comp_id`, `fd_comp_cantidad`, `fd_comp_precio`, `mh_cabec_comp_fc_comp_id`, `fd_comp_subt`, `fd_comp_tot`, `mh_products_prod_id`) VALUES ('3', '5', '5', '1', '25', '25', '5'), ('4', '5', '5', '1', '25', '25', '8');
+INSERT INTO `mh_detalle_comp` (`fd_comp_id`, `fd_comp_cantidad`, `fd_comp_precio`, `mh_cabec_comp_fc_comp_id`, `fd_comp_subt`, `fd_comp_tot`, `mh_products_prod_id`) VALUES ('5', '15', '12.5', '2', '187.5', '187.5', '3'), ('6', '12', '8.25', '2', '99', '99', '4');
+
+Ingreso Factura cabecera de venta de productos
+
+INSERT INTO `mh_fact_cabec_vent` (`fc_vent_id`, `fc_fecha_vent`, `fc_vent_iva`, `fc_vent_total`, `mh_persons_per_id`, `fc_vent_estado`, `fc_estado`) VALUES ('1', '2019-11-15', '0.12', '16', '2', 'A', 'E'), ('2', '2019-11-24', '0.12', '30', '3', 'A', 'E');
+
+Ingreso Factura detalle de venta de productos
+INSERT INTO `mh_detal_vent` (`fd_vent_id`, `fd_vent_cantidad`, `fd_vent_precio`, `mh_fact_cabec_vent_fc_vent_id`, `fc_vent_subtotal`, `mh_products_prod_id`, `fd_vent_total`) VALUES ('1', '2', '8', '1', '16', '5', '16'), ('2', '1', '30', '2', '30', '1', '30');
