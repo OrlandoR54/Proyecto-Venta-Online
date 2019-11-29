@@ -121,7 +121,7 @@ ALTER TABLE mh_persons ADD CONSTRAINT mh_persons_pk PRIMARY KEY ( per_id );
 CREATE TABLE mh_products (
     prod_id              INTEGER NOT NULL,
     prod_nombre          VARCHAR(50) NOT NULL,
-    prod_descripcion     VARCHAR(50),
+    prod_descripcion     VARCHAR(300),
     prod_img             BLOB,
     prod_precio_compra   FLOAT(7) NOT NULL,
     pro_precio_venta     FLOAT(7) NOT NULL,
@@ -149,7 +149,7 @@ ALTER TABLE mh_provs ADD CONSTRAINT mh_provs_pk PRIMARY KEY ( prov_id );
 
 CREATE TABLE mh_tarjet_credit (
     tarjet_cred_id          INTEGER NOT NULL,
-    tarjet_cred_num         VARCHAR(12) NOT NULL,
+    tarjet_cred_num         VARCHAR(16) NOT NULL,
     tarjet_cred_fech_venc   DATE NOT NULL,
     tarjet_cred_cod_seg     VARCHAR(4) NOT NULL,
     trajet_nomb_titular     VARCHAR(50) NOT NULL,
