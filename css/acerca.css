@@ -1,6 +1,9 @@
 .w3-row-padding,.w3-row-padding>.w3-half,.w3-row-padding>.w3-third,.w3-row-padding>.w3-twothird,.w3-row-padding>.w3-threequarter,.w3-row-padding>.w3-quarter,.w3-row-padding>.w3-col{padding:0 8px}
 .w3-row-padding,.w3-row-padding>.w3-half,.w3-row-padding>.w3-third,.w3-row-padding>.w3-twothird,.w3-row-padding>.w3-threequarter,.w3-row-padding>.w3-quarter,.w3-row-padding>.w3-col{padding:0 8px}
-.w3-col{margin-right: 15%;} 
+.w3-col {
+    margin-right: 8%;
+    margin-left: 8%;
+} 
 .w3-input{padding:8px;display:block;border:none;border-bottom:1px solid #ccc;width:100%}
 
 .w3-border{border:1px solid #ccc!important}
