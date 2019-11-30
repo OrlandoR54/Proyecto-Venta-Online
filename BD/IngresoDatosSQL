@@ -48,3 +48,8 @@ INSERT INTO `mh_fact_cabec_vent` (`fc_vent_id`, `fc_fecha_vent`, `fc_vent_iva`, 
 
 Ingreso Factura detalle de venta de productos
 INSERT INTO `mh_detal_vent` (`fd_vent_id`, `fd_vent_cantidad`, `fd_vent_precio`, `mh_fact_cabec_vent_fc_vent_id`, `fc_vent_subtotal`, `mh_products_prod_id`, `fd_vent_total`) VALUES ('1', '2', '8', '1', '16', '5', '16'), ('2', '1', '30', '2', '30', '1', '30');
+
+UPDATE `mh_persons` SET `per_fechaNacimiento` = '1998-10-11' WHERE `mh_persons`.`per_id` = 1;
+UPDATE `mh_persons` SET `per_fechaNacimiento` = '1998-10-11' WHERE `mh_persons`.`per_id` = 2;
+UPDATE `mh_persons` SET `per_fechaNacimiento` = '1998-10-11' WHERE `mh_persons`.`per_id` = 3;
+UPDATE `mh_persons` SET `per_fechaNacimiento` = '1998-10-11' WHERE `mh_persons`.`per_id` = 4;

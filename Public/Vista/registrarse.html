@@ -1,54 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Crear Usuario</title>
-        <link rel="stylesheet" rel="stylesheet" href="../../css/style.css">
-    </head>
-    <body>
-        <form id="formulario" class="box_registro" method="POST" onsubmit="return validarCamposObligatorios()" action="">
-            <h1>Registrate</h1>
-            <input type="text" id="cedula" name="cedula" value="" placeholder="Ingrese el numero de cedula..."
-                oninput="return validarCedula()" onkeypress="return validarNumero(event)" maxlength="10" required class="registro" />
-                <span id="mensajeCedula" class="error"></span>>
-            <br>
-            
-            <input type="text" id="nombre" name="nombre" value="" placeholder="Ingrese sus dos nombres..." minlength="3"
-                onkeypress="return validarTexto(event)" oninput="return validarNombre()"  required class="registro"/>
-                <span id="mensajeNombre" class="error"></span>
-            <br>
-            
-            <input type="text" id="apellido" name="apellido" value="" placeholder="Ingrese sus dos apellidos..." minlength="3"
-                onkeypress="return validarTexto(event)" oninput="return validarApellido()" required class="registro"/>
-                <span id="mensajeApellido" class="error"></span>
-            <br>
-            
-            <input type="text" id="direccion" name="direccion" value="" placeholder="Ingrese sus direccion..." required class="registro"/>
-                    <span id="mensajeDireccion" class="error"></span>            
-            <br>
-            
-            <input type="text" id="telefono" name="telefono" value="" placeholder="Ingrese su numero telefonico..." 
-                onkeypress="return validarNumero(event)" maxlength="10" required class="registro"/>
-                <span id="mensajeTelefono" class="error"></span>
-            <br>
-            
-            <input type="date" id="fecha" name="fecha" value="" placeholder="Ingrese su fecha de nacimiento..." 
-                onkeypress="return checkDate(event)" oninput="return validarFecha()" required class="registro"/>
-                <span id="mensajeFecha" class="error"></span>
-            <br>
-            
-            <input type="text" id="email" name="email" value="" placeholder="Ingrese su correo electronico..." 
-                required class="registro"/>
-                <span id="mensajeEmail" class="error"></span>
-            <br>
-            
-            <input type="password" id="password" name="password" value="" placeholder="Ingrese su Contraseña..." 
-                oninput="return validarPassword()" required class="registro"/>
-            <br>
 
-            <input type="submit" id="btn" name="crear" value="Aceptar" class="boton">
-            <input type="reset" id="cancelar" name="cancelar" value="Cancelar" class="boton" onclick="location.href='login.html'">
-        </form>
-        <script src="../../Private/Controlador/validar.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Usuario</title>
+    <link rel="stylesheet" rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <form id="formulario" class="box_registro" method="POST" onsubmit="return validarCamposObligatorios()" action="">
+        <h1>Registrate</h1>
+
+        <input type="text" id="cedula" name="cedula" value="" placeholder="Ingrese el numero de cedula..."
+            oninput="return validarCedula()" onkeypress="return validarNumero(event)" maxlength="10" required
+            class="registro" />
+        <span id="mensajeCedula" class="error"></span>>
+        <br>
+
+        <input type="text" id="nombre" name="nombre" value="" placeholder="Ingrese sus dos nombres..." minlength="3"
+            onkeypress="return validarTexto(event)" oninput="return validarNombre()" required class="registro" />
+        <span id="mensajeNombre" class="error"></span>
+        <br>
+
+        <input type="text" id="apellido" name="apellido" value="" placeholder="Ingrese sus dos apellidos..."
+            minlength="3" onkeypress="return validarTexto(event)" oninput="return validarApellido()" required
+            class="registro" />
+        <span id="mensajeApellido" class="error"></span>
+        <br>
+
+        <input type="date" id="fecha" name="fecha" value="" placeholder="Ingrese fecha yyyy/mm/dd" required
+            class="registro" />
+
+        <br>
+
+        <input type="text" id="direccion" name="direccion" value="" placeholder="Ingrese sus direccion..." required
+            class="registro" />
+        <span id="mensajeDireccion" class="error"></span>
+        <br>
+
+        <input type="text" id="telefono" name="telefono" value="" placeholder="Ingrese su numero telefonico..."
+            onkeypress="return validarNumero(event)" maxlength="10" required class="registro" />
+        <span id="mensajeTelefono" class="error"></span>
+        <br>
+
+        <input type="text" id="email" name="email" value="" placeholder="Ingrese su correo electronico..." required
+            class="registro" />
+        <br>
+
+        <input type="password" id="password" name="password" value="" placeholder="Ingrese su Contraseña..."
+            oninput="return validarPassword()" required class="registro" />
+        <span id="mensajePassword" class="error"></span>
+
+
+
+        <input type="submit" id="btn" name="crear" value="Aceptar" class="boton">
+        <input type="reset" id="cancelar" name="cancelar" value="Cancelar" class="boton"
+            onclick="location.href='login.html'">
+    </form>
+    <script src="../../Private/Controlador/validar.js"></script>
+</body>
+
 </html>
