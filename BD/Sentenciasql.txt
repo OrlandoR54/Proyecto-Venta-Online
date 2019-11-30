@@ -268,3 +268,5 @@ ALTER TABLE mh_carrito_detalle
 
 //Agregar campo fecha de nacimiento
 ALTER TABLE `mh_persons` ADD `per_fechaNacimiento` DATE NOT NULL AFTER `per_apellido`;
+//Agregar campo si el usuario es eliminado o no
+ALTER TABLE `mh_persons` ADD `per_eliminado` CHAR(1) NOT NULL DEFAULT 'N' AFTER `per_rol`;
