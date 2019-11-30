@@ -485,7 +485,7 @@ button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[
 .w3-margin-bottom{margin-bottom:16px!important}
 
 
-/*--------------------------------------------------CATALGO--------------------------------------------------*/
+/*--------------------------------------------------CATALOGO--------------------------------------------------*/
 
 .barra-lateral {
     height:100%;
@@ -531,6 +531,23 @@ button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[
 
 .w3-bar-item.w3-mobile,.w3-dropdown-hover.w3-mobile,.w3-dropdown-click.w3-mobile{text-align:center}
 
+.w3-container,.w3-panel{padding:0.01em 16px}.w3-panel{margin-top:16px;margin-bottom:16px}
+.w3-container:after,.w3-container:before,.w3-panel:after,.w3-panel:before,.w3-row:after,.w3-row:before,.w3-row-padding:after,.w3-row-padding:before,
+.w3-cell-row:before,.w3-cell-row:after,.w3-clear:after,.w3-clear:before,.w3-bar:before,.w3-bar:after{content:"";display:table;clear:both}
+
+.produc {
+    grid: 3%;
+    width: 350px;
+}
+
+.tam {
+    width: 350px;
+}
+.w3-container img {
+    width: 350px;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*
 .w3-dropdown-hover:hover .w3-dropdown-content{display:block}
