@@ -484,7 +484,7 @@ button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[
 
 .w3-margin-bottom{margin-bottom:16px!important}
 
-
+/*
 .w3-dropdown-hover:hover .w3-dropdown-content{display:block}
 .w3-dropdown-hover:first-child,.w3-dropdown-click:hover{background-color:#ccc;color:#000}
 .w3-dropdown-hover:hover > .w3-button:first-child,.w3-dropdown-click:hover > .w3-button:first-child{background-color:#ccc;color:#000}
@@ -515,4 +515,4 @@ button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[
 
 .w3-padding-large{padding:12px 24px!important}
 .w3-hover-red:hover{color:#fff!important;background-color:#f44336!important}
-.w3-right{float:right!important}
+.w3-right{float:right!important}*/
