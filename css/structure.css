@@ -9,7 +9,7 @@ body {
 }
 
 .cabecera {
-    top:0
+    top:0;
 }
 
 .centro {
@@ -74,3 +74,8 @@ html {
 .contenedor {
     padding:0.01em 16px
 }
+
+html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
+/* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
+.seccion {margin-top: 4%;}
