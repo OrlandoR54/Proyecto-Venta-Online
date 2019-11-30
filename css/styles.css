@@ -535,16 +535,10 @@ button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[
 .w3-container:after,.w3-container:before,.w3-panel:after,.w3-panel:before,.w3-row:after,.w3-row:before,.w3-row-padding:after,.w3-row-padding:before,
 .w3-cell-row:before,.w3-cell-row:after,.w3-clear:after,.w3-clear:before,.w3-bar:before,.w3-bar:after{content:"";display:table;clear:both}
 
-.produc {
-    grid: 3%;
+.produc, .tam {
+    
     width: 350px;
-}
-
-.tam {
-    width: 350px;
-}
-.w3-container img {
-    width: 350px;
+    border: 20px chocolate;
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------------*/

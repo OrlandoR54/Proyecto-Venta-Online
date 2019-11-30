@@ -13,15 +13,15 @@
         include '../../config/conexionBD.php';
 
         $cedula = isset($_POST["cedula"]) ? trim($_POST["cedula"]) : null;
-        $nombres = isset($_POST["nombres"]) ? mb_strtoupper(trim($_POST["nombres"]), 'UTF-8') : null;
-        $apellidos = isset($_POST["apellidos"]) ? mb_strtoupper(trim($_POST["apellidos"]), 'UTF-8') : null;
+        $nombre = isset($_POST["nombre"]) ? mb_strtoupper(trim($_POST["nombre"]), 'UTF-8') : null;
+        $apellido = isset($_POST["apellido"]) ? mb_strtoupper(trim($_POST["apellido"]), 'UTF-8') : null;
         $direccion = isset($_POST["direccion"]) ? mb_strtoupper(trim($_POST["direccion"]), 'UTF-8') : null;
         $telefono = isset($_POST["telefono"]) ? trim($_POST["telefono"]) : null;
-        $correo = isset($_POST["correo"]) ? trim($_POST["correo"]) : null;
-       // $fechaNacimiento = isset($_POST["fechaNacimiento"]) ? trim($_POST["fechaNacimiento"]) : null;
-        $contrasena = isset($_POST["contrasena"]) ? trim($_POST["contrasena"]) : null;
+        $correo = isset($_POST["email"]) ? trim($_POST["email"]) : null;
+       $fechaNacimiento = isset($_POST["fecha"]) ? trim($_POST["fecha"]) : null;
+        $password = isset($_POST["password"]) ? trim($_POST["password"]) : null;
 
-        $sql = "INSERT INTO mh_persons VALUES (0, '$cedula', '$nombres', '$apellidos', '$direccion', '$telefono', 'U', '$correo', MD5('$contrasena'))";
+        $sql = "INSERT INTO mh_persons VALUES (0, '$cedula', '$nombre', '$apellido', '$fechaNacimiento', '$direccion', '$telefono', 'U', '$correo', MD5('$password'))";
 
         if ($conn->query($sql) == TRUE) {
             echo "<p>Se han creado los datos personales correctamente!!!</p>";
@@ -32,9 +32,9 @@
                 echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
             }
         }
-
+       
         $conn->close();
-        echo "<a href='../vista/crear_usuario.html'>Regresar</a>";
+        echo "<a href='../Vista/registrarse.html'>Regresar</a>";
         ?>
     </form>
 </body>
