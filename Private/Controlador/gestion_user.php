@@ -84,9 +84,9 @@ $rol_admin = $_GET['rol_admin'];
                         echo "<td>" . $row["per_telefono"] . "</td>";
                         echo "<td>" . $row["per_correo"] . "</td>";
                         echo "<td>" . $row["per_fechaNacimiento"] . "</td>";
-                        echo "<td class='accion'><a href='eliminar.php?codigo=" . $row['per_id'] . "&rol_admin=" . $rol_admin . "'>Eliminar</a></td>";
-                        echo "<td class='accion'><a href='modificar.php?codigo=" . $row['per_id'] . "&rol_admin=" . $rol_admin . "'>Modificar</a></td>";
-                        echo "<td class='accion'><a href='cambiar_contrasena.php?codigo=" . $row['per_id'] . "&rol_admin=" . $rol_admin . "'>Cambiar contrasena</a></td>";
+                        echo "<td class='accion'><a href='../../Public/Controlador/eliminarUser.php?codigo=" . $row['per_id'] . "&rol_admin=" . $rol_admin . "'>Eliminar</a></td>";
+                        echo "<td class='accion'><a href='../../Public/Controlador/modificarUser.php?codigo=" . $row['per_id'] . "&rol_admin=" . $rol_admin . "'>Modificar</a></td>";
+                        echo "<td class='accion'><a href=../../Public/Controlador/modificarContraseniaUser.php?codigo=" . $row['per_id'] . "&rol_admin=" . $rol_admin . "'>Cambiar contrasena</a></td>";
                     }
                 }
             } else {

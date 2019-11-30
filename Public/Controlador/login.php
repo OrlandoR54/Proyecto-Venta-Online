@@ -16,7 +16,7 @@
                header("Location: ../../Private/Controlador/index.php?rol_admin=".$row["per_rol"]);
                 echo "<p>INGRESO ADMIN!!!</p>";
             }else{
-                header("Location: ../../Private/Controlador/indexUser.php?rol_admin=".$row["per_rol"]);
+                header("Location: ../../Public/Controlador/indexUser.php?rol_admin=".$row["per_rol"]);
                 echo "<p>Ingreso user!!!</p>";
             }
         }
