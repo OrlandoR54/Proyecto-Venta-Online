@@ -231,5 +231,32 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     color: #ecb535;
 }
 
+/*----ESTRELLAS----*/
+label{ color:grey;}
+.star[type = "radio"]{ display:none;}
+.clasificacion{
+    direction: rtl;/* right to left */
+    unicode-bidi: bidi-override;/* bidi de bidireccional */
+}
+label:hover{color:orange;} /*Al pasar por encima las etiquetas <label> ( o sea: las estrellas ) cambian de color.*/
+label:hover ~ label{color:orange;} /*cambian de color todas las etiquetas <label> precedidas ( ~ ) por aquella <label> que tiene el ratón encima ( hover ).*/
+input[type = "radio"]:checked ~ label{color:orange;} /*Al marcar el botón de radio ( radio:checked ) todas las etiquetas <label> que le preceden ( ~ ) se vuelven color naranja*/
+#form {
+    width: 250px;
+    margin: 0 ;
+    height: 50px;
+  }
+  
+  #form p {
+    text-align: left;
+  }
+  
+  #form label {
+    font-size: 30px;
+  }
+  
 
-
+  
+  
+  
+  
