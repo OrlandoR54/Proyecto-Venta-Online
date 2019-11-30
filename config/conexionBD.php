@@ -2,7 +2,7 @@
 $db_servername = "localhost";
 $db_username = "root";
 $db_userpassword = "";
-$db_name = "proyectointegrador";
+$db_name = "hipermedialproyecto";
 
 $conn = new mysqli($db_servername,$db_username,$db_userpassword,$db_name);
 $conn->set_charset("utf8");
