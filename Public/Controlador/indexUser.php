@@ -15,7 +15,7 @@ $rol_user = $_GET['rol_user'];
 
 <head>
     <meta charset="UTF-8">
-    <title>Pagina principal administrador</title>
+    <title>Pagina principal Usuario</title>
     
 </head>
 
