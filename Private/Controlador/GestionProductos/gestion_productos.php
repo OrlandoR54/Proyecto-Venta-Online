@@ -19,6 +19,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 <head>
     <meta charset="UTF-8">
     <title>Gestion de Productos</title>
+ 
    
 </head>
 
@@ -31,7 +32,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
         <nav>
             <ul>
                 <li><a href="../index.php?rol_admin=<?php echo $rol_admin ?>">Inicio</a></li>
-                <li><a href="usuarios.php?rol_admin=<?php echo $rol_admin ?>">Productos</a></li>
+                <li><a href="../../Vista/ingreso_producto.html?rol_admin=<?php echo $rol_admin ?>">Ingresar Productos</a></li>
                 <li><a href="../../../config/Cerrar_Sesion.php">Cerrar Sesion</a></li>
             </ul>
         </nav>
@@ -44,37 +45,45 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     <col style="width: 130px">
                     <col style="width: 150px">
                     <col style="width: 121px">
-                    <col style="width: 200px">
+                    <col style="width: 1000px">
                     <col style="width: 106px">
-                    
+                   
                  </colgroup>
                     <tr>
                     <th class="tg-lboi">Nombre</th>
                     <th class="tg-lboi">Descripcion</th>
-                    <th class="tg-lboi">Imagen</th>
-                    <th class="tg-lboi">Precion de compra</th>
-                    <th class="tg-lboi">Precio de venta</th>
+                    <th class="tg-lboi">Precio de Compra</th>
+                    <th class="tg-lboi">Precion de Venta</th>
                     <th class="tg-lboi">Stock disponible</th>
+                    <th class="tg-lboi">Foto del producto</th>
                     <th class="tg-lboi">Proveedor</th>
-                    
                     </tr>
 
             <?php
-
-            $sql = "SELECT * FROM mh_products WHERE prod_stock>='0'";
+            //SELECT * FROM `mh_products`, `mh_provs` WHERE prov_id=mh_provs_prov_id
+            $sql = "SELECT * FROM mh_products, mh_provs WHERE prov_id=mh_provs_prov_id ";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     if ($row["prod_stock"] != '0') {
-                        echo "<tr>";
-                        echo "<td>" . $row["prod_nombre"] . "</td>";
-                        echo "<td>" . $row["prod_descripcion"] . "</td>";
-                        echo "<td>" . $row["prod_img"] . "</td>";
-                        echo "<td>" . $row["prod_precio_compra"] . "</td>";
-                        echo "<td>" . $row["pro_precio_venta"] . "</td>";
-                        echo "<td>" . $row["prod_stock"] . "</td>";
-                        echo "<td>" . $row["prod_fecha_venc"] . "</td>";
-                   
+                        $mostrarImg= "<img src='data:imge/jpg; base64," . base64_encode($row["prod_img"]) ."'>";
+                    /*  echo  $row["prod_nombre"];
+                      echo  $row["prod_descripcion"];
+                      echo  $row["prod_precio_compra"];
+                      echo  $row["pro_precio_venta"];
+                      echo  $row["prod_stock"];
+                      echo  $row["prov_nombre_empr"];
+                      */
+
+                      echo "<tr>";
+                      echo "<td>" .$row["prod_nombre"] . "</td>";
+                      echo "<td>" . $row["prod_descripcion"] . "</td>";
+                      echo "<td>" . $row["prod_precio_compra"] . "</td>";
+                      echo "<td>" . $row["pro_precio_venta"] . "</td>";
+                      echo "<td>" . $row["prod_stock"] . "</td>";
+                      echo "<td>" . $mostrarImg . "</td>";
+                      echo "<td>" . $row["prov_nombre_empr"] . "</td>";
+                        
                     }
                 }
             } else {
