@@ -55,8 +55,11 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     <col style="width: 130px">
                     <col style="width: 150px">
                     <col style="width: 121px">
-                    <col style="width: 1000px">
+                    <col style="width: 250px">
                     <col style="width: 106px">
+                    <col style="width: 100px">
+                    <col style="width: 100px">
+                  
                    
         </colgroup>
                     <tr>
@@ -67,23 +70,19 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                         <th class="tg-lboi">Stock disponible</th>
                         <th class="tg-lboi">Foto del producto</th>
                         <th class="tg-lboi">Proveedor</th>
+                        <th class="tg-lboi">Accion:</th>
+                        <th class="tg-lboi">Accion:</th>
+                        
                     </tr>
 
             <?php
             //SELECT * FROM `mh_products`, `mh_provs` WHERE prov_id=mh_provs_prov_id
-            $sql = "SELECT * FROM mh_products, mh_provs WHERE prov_id=mh_provs_prov_id ";
+            $sql = "SELECT * FROM mh_products, mh_provs WHERE prov_id=mh_provs_prov_id and prod_eliminado='N' ";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     if ($row["prod_stock"] != '0') {
                         $mostrarImg= "<img src='data:imge/jpg; base64," . base64_encode($row["prod_img"]) ."'>";
-                    /*  echo  $row["prod_nombre"];
-                      echo  $row["prod_descripcion"];
-                      echo  $row["prod_precio_compra"];
-                      echo  $row["pro_precio_venta"];
-                      echo  $row["prod_stock"];
-                      echo  $row["prov_nombre_empr"];
-                      */
 
                       echo "<tr>";
                       echo "<td>" .$row["prod_nombre"] . "</td>";
@@ -93,6 +92,9 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                       echo "<td>" . $row["prod_stock"] . "</td>";
                       echo "<td>" . $mostrarImg . "</td>";
                       echo "<td>" . $row["prov_nombre_empr"] . "</td>";
+                      echo "<td class='accion'><a href='../../../Public/Controlador/eliminarProducto.php?codigo=" . $row['prod_id'] . "&rol_admin=" . $rol_admin . "'>Eliminar</a></td>";
+                      echo "<td class='accion'><a href='../../../Public/Controlador/modificarProducto.php?codigo=" . $row['prod_id'] . "&rol_admin=" . $rol_admin . "'>Modificar</a></td>";
+               
                         
                     }
                 }

@@ -273,3 +273,5 @@ ALTER TABLE `mh_persons` ADD `per_fechaNacimiento` DATE NOT NULL AFTER `per_apel
 ALTER TABLE `mh_persons` ADD `per_eliminado` CHAR(1) NOT NULL DEFAULT 'N' AFTER `per_rol`;
 //Agregar campo de estado de la tarjeta de credito
 ALTER TABLE `mh_tarjet_credit` ADD `tar_estado` CHAR(1) NOT NULL DEFAULT 'A' AFTER `trajet_nomb_titular`;
+//Agregar campo para eliminado logico del producto
+ALTER TABLE `mh_products` ADD `prod_eliminado` CHAR(1) NOT NULL DEFAULT 'N' AFTER `prod_stock`;
