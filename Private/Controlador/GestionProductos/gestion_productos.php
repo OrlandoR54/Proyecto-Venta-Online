@@ -32,7 +32,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
         <nav>
             <ul>
                 <li><a href="../index.php?rol_admin=<?php echo $rol_admin ?>">Inicio</a></li>
-                <li><a href="ingreso_productos.php?rol_admin=<?php echo $rol_admin ?>">Ingresar Productos</a></li>
+                <li><a href="../../Vista/ingreso_producto.html?rol_admin=<?php echo $rol_admin ?>">Ingresar Productos</a></li>
                 <li><a href="../../../config/Cerrar_Sesion.php">Cerrar Sesion</a></li>
             </ul>
         </nav>
@@ -52,10 +52,10 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     <tr>
                     <th class="tg-lboi">Nombre</th>
                     <th class="tg-lboi">Descripcion</th>
-                    <th class="tg-lboi">Imagen</th>
-                    <th class="tg-lboi">Precion de compra</th>
-                    <th class="tg-lboi">Precio de venta</th>
+                    <th class="tg-lboi">Precio de Compra</th>
+                    <th class="tg-lboi">Precion de Venta</th>
                     <th class="tg-lboi">Stock disponible</th>
+                    <th class="tg-lboi">Foto del producto</th>
                     <th class="tg-lboi">Proveedor</th>
                     </tr>
 
