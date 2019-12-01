@@ -79,6 +79,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                 FROM table1
                 JOIN table2
                 ON table1.column_name=table2.column_name;*/
+                
             $sql = "SELECT per_nombre, prod_nombre, com_comentario, com_calificacion, com_id FROM mh_comentarios, mh_persons JOIN mh_products
              WHERE mh_products_prod_id=prod_id and mh_persons_per_id=per_id and com_eliminado='N'"  ;
             $result = $conn->query($sql);
