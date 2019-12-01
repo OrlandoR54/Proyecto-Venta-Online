@@ -49,6 +49,7 @@ CREATE TABLE mh_comentarios (
     mh_products_prod_id   INTEGER NOT NULL,
     mh_persons_per_id     INTEGER NOT NULL
 );
+
 ALTER TABLE mh_comentarios ADD CONSTRAINT mh_coment_pk PRIMARY KEY ( com_id );
 
 
