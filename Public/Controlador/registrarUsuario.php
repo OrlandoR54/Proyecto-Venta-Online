@@ -18,7 +18,7 @@
         $direccion = isset($_POST["direccion"]) ? mb_strtoupper(trim($_POST["direccion"]), 'UTF-8') : null;
         $telefono = isset($_POST["telefono"]) ? trim($_POST["telefono"]) : null;
         $correo = isset($_POST["email"]) ? trim($_POST["email"]) : null;
-       $fechaNacimiento = isset($_POST["fecha"]) ? trim($_POST["fecha"]) : null;
+        $fechaNacimiento = isset($_POST["fecha"]) ? trim($_POST["fecha"]) : null;
         $password = isset($_POST["password"]) ? trim($_POST["password"]) : null;
 
         $sql = "INSERT INTO mh_persons VALUES (0, '$cedula', '$nombre', '$apellido', '$fechaNacimiento', '$direccion', '$telefono', 'U', 'N','$correo', MD5('$password'))";
