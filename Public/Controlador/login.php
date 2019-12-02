@@ -16,7 +16,7 @@
                header("Location: ../../Private/Controlador/index.php?rol_admin=".$row["per_rol"]);
                 echo "<p>INGRESO ADMIN!!!</p>";
             }else if ($row["per_rol"]=='U'){
-                header("Location: indexUser.php?codigo=".$row["per_id"] );
+                header("Location: indexUser.php?codigo=".$row["per_id"]);
                 echo "<p>Ingreso user!!!</p>";
             }else{
                 header("Location: ../Vista/login.html");  

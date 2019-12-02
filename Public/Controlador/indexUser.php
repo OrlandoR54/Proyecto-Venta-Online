@@ -28,7 +28,7 @@ $codigo=$_GET["codigo"];
             <ul>
                 <li><a href="index.php?codigo=<?php echo $codigo ?>">Inicio</a></li>
                 <li><a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>">Mi cuenta</a></li>
-                <li><a href="GestionProductos/gestion_productos.php?codigo=<?php echo $codigo ?>">Gestionar Productos</a></li>
+                <li><a href="GestionFacturas/facturas.php?codigo=<?php echo $codigo ?>">Mis facturas</a></li>
                 <li><a href="../../config/Cerrar_Sesion.php">Cerrar Sesion</a></li>
             </ul>
         </nav>
