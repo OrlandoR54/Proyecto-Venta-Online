@@ -20,7 +20,8 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 <head>
     <meta charset="UTF-8">
     <title>Mi Cuenta</title>
-    
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/structure.css">
 </head>
 
 <body>
@@ -29,15 +30,20 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
    
     $codigo = $_GET["codigo"];
 
-   
     ?>
-    <header class="header">
-        <nav>
-            <ul> <li><a href="index.php?codigo=<?php echo $per_id ?>">Inicio</a></li>
-                <li><a href="../../../config/cerrar_sesion.php">Cerrar Sesion</a></li>
-            </ul>
-        </nav>
-    </header>
+
+  <!-- Barra navegador (acentada arriba) -->
+  <div class="cabecera">
+        <div class="barra cabColor espAmplio margRelleno sombra">
+            <a href="../../Public/Vista/index.html" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
+            <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
+            <div class="derecha">
+                <a href="../index.php?codigo=<?php echo $per_id ?>" class="barraItem boton">Inicio</a>
+                <a href="../../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
+            </div>
+        </div>
+    </div>
+
     <main class="main">
         <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
             
