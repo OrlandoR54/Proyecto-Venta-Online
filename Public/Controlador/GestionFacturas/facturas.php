@@ -59,23 +59,23 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
      
             include '../../../config/conexionBD.php';
           
-            $sql = "SELECT * FROM mh_fact_cabec_vent WHERE mh_persons_per_id ='$codigo'";
+            $sql = "SELECT * FROM mh_fact_cabec_vent WHERE mh_persons_per_id ='$codigo' and fc_vent_estado='F'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    if ($row["fc_vent_estado"] = 'F') {
+                  
                         echo "<tr>";
                         echo "<td>" . $row["fc_vent_id"] . "</td>";
                         echo "<td>" . $row["fc_fecha_vent"] . "</td>";
                         echo "<td>" . $row["fc_vent_total"] . "</td>";
                         echo "<td class='accion'><a href='verFactura.php?codigo=" . $row['mh_persons_per_id'] . "'>Modificar</a></td>";
                        
-                    }
+                    
                 }
             } else {
                 echo "<tr>";
-                echo "<td colspan='9'>No existen usuarios registrados en el sistema</td>";
+                echo "<td colspan='4'>No existen facturas</td>";
                 echo "</tr>";
             }
             $conn->close();
