@@ -32,6 +32,9 @@ $rol_admin = $_GET['rol_admin'];
                 <a href="gestion_user.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Usuarios</a>
                 <a href="GestionProductos/gestion_productos.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Productos</a>
                 <a href="GestionProductos/gestion_comentarios.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Comentarios</a>
+                <a href="GestionFacturas/gestion_factura.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Facturas</a>
+
+                
                 <a href="../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
             </div>
         </div>
