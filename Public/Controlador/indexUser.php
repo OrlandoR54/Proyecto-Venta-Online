@@ -25,7 +25,6 @@ $codigo=$_GET["codigo"];
 <body>
     <header class="header">
         <nav>
-    
             <ul>
                 <li><a href="index.php?codigo=<?php echo $codigo ?>">Inicio</a></li>
                 <li><a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>">Mi cuenta</a></li>
