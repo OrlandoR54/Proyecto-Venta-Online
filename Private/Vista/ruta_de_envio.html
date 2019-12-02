@@ -4,15 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<<<<<<< Updated upstream
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <title>Ruta de envio</title>
-=======
-   
-    
->>>>>>> Stashed changes
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
@@ -20,13 +15,10 @@
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
-<<<<<<< Updated upstream
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
 <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-
-
 
 
 
@@ -41,58 +33,15 @@
         const mymap = L.map('issMap').setView([-2.90055, -79.00453], 13);
         const attribution =
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-      const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-      const tiles = L.tileLayer(tileUrl, { attribution });
-      tiles.addTo(mymap);
-      
-
-      
-
-      mymap.locate({setView: true, maxZoom: 16});
-
-    function onLocationFound(e) {
-
-    L.marker(e.latlng).addTo(mymap)
-        .bindPopup("You are within " + " meters from this point").openPopup()
-
-
-
-        L.Routing.control({
-  waypoints: [
-    L.latLng(e.latlng.lat, e.latlng.lng),
-    L.latLng(-2.8974039, -79.0066721)
-  ]
-}).addTo(mymap);
-
-
-
-    L.circle(e.latlng).addTo(mymap);
-    
-    
-    }
-    mymap.on('locationfound', onLocationFound);
-
-
-    function onLocationError(e) {
-    alert(e.message);
-    }
-    mymap.on('locationerror', onLocationError);
-
-
-      
-
+         const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+         const tiles = L.tileLayer(tileUrl, { attribution });
+         tiles.addTo(mymap);
+         L.Routing.control({
+         waypoints: [
+         L.latLng( -2.90418,-78.99613),
+         L.latLng(-2.8974039, -79.0066721)
+         ]
+         }).addTo(mymap);
     </script>
-    
-  
-    
-=======
-</head>
-<body>
-        <div id="issMap"></div>
-        <script>
-            var mymap = L.map('issMap').setView([51.505, -0.09], 13);
-        </script>
-  
->>>>>>> Stashed changes
 </body>
 </html>
