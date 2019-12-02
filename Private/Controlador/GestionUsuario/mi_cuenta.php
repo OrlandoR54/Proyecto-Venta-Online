@@ -27,21 +27,22 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
 <body>
     <?php
-    include '../../../config/conexionBD.php';
-   
-    $codigo = $_GET["codigo"];
-
+        include '../../../config/conexionBD.php';
+    
+        $codigo = $_GET["codigo"];
     ?>
 
     <!-- Barra navegador (acentada arriba) -->
     <div class="cabecera">
         <div class="barra cabColor espAmplio margRelleno sombra">
-            <a href="../../../Public/Controlador/indexUser.php?codigo=<?php echo $per_id ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
+            <a href="../../../Public/Controlador/indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
             <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
             <div class="derecha">
-                <a href="../../../Public/Controlador/indexUser.php?codigo=<?php echo $per_id ?>" class="barraItem boton">Inicio</a>
-                <a href="mi_cuenta.php?codigo=<?php echo $per_id ?>" class="barraItem boton">Mi Cuenta</a>
+                <a href="../../../Public/Controlador/indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Home</a>
+                <a href="../../../Public/Controlador/catalogoUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Productos</a>
+                <a href="mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi Cuenta</a>
                 <a href="../../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
+                <a href="carrito.html"><i class="carro-compras carro-derecha"></i></a>
             </div>
         </div>
     </div>
