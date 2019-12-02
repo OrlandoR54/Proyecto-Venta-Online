@@ -32,6 +32,7 @@ $codigo=$_GET["codigo"];
             <div class="derecha">
                 <a href="indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Home</a>
                 <a href="catalogoUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Productos</a>
+                <a href="aboutUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">About</a>
                 <a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi Cuenta</a>
                 <a href="../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
                 <a href="carrito.html"><i class="carro-compras carro-derecha"></i></a>
