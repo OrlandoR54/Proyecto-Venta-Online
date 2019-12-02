@@ -40,6 +40,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
             <div class="derecha">
                 <a href="../../../Public/Controlador/indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Home</a>
                 <a href="../../../Public/Controlador/catalogoUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Productos</a>
+                <a href="../../../Public/Controlador/aboutUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">About</a>
                 <a href="mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi Cuenta</a>
                 <a href="../../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
                 <a href="carrito.html"><i class="carro-compras carro-derecha"></i></a>
