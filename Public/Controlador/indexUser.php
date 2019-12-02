@@ -23,30 +23,17 @@ $codigo=$_GET["codigo"];
 </head>
 
 <body>
-<<<<<<< HEAD
-    <header class="header">
-        <nav>
-    
-            <ul>
-                <li><a href="index.php?codigo=<?php echo $codigo ?>">Inicio</a></li>
-                <li><a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>">Mi cuenta</a></li>
-                <li><a href="GestionProductos/gestion_productos.php?codigo=<?php echo $codigo ?>">Gestionar Productos</a></li>
-                <li><a href="../../config/Cerrar_Sesion.php">Cerrar Sesion</a></li>
-            </ul>
-        </nav>
-    </header>
-=======
 
-    <!-- Barra navegador (acentada arriba) -->
+      <!-- Barra navegador (acentada arriba) -->
     <div class="cabecera">
         <div class="barra cabColor espAmplio margRelleno sombra">
             <a href="../../Public/Vista/index.html" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
             <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
             <div class="derecha">
-                <a href="indexUser.php?rol_user=<?php echo $rol_user ?>" class="barraItem boton">Inicio</a>
+                <a href="indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Inicio</a>
+                <a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi cuenta</a>
                 <a href="gestion_user.php?rol_user=<?php echo $rol_user ?>" class="barraItem boton">Gestionar Pedidos</a>
-                <a href="GestionProductos/gestion_productos.php?rol_user=<?php echo $rol_user ?>" class="barraItem boton">Gestionar Facturas</a>
-                <a href="Public/Controlador/modificarUser.php?rol_user=<?php echo $rol_user ?>" class="barraItem boton">Gestionar Cuenta</a>
+                <a href="GestionProductos/gestion_productos.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Gestionar Productos</a>
                 <a href="../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
             </div>
         </div>
@@ -60,7 +47,6 @@ $codigo=$_GET["codigo"];
         </div>
     </center>
 
->>>>>>> Cordero
    
 </body>
 
