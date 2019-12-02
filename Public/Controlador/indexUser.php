@@ -10,7 +10,9 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
 <?php
 include '../../config/conexionBD.php';
-$rol_user = $_GET['rol_user'];
+//$per_id = $_GET['per_id'];
+//$rol_user=$_GET['rol_user'];
+$codigo=$_GET["codigo"];
 ?>
 
 <head>
@@ -22,10 +24,11 @@ $rol_user = $_GET['rol_user'];
 <body>
     <header class="header">
         <nav>
+    
             <ul>
-                <li><a href="index.php?rol_user=<?php echo $rol_user ?>">Inicio</a></li>
-                <li><a href="gestion_user.php?rol_user=<?php echo $rol_user ?>">Gestionar Usuarios</a></li>
-                <li><a href="GestionProductos/gestion_productos.php?rol_user=<?php echo $rol_user ?>">Gestionar Productos</a></li>
+                <li><a href="index.php?codigo=<?php echo $codigo ?>">Inicio</a></li>
+                <li><a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>">Mi cuenta</a></li>
+                <li><a href="GestionProductos/gestion_productos.php?codigo=<?php echo $codigo ?>">Gestionar Productos</a></li>
                 <li><a href="../../config/Cerrar_Sesion.php">Cerrar Sesion</a></li>
             </ul>
         </nav>
