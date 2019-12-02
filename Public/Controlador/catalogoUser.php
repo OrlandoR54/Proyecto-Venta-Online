@@ -88,8 +88,14 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto1.html"><img class="produc"
                                         src="../../images/aceite-de-cbd-10-full-spectrum.jpg" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black">Agregar <i
+                                <?php
+                                include '../config/conexionBD.php';
+                                $sql ="INSERT INTO mh_carrito_detalle (`carrit_det_id`, `carrit_prod_vent`, `carrt_prod_iva`, `carrit_prod_desc`, `carrt_total`, `mh_carrito_cabc_carrit_id`, `carri_subt`, `mh_products_prod_id`) 
+                                VALUES (NULL, '1', '0.12', '0', '30', NULL, '30', '2')";
+                                ?>
+                                    <button type="submit" class="w3-button w3-black" value='2'>Agregar <i
                                             class="fa carro-compras"></i></button>
+
                                 </div>
                             </div>
                             <p>Aceite de CBD 10% (FULL SPECTRUM)<br><b>$30</b></p>
@@ -99,7 +105,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto2.html"><img class="produc"
                                         src="../../images/aceite-de-cbd-5-full-spectrum.jpg" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black">Agregar <i
+                                    <button type="submit" class="w3-button w3-black" value='1'>Agregar <i
                                             class="fa carro-compras"></i></button>
                                 </div>
                             </div>
