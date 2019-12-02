@@ -26,7 +26,7 @@
                 <br>
                 <div class= "botones">
                     <input class="boton" type="submit" id="modificar" name="modificar" value="Modificar">
-                    <input class="boton" type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='../../Private/Controlador/gestion_user.php?rol_admin=<?php echo $rol_admin ?>'" class="boton">
+                    <input class="boton" type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='.../../Private/Controlador/gestion_user.php?rol_admin=<?php echo $rol_admin ?>'" class="boton">
                 </div>
             </form>
         </body>
