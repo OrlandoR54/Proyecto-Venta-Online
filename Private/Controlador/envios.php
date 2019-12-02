@@ -94,7 +94,7 @@ $rol_admin = $_GET['rol_admin'];
                     echo " <td>" . $row['fd_vent_total'] . "</td>";
                   
                     $estado = ' ';
-                   
+                    
                     echo "<td>
                             <form name = 'form1' method='POST' action = 'MP.php?codigo=".$row['per_id']."'>
                             <select name = 'list'>
