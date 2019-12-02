@@ -90,6 +90,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                         echo "<td>" . $row["per_correo"] . "</td>";
                         echo "<td>" . $row["per_fechaNacimiento"] . "</td>";
                         echo "<td class='accion'><a href='../../../Public/Controlador/GestionUsuario/modificarUsuario.php?codigo=" . $row['per_id'] . "'>Modificar</a></td>";
+                        echo "<td class='accion'><a href='../../../Public/Controlador/GestionUsuario/modificarContrasenia.php?codigo=" . $row['per_id'] . "'>Cambiar contraseña</a></td>";
                     }
                 }
             } else {
