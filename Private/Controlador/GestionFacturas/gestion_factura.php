@@ -68,8 +68,6 @@ $rol_admin = $_GET['rol_admin'];
                     <th class="tg-lboi">Total</th>
                     <th class="tg-lboi">Estado Factura</th>
                     <th class="tg-lboi">Accion:</th>
-                    <th class="tg-lboi">Accion:</th>
-                    <th class="tg-lboi">Accion:</th>
                     </tr>
 
             <?php
