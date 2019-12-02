@@ -28,10 +28,10 @@ $rol_admin = $_GET['rol_admin'];
             <a href="../../Public/Vista/index.html" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
             <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
             <div class="derecha">
-                <a href="index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>
-                <a href="gestion_user.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Usuarios</a>
-                <a href="GestionProductos/gestion_productos.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Productos</a>
-                <a href="GestionProductos/gestion_comentarios.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Comentarios</a>
+                <a href="indexUser.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>
+                <a href="gestion_user.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Pedidos</a>
+                <a href="GestionProductos/gestion_productos.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Facturas</a>
+                <a href="GestionProductos/gestion_comentarios.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Cuenta</a>
                 <a href="../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
             </div>
         </div>
@@ -39,6 +39,7 @@ $rol_admin = $_GET['rol_admin'];
 
     <center>
         <div>
+
             <h1>Bienvenido</h1>
             <h2>Usuario Registrado</h2>
         </div>
