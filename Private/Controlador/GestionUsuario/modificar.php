@@ -28,7 +28,7 @@
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
     }
-    echo "<a href='gestion_user.php?rol_admin=" . $rol_admin . "'>Regresar</a>";
+    echo "<a href='../../../Public/Controlador/indexUser.php?codigo=" . $codigo . "'>Regresar</a>";
 
     $conn->close();
     ?>
