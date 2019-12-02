@@ -36,12 +36,14 @@
          const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
          const tiles = L.tileLayer(tileUrl, { attribution });
          tiles.addTo(mymap);
+         const popup = L.popup();
          L.Routing.control({
          waypoints: [
-         L.latLng( -2.90418,-78.99613),
-         L.latLng(-2.8974039, -79.0066721)
+         a =  L.latLng( -2.90418,-78.99613),
+         b = L.latLng(-2.8974039, -79.0066721)
          ]
          }).addTo(mymap);
+         L.marker(a).addTo(mymap).bindPopup("Usted esta aqui").openPopup(); 
     </script>
 </body>
 </html>
