@@ -48,8 +48,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
     
     <main class="mainTabla">
-        <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
-        
+        <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px"> 
         <colgroup>
                     <col style="width: 105px">
                     <col style="width: 120px">
@@ -60,17 +59,13 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     <col style="width: 106px">
                     <col style="width: 100px">
                     <col style="width: 100px">
-                  
-                   
         </colgroup>
                     <tr>
                         <th class="tg-lboi">Producto</th>
                         <th class="tg-lboi">Precio</th>
                         <th class="tg-lboi">Cantidad</th>
                         <th class="tg-lboi">Subtotal</th>
-
-                        
-                        
+                        <button type="button" onclick="javascript:imprim1(buzon);">Imprimir</button>
                     </tr>
 
             <?php
@@ -90,7 +85,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                       echo "<td>" .$row["fd_vent_precio"] . "</td>";
                       echo "<td>" .$row["fd_vent_cantidad"] . "</td>";
                       echo "<td>" .$row["fc_vent_subtotal"] . "</td>";
-
+                        
                   
                
                         
@@ -104,7 +99,21 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
             $conn->close();
             ?>
         </table>
+        <script>
+        function imprim1(buzon){
+        var printContents = document.getElementById('buzon').innerHTML;
+        w = window.open();
+        w.document.write(printContents);
+        w.document.close(); // necessary for IE >= 10
+        w.focus(); // necessary for IE >= 10
+		w.print();
+		w.close();
+        return true;}
+        </script>
+
+
     </main>
+    
 </body>
 
 </html>
