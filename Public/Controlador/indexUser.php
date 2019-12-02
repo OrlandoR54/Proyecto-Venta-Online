@@ -31,7 +31,7 @@ $rol_user = $_GET['rol_user'];
                 <a href="indexUser.php?rol_user=<?php echo $rol_user ?>" class="barraItem boton">Inicio</a>
                 <a href="gestion_user.php?rol_user=<?php echo $rol_user ?>" class="barraItem boton">Gestionar Pedidos</a>
                 <a href="GestionProductos/gestion_productos.php?rol_user=<?php echo $rol_user ?>" class="barraItem boton">Gestionar Facturas</a>
-                <a href="GestionProductos/gestion_comentarios.php?rol_user=<?php echo $rol_user ?>" class="barraItem boton">Gestionar Cuenta</a>
+                <a href="Public/Controlador/modificarUser.php?rol_user=<?php echo $rol_user ?>" class="barraItem boton">Gestionar Cuenta</a>
                 <a href="../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
             </div>
         </div>
