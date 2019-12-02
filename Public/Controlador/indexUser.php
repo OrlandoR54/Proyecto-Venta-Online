@@ -23,66 +23,15 @@ $codigo=$_GET["codigo"];
 </head>
 
 <body>
-
-      <!-- Barra navegador (acentada arriba) -->
-    <div class="cabecera">
-        <div class="barra cabColor espAmplio margRelleno sombra">
-            <a href="indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
-            <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
-            <div class="derecha">
-                <a href="indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Inicio</a>
-                <a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi cuenta</a>
-                <a href="../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
-            </div>
-        </div>
-    </div>
-
-     <!-- Header -->
-    <header class="visualContent contenido espAmplio" style="max-width:1500px;" id="home">
-
-        <div class="slider-contenedor sombra slider-wrapper">
-
-            <div class="slides fade">
-                <div class="numText">1 / 3</div>
-                <img src="../../images/cannabidiol-science-lexaria.jpeg" style="width:100%">
-                <div class="mostrar-medio margen-arriba centro">
-                    <h1 class="tamLetra colLetra"><span class="margRelleno colLogo opacidad"><b>CBD</b></span>
-                    <span class="txtLight">Cannabidiol</span></h1>
-                </div>
-                <div class="text">Caption Text</div>
-            </div>
-
-            <div class="slides fade">
-                <div class="numText">2 / 3</div>
-                    <img src="../../images/cannabidiol.jpg" style="width:100%">
-                    <div class="mostrar-medio margen-arriba centro">
-                        <h1 class="tamLetra colLetra"><span class="margRelleno colLogo opacidad"><b>CBD</b></span>
-                        <span class="txtLight">Cannabidiol</span></h1>
-                    </div>
-                <div class="text">Caption Two</div>
-            </div>
-
-            <div class="slides fade">
-                <div class="numText">3 / 3</div>
-                <img src="../../images/CBD.jpg" style="width:100%">
-                <div class="mostrar-medio margen-arriba centro">
-                    <h1 class="tamLetra colLetra"><span class="margRelleno colLogo opacidad"><b>CBD</b></span>
-                    <span class="txtLight">Cannabidiol</span></h1>
-                </div>
-                <div class="text">Caption Three</div>
-            </div>
-
-            <a class="atras" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="siguiente" onclick="plusSlides(1)">&#10095;</a>
-
-        </div>
-        <br>
-
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a href="index.php?codigo=<?php echo $codigo ?>">Inicio</a></li>
+                <li><a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>">Mi cuenta</a></li>
+                <li><a href="GestionFacturas/facturas.php?codigo=<?php echo $codigo ?>">Mis facturas</a></li>
+                <li><a href="../../config/Cerrar_Sesion.php">Cerrar Sesion</a></li>
+            </ul>
+        </nav>
     </header>
     <!--------------------------------------------------------------------------------------->
     <!-- Seccion CBD -->
