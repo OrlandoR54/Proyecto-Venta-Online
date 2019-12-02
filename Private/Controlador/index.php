@@ -1,8 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
-    header("Location: \Proyecto-Venta-Online\Public\Vista\login.html");
-    
+    header("Location: \Proyecto-Venta-Online\Public\Vista\login.html");  
 }
 ?>
 <!DOCTYPE html>
@@ -26,6 +25,9 @@ $rol_admin = $_GET['rol_admin'];
             <ul>
                 <li><a href="index.php?rol_admin=<?php echo $rol_admin ?>">Inicio</a></li>
                 <li><a href="gestion_user.php?rol_admin=<?php echo $rol_admin ?>">Usuarios</a></li>
+
+                <li><a href="envios.php?rol_admin=<?php echo $rol_admin ?>">Pedidos</a></li>
+
                 <li><a href="../../config/Cerrar_Sesion.php">Cerrar Sesion</a></li>
             </ul>
         </nav>
