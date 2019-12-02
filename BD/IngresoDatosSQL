@@ -41,7 +41,7 @@ Ingreso factura detalle de compra de productos
 INSERT INTO `mh_detalle_comp` (`fd_comp_id`, `fd_comp_cantidad`, `fd_comp_precio`, `mh_cabec_comp_fc_comp_id`, `fd_comp_subt`, `fd_comp_tot`, `mh_products_prod_id`) VALUES ('1', '10', '20', '1', '200', '200', '1'), ('2', '10', '40.5', '1', '405', '405', '2');
 INSERT INTO `mh_detalle_comp` (`fd_comp_id`, `fd_comp_cantidad`, `fd_comp_precio`, `mh_cabec_comp_fc_comp_id`, `fd_comp_subt`, `fd_comp_tot`, `mh_products_prod_id`) VALUES ('3', '5', '5', '1', '25', '25', '5'), ('4', '5', '5', '1', '25', '25', '8');
 INSERT INTO `mh_detalle_comp` (`fd_comp_id`, `fd_comp_cantidad`, `fd_comp_precio`, `mh_cabec_comp_fc_comp_id`, `fd_comp_subt`, `fd_comp_tot`, `mh_products_prod_id`) VALUES ('5', '15', '12.5', '2', '187.5', '187.5', '3'), ('6', '12', '8.25', '2', '99', '99', '4');
-
+<!----------------------------------------NO ME INGRESO LA SEGUNDA ----------------->
 Ingreso Factura cabecera de venta de productos
 
 INSERT INTO `mh_fact_cabec_vent` (`fc_vent_id`, `fc_fecha_vent`, `fc_vent_iva`, `fc_vent_total`, `mh_persons_per_id`, `fc_vent_estado`, `fc_estado`) VALUES ('1', '2019-11-15', '0.12', '16', '2', 'A', 'E'), ('2', '2019-11-24', '0.12', '30', '3', 'A', 'E');

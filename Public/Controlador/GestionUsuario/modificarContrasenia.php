@@ -13,11 +13,10 @@
         </head>
         <body>
             <?php
-                $rol_admin = $_GET["rol_admin"];
                 $codigo = $_GET["codigo"];
             ?>
             
-            <form class="box" method="POST" action="../../Private/Controlador/modificar_contrasena_user.php?rol_admin=<?php echo $rol_admin ?>">
+            <form class="box" method="POST" action="../../../Private/Controlador/GestionUsuario/modificar_contrasenia.php?codigo=<?php echo $codigo ?>">
                 <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>">
                 <div class="inf">
                     <label class="contrasena" for="contrasenaNueva">Contrasena Nueva (*)</label>

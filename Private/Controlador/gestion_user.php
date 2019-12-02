@@ -8,6 +8,13 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 <!DOCTYPE html>
 <html>
 
+    <head>
+        <meta charset="UTF-8">
+        <title>Pagina principal administrador</title>
+        <link rel="stylesheet" href="../../css/styles.css">
+        <link rel="stylesheet" href="../../css/structure.css">
+    </head>
+    
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
@@ -18,27 +25,27 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 </style>
 
 
-<head>
-    <meta charset="UTF-8">
-    <title>Pagina principal administrador</title>
-    
-</head>
-
 <body>
 <?php
 include '../../config/conexionBD.php';
 $rol_admin = $_GET['rol_admin'];
 ?>
 
-    <header class="header">
-        <nav>
-            <ul>
-                <li><a href="index.php?rol_admin=<?php echo $rol_admin ?>">Inicio</a></li>
-                <li><a href="gestion_user.php?rol_admin=<?php echo $rol_admin ?>">Usuarios</a></li>
-                <li><a href="../../config/Cerrar_Sesion.php">Cerrar Sesion</a></li>
-            </ul>
-        </nav>
-    </header>
+
+    <!-- Barra navegador (acentada arriba) -->
+    <div class="cabecera">
+        <div class="barra cabColor espAmplio margRelleno sombra">
+            <a href="#home" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
+            <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
+            <div class="derecha">
+                <a href="index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>
+                <a href="gestion_user.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Usuarios</a>
+                <a href="GestionProductos/gestion_productos.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Productos</a>
+                <a href="../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
+            </div>
+        </div>
+    </div>
+
 
     <main class="main">
         </section>

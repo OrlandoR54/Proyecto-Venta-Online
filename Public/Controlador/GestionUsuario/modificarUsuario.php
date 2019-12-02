@@ -9,25 +9,24 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
 <head>
     <meta charset="UTF-*">
-    <title>Eliminar Usuario</title>
+    <title>Modificar</title>
     <link rel="stylesheet" href="../../css/modificaUser.css">
 </head>
 
 <body>
     
     <?php
-    $rol_admin = $_GET["rol_admin"];
     $codigo = $_GET["codigo"];
     $sql = "SELECT * FROM mh_persons WHERE per_id=$codigo";
 
-    include '../../config/conexionBD.php';
+    include '../../../config/conexionBD.php';
     $result = $conn->query($sql);
-
+   // C:\xampp\htdocs\Proyecto-Venta-Online\Private\Controlador\GestionUsuario\modificar.php
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             ?>
             <h1>Modificar usuario: <?php echo $row["per_nombre"]; ?></h1>
-            <form class="box" method="POST" action="../../Private/Controlador/modificar_user.php?rol_admin=<?php echo $rol_admin ?>">
+            <form class="box" method="POST" action="../../../Private/Controlador/GestionUsuario/modificar.php?codigo=<?php echo $codigo ?>">
                 <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>">
 
                 <div class="inf">
@@ -67,7 +66,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                 <br>
                 <div class= "botones">
                     <input class="boton" type="submit" id="modificar" name="modificar" value="Modificar">
-                    <input class="boton" type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='../../Private/Controlador/gestion_user.php?rol_admin=<?php echo $rol_admin ?>'" class="boton">
+                    <input type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='../../Controlador/indexUser.php?codigo=<?php echo $codigo ?>'" class="boton">
                 </div>           
             </form>
     <?php
