@@ -36,7 +36,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
             <div class="derecha">
                 <a href="indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Home</a>
                 <a href="catalogoUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Productos</a>
-                <a href="aboutUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">About</a>
+                <a href="about.html" class="barraItem boton">About</a>
                 <a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi Cuenta</a>
                 <a href="../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
                 <a href="carrito.html"><i class="carro-compras carro-derecha"></i></a>
@@ -48,7 +48,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
 
     <!--------------------------------------------------------------------------------------------------->
-    <div class="seccion">
+    <div class="seccion" >
         <div class="barra-lateral barra-block barra-card w3-animate-left" style="display:none" id="mySidebar">
             <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
             <a href="#aceite" class="w3-bar-item w3-button">Aceite de CBD</a>
@@ -88,11 +88,6 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto1.html"><img class="produc"
                                         src="../../images/aceite-de-cbd-10-full-spectrum.jpg" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                <?php
-                                include '../config/conexionBD.php';
-                                $sql ="INSERT INTO mh_carrito_detalle (`carrit_det_id`, `carrit_prod_vent`, `carrt_prod_iva`, `carrit_prod_desc`, `carrt_total`, `mh_carrito_cabc_carrit_id`, `carri_subt`, `mh_products_prod_id`) 
-                                VALUES (NULL, '1', '0.12', '0', '30', NULL, '30', '2')";
-                                ?>
                                     <button type="submit" class="w3-button w3-black" value='2'>Agregar <i
                                             class="fa carro-compras"></i></button>
 
