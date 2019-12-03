@@ -10,7 +10,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 <head>
     <meta charset="UTF-*">
     <title>Modificar</title>
-    <link rel="stylesheet" href="../../css/modificaUser.css">
+    <link rel="stylesheet" href="../../../css/modificaUser.css">
 </head>
 
 <body>
