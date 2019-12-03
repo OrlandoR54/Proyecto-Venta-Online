@@ -90,7 +90,7 @@
              b = L.latLng(lat, lon)
              ]
              }).addTo(map);
-             L.marker(a).addTo(map).bindPopup("Usted esta aqui").openPopup();
+             L.marker(a).addTo(map).bindPopup("Cannabidiol.com").openPopup();
     }
     
     
