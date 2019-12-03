@@ -266,6 +266,7 @@ ALTER TABLE mh_carrito_detalle
 	ALTER TABLE mh_tarjet_credit
     ADD CONSTRAINT mh_tarjet_credit_mh_persons_fk FOREIGN KEY ( mh_persons_per_id )
         REFERENCES mh_persons ( per_id );
+        
 //Agregar
 //Agregar campo fecha de nacimiento
 ALTER TABLE `mh_persons` ADD `per_fechaNacimiento` DATE NOT NULL AFTER `per_apellido`;
