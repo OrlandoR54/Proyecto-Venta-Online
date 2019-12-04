@@ -8,7 +8,6 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,11 +19,13 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 </head>
 
 <body>
-
+   
     <?php
         include '../../config/conexionBD.php';
    
         $codigo = $_GET["codigo"];
+      
+
 
     ?>
 
@@ -39,7 +40,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                 <a href="about.html" class="barraItem boton">About</a>
                 <a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi Cuenta</a>
                 <a href="../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
-                <a href="carrito.html"><i class="carro-compras carro-derecha"></i></a>
+                <a href="../Productos/carrito.php?codigo=<?php echo $codigo ?>"><i class="carro-compras carro-derecha"></i></a>
             </div>
         </div>
     </div>
@@ -88,9 +89,8 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto1.html"><img class="produc"
                                         src="../../images/aceite-de-cbd-10-full-spectrum.jpg" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black" value='2'>Agregar <i
-                                            class="fa carro-compras"></i></button>
-
+                                    <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=2'" class="w3-button w3-black" value=''>Agregar <i
+                                            class="fa carro-compras"></i></button>         
                                 </div>
                             </div>
                             <p>Aceite de CBD 10% (FULL SPECTRUM)<br><b>$30</b></p>
@@ -100,8 +100,8 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto2.html"><img class="produc"
                                         src="../../images/aceite-de-cbd-5-full-spectrum.jpg" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black" value='1'>Agregar <i
-                                            class="fa carro-compras"></i></button>
+                                    <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=5'" class="w3-button w3-black" value=''>Agregar <i
+                                            class="fa carro-compras"></i></button> 
                                 </div>
                             </div>
                             <p>Aceite de CBD 5% (FULL SPECTRUM)<br><b>$15</b></p>
@@ -115,7 +115,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                         style="width:100%"></a>
                                 <span class="w3-tag w3-display-topleft">New</span>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black">Agregar<i
+                                    <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=1'" class="w3-button w3-black">Agregar<i
                                             class="fa carro-compras"></i></button>
                                 </div>
                             </div>
@@ -127,7 +127,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                         src="../../images/Aceite_de_CBD_15_por_ciento_Sativida.jpg"
                                         style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black">Agregar <i
+                                    <button type="submit"  onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=12'" class="w3-button w3-black">Agregar <i
                                             class="fa carro-compras"></i></button>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto5.html"><img class="produc" src="../../images/aceite-cbd-xl.png"
                                         style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black">Agregar <i
+                                    <button type="submit"  onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=3'" class="w3-button w3-black">Agregar <i
                                             class="fa carro-compras"></i></button>
                                 </div>
                             </div>
@@ -153,7 +153,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                         style="width:100%"></a>
                                 <span class="w3-tag w3-display-topleft">Sale</span>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black">Agregar<i
+                                    <button type="submit"  onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=6'" class="w3-button w3-black">Agregar<i
                                             class="fa carro-compras"></i></button>
                                 </div>
                             </div>
@@ -167,7 +167,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto7.html"><img class="produc" src="../../images/Aceite-CBD-5-500mg.jpg"
                                         style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black">Agregar <i
+                                    <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=4'" class="w3-button w3-black">Agregar <i
                                             class="fa carro-compras"></i></button>
                                 </div>
                             </div>
@@ -178,7 +178,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto8.html"><img class="produc" src="../../images/Aceite-CBD-2.5.jpg"
                                         style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black">Agregar <i
+                                    <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=7'" class="w3-button w3-black">Agregar <i
                                             class="fa carro-compras"></i></button>
                                 </div>
                             </div>
@@ -203,7 +203,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto9.html"> <img class="produc" src="../../images/crema-cbd-forte.jpg"
                                         style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black">Agregar <i
+                                    <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=8'" class="w3-button w3-black">Agregar <i
                                             class="fa carro-compras"></i></button>
                                 </div>
                             </div>
@@ -243,7 +243,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto10.html"><img class="produc"
                                         src="../../images/Crema  CBD-Healing-Balm.jpg" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black">Agregar<i
+                                    <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=9'" class="w3-button w3-black">Agregar<i
                                             class="fa carro-compras"></i></button>
                                 </div>
                             </div>
@@ -266,7 +266,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto11.html"><img class="produc"
                                         src="../../images/quality-cbd-healing-balm.jpg" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black">Agregar <i
+                                    <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=10'" class="w3-button w3-black">Agregar <i
                                             class="fa carro-compras"></i></button>
                                 </div>
                             </div>
@@ -290,7 +290,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto12.html"><img class="produc"
                                         src="../../images/cream-500mg-cbd-hemp-pain.png" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black">Agregar <i
+                                    <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=11'"  class="w3-button w3-black">Agregar <i
                                             class="fa carro-compras"></i></button>
                                 </div>
                             </div>
@@ -334,6 +334,9 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     title="Sígueme en YouTube" /></a>
         </div>
     </footer>
+
+   
+
 
     <script>
         function w3_open() {
