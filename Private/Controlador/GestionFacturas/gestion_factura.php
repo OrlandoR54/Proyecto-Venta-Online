@@ -82,6 +82,8 @@ $rol_admin = $_GET['rol_admin'];
                         echo "<td>" . $row["fc_vent_iva"] . "</td>";
                         echo "<td>" . $row["fc_vent_total"] . "</td>";
                         echo "<td class='accion'><a href='anular_factura.php?codigo=".$row['fc_vent_id'] . "&rol_admin=" . $rol_admin . "'>Anular Factura</a></td>";
+                        echo "<td class='accion'><a href='../../Public/Controlador/eliminarUser.php?codigo=" . $row['per_id'] . "&rol_admin=" . $rol_admin . "'>Anular Factura</a></td>";
+
                 }
             } else {
                 echo "<tr>";
