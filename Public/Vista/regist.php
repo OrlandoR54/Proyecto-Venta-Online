@@ -12,6 +12,7 @@
     html, body { width:100%;padding:0;margin:0; }
     .container { width:95%;max-width:980px;padding:1% 2%;margin:0 auto }
     #lat, #lon { text-align:right; display: none}
+    #map { width:100%;height:75%;padding:0;margin:0; display: none}
     .address { cursor:pointer }
     .address:hover { color:#AA0000;text-decoration:underline }
     </style>
