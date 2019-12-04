@@ -31,13 +31,10 @@
     
     if ($conn->query($sql) == TRUE) {
         echo "<p>Se han creado los datos personales correctamente!!!</p>";
-    } else {
-    if ($conn->errno == 1062) {
-        echo "<p class='error'>La persona con la cedula $cedula ya esta registrada en el sistema</p>";
-    } else {
+    }else {
         echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
     }
-    }
+    
 }
     
     }

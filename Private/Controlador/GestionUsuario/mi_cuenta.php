@@ -54,6 +54,8 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
         <div class="barra-lateral barra-block barra-card w3-animate-left" style="display:none" id="mySidebar">
             <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
             <a href="gestion_user.php?rol_user=<?php echo $rol_user ?>" class="w3-bar-item w3-button">Gestionar Pedidos</a>
+            <a href="../../../Public/Controlador/GestionFacturas/facturas.php?codigo=<?php echo $codigo ?>" class="w3-bar-item w3-button">Mis Factura</a>
+
             <a href="GestionProductos/gestion_productos.php?codigo=<?php echo $codigo ?>" class="w3-bar-item w3-button">Gestionar Productos</a>
         </div>
 

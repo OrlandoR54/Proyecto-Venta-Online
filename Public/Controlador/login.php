@@ -12,6 +12,7 @@
         $_SESSION['isLogged']=TRUE;
         while($row = $result->fetch_assoc()){
             $rol = $row["per_rol"];
+            $_SESSION['per_rol']=$rol;
             if ($row["per_rol"]=='A'){
                header("Location: ../../Private/Controlador/index.php?rol_admin=".$row["per_rol"]);
                 echo "<p>INGRESO ADMIN!!!</p>";

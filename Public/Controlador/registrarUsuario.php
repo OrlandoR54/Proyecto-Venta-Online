@@ -22,10 +22,29 @@
         $password = isset($_POST["password"]) ? trim($_POST["password"]) : null;
 
         $sql = "INSERT INTO mh_persons VALUES (0, '$cedula', '$nombre', '$apellido', '$fechaNacimiento', '$direccion', '$telefono', 'U', 'N','$correo', MD5('$password'))";
-
+       
+            
+      
         if ($conn->query($sql) == TRUE) {
             echo "<p>Se han creado los datos personales correctamente!!!</p>";
-        } else {
+            $sql1 = "SELECT per_id FROM mh_persons WHERE per_num_ced=$cedula" ;
+            if ($conn->query($sql1) == TRUE) {
+            $result = $conn->query($sql1);
+            if ($result->num_rows > 0) {
+                while($row=$result->fetch_assoc()){
+                    $clave=$row['per_id'];
+                    echo "<p>$clave</p>";
+                }
+            }
+        }
+            $sql2 = "INSERT INTO `mh_carrito_cabc` (`carrit_id`, `carrit_fecha_compr`, `mh_persons_per_id`, `carr_tot`)
+            VALUES (NULL, '2019-11-13', $clave, '0');";
+                if ($conn->query($sql2) == TRUE) {
+                 echo "<p>Se han creado los datos de la cabecera carrito!!!</p>";
+                }  
+          
+        } 
+        else {
             if ($conn->errno == 1062) {
                 echo "<p class='error'>La persona con la cedula $cedula ya esta registrada en el sistema</p>";
             } else {
