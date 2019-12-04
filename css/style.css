@@ -90,6 +90,22 @@ body{
     clear: both;
 }
 
+#btndireccion{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: left;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    clear: both; 
+}
+
 .boton:hover{
     background: #2ecc71;
 }
