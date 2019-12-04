@@ -76,17 +76,21 @@ $codigo = $_GET["codigo"];
                     <colgroup>
                         <col style="width: 105px">
                         <col style="width: 120px">
+                        <col style="width: 120px">
+                        <col style="width: 120px">
                    
                     </colgroup>
                     <tr>
                         <th class="tg-lboi">Producto</th>
+                        <th class="tg-lboi">Cantidad</th>
                         <th class="tg-lboi">Subtotal</th>
+                        <th class="tg-lboi">Total a pagar</th>
                        
                     </tr>
 
             <?php
             /*SUM(columna)*/
-            $sql = "SELECT prod_nombre,SUM(carri_subt) FROM mh_carrito_cabc, mh_carrito_detalle,mh_products WHERE mh_persons_per_id=$codigo
+            $sql = "SELECT prod_nombre,SUM(carri_subt), count(mh_products_prod_id) FROM mh_carrito_cabc, mh_carrito_detalle,mh_products WHERE mh_persons_per_id=$codigo
              and carrit_id=mh_carrito_cabc_carrit_id and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id GROUP BY prod_nombre";
             $result = $conn->query($sql);
 
@@ -94,14 +98,25 @@ $codigo = $_GET["codigo"];
                 while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
                         echo "<td>" . $row["prod_nombre"] . "</td>";
+                        echo "<td>" . $row["count(mh_products_prod_id)"] . "</td>";
                         echo "<td>" . $row["SUM(carri_subt)"] . "</td>";
-  
+
+                      
                 }
-            } else {
-                echo "<tr>";
-                echo "<td colspan='10'>No existen usuarios</td>";
-                echo "</tr>";
             }
+              $sql1 = "SELECT prod_nombre,SUM(carri_subt) FROM mh_carrito_cabc, mh_carrito_detalle,mh_products 
+                        WHERE mh_persons_per_id=$codigo
+                        and carrit_id=mh_carrito_cabc_carrit_id  and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id";
+                         $result = $conn->query($sql1);
+                         if($result->num_rows >0){
+                             while($row=$result->fetch_assoc()){
+                                echo "<td>" . $row["SUM(carri_subt)"] . "</td>";
+                             }
+                         }else {
+                            echo "<tr>";
+                            echo "<td colspan='10'>No existen usuarios</td>";
+                            echo "</tr>";
+                         }
             $conn->close();
             ?>
         </table>   

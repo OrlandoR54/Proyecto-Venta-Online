@@ -1,5 +1,6 @@
-
-    <?php
+ 
+   
+   <?php
         include '../../config/conexionBD.php';
         $value = $_GET["value"];
         $codigo = $_GET["codigo"];
@@ -26,8 +27,9 @@
                 echo "error";
             }
     }
-        $conn->close();
-        echo "<a href='../Controlador/catalogoUser.php?codigo=" . $codigo . "'>Regresar</a>";
-      
+        
+       /* echo "<a href='../Controlador/catalogoUser.php?codigo=" . $codigo . "'>Regresar</a>";*/
+      header("Location:../Controlador/catalogoUser.php?codigo=" . $codigo . "");
+      $conn->close();
         ?>
    
