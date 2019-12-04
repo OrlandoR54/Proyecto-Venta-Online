@@ -29,6 +29,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 <?php
     include '../../../config/conexionBD.php';
 $rol_admin = $_GET['rol_admin'];
+$codigo =$_GET['codigo'];
 ?>
     <!-- Barra navegador (acentada arriba) -->
     <div class="cabecera">
@@ -66,12 +67,11 @@ $rol_admin = $_GET['rol_admin'];
                     <th class="tg-lboi">Fecha Venta</th>
                     <th class="tg-lboi">Iva</th>
                     <th class="tg-lboi">Total</th>
-                    <th class="tg-lboi">Accion:</th>
                     </tr>
 
             <?php
 
-            $sql = "SELECT * FROM mh_persons,mh_fact_cabec_vent WHERE mh_persons.per_id=mh_fact_cabec_vent.mh_persons_per_id and fc_estado='N'";
+            $sql = "SELECT * FROM mh_persons,mh_fact_cabec_vent WHERE mh_persons.per_id=mh_fact_cabec_vent.mh_persons_per_id and fc_vent_id='$codigo'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -81,7 +81,6 @@ $rol_admin = $_GET['rol_admin'];
                         echo "<td>" . $row["fc_fecha_vent"] . "</td>";
                         echo "<td>" . $row["fc_vent_iva"] . "</td>";
                         echo "<td>" . $row["fc_vent_total"] . "</td>";
-                        echo "<td class='accion'><a href='anular_factura.php?codigo=".$row['fc_vent_id'] . "&rol_admin=" . $rol_admin . "'>Anular Factura</a></td>";
                 }
             } else {
                 echo "<tr>";
