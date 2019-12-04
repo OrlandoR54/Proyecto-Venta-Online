@@ -26,6 +26,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
    
         $codigo = $_GET["codigo"];
 
+
     ?>
 
     <!-- Barra navegador (acentada arriba) -->
@@ -88,9 +89,8 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 <a href="producto1.html"><img class="produc"
                                         src="../../images/aceite-de-cbd-10-full-spectrum.jpg" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
-                                    <button type="submit" class="w3-button w3-black" value='2'>Agregar <i
-                                            class="fa carro-compras"></i></button>
-
+                                    <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=2'" class="w3-button w3-black" value=''>Agregar <i
+                                            class="fa carro-compras"></i></button>         
                                 </div>
                             </div>
                             <p>Aceite de CBD 10% (FULL SPECTRUM)<br><b>$30</b></p>
