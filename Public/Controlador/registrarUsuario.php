@@ -51,7 +51,7 @@
                 echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
             }
         }
-       
+        header("Location:../Vista/login.html");
         $conn->close();
         echo "<a href='../Vista/registrarse.html'>Regresar</a>";
         ?>
