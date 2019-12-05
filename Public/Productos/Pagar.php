@@ -118,7 +118,6 @@ $codigo = $_GET["codigo"];
                $sql7="UPDATE `mh_fact_cabec_vent`  
                SET `fc_vent_total`='$total'
                WHERE $idcabecera=fc_vent_id";
-                $result2 = $conn->query($sql7);
                 if ($conn->query($sql7) == TRUE){
                     /*echo "Total Modificado";
                  } else{
@@ -138,19 +137,18 @@ $codigo = $_GET["codigo"];
 
 
 	            $sql9="DELETE FROM `mh_carrito_detalle` WHERE 	mh_carrito_cabc_carrit_id=$idcarrito";
-                $result4 = $conn->query($sql9);
                 if ($conn->query($sql9) == TRUE){
-                    echo "Eliminado";
-                    echo "<script type= 'text/javascript'>
+                    echo "Eliminado carrito detalles";
+                   /* echo "<script type= 'text/javascript'>
                     alert('El pago se efectuo con exito');
                      location='../Controlador/catalogoUser.php?codigo=$codigo';
-                     </script>";
+                     </script>";*/
                  } else{
                         echo "No eliminado";
                  } 
 
 
-                 header("Location:../Controlador/catalogoUser.php?codigo=" . $codigo . "");
+                /*header("Location:../Controlador/catalogoUser.php?codigo=" . $codigo . "");*/
               
                /* http://localhost/Proyecto-Venta-Online/Public/Controlador/catalogoUser.php?codigo=7*/
           
