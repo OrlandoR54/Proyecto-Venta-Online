@@ -1,0 +1,97 @@
+html,body {
+    font-family:Verdana,sans-serif;
+    font-size:15px;
+    line-height:1.5;
+    color:#000 !important; 
+    background-color:#f9f5d2 !important;
+}
+
+html {
+    overflow-x:hidden
+}
+h1{
+    text-align: center;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: black;
+    width: 46%;
+    text-align: left;
+    font-size: 15px;
+}
+
+
+
+.archivo::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+.archivo::before {
+    content: 'Seleccione imagen';
+    display: inline-block;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+  }
+  .archivo:hover::before {
+    border-color: black;
+  }
+  .archivo:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+.btn-primary {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ecb535;
+  }
+  
+.boton{
+    width: 30%;
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+input{font:inherit;margin:0}
+input{overflow:visible}
+.btn-radio{width:24px;height:24px;position:relative;top:6px}
+
+.contenedor {
+    border-radius: 5px;
+    background-color: #ecb535!important;
+    padding: 20px;
+  }
