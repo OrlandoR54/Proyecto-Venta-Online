@@ -26,9 +26,9 @@ $codigo = $_GET["codigo"];
                                $total=$row["SUM(carri_subt)"] ;
                                 $fechaActual = date('Y-m-d');
                              }
-                         }else {  
-                            /*echo "No hay valores a pagar";  */
-                         }           
+                         }else {
+                            echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+                        }     
             /* Recuperar productos*/
             $sql2 = "SELECT prod_nombre,SUM(carri_subt), count(mh_products_prod_id),	carrit_fecha_compr 
             FROM mh_carrito_cabc, mh_carrito_detalle,mh_products 
@@ -54,9 +54,9 @@ $codigo = $_GET["codigo"];
             $result = $conn->query($sql3);   
             if ($conn->query($sql2) == TRUE){
               /*  echo "Cabecera Ingresada";*/
-             } else{
-                  /*  echo "No se ingreso la cabecera";*/
-             } 
+             } else {
+                echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+            }
 
              /**Recuperar id de la factura cabecera */
            $sql4="SELECT `fc_vent_id` FROM `mh_detal_vent`, `mh_fact_cabec_vent` 
@@ -67,9 +67,9 @@ $codigo = $_GET["codigo"];
                 while ($row = $result->fetch_assoc()) {
                    echo "ID DE LA FACTURA CABECERA", $idcabecera=$row["fc_vent_id"];
                 }
-            }  else{
-                /*echo "No recupero id de la cabecera";*/
-            }   
+            }  else {
+                echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+            }
 
                /* Recuperar productos*/
                $sql5 = "SELECT *
@@ -116,10 +116,10 @@ $codigo = $_GET["codigo"];
                SET `fc_vent_total`='$total'
                WHERE $idcabecera=fc_vent_id";
                 if ($conn->query($sql7) == TRUE){
-                    /*echo "Total Modificado";
-                 } else{
-                        echo "No se modifica el total";*/
-                 } 
+                    /*echo "Total Modificado";*/
+                 } else {
+                    echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+                }
 
                 /**Recuperar id de la factura cabecera */
                 $sql8="SELECT `carrit_id`, `mh_persons_per_id` FROM `mh_carrito_cabc`,`mh_persons` WHERE mh_persons_per_id=$codigo";
@@ -128,9 +128,9 @@ $codigo = $_GET["codigo"];
                 while ($row = $result3->fetch_assoc()) {
                  $idcarrito=$row["carrit_id"];
                 }
-                }else{
-                     echo "No recupero id de la cabecera";
-                 }   
+                }else {
+                    echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+                }
 
 
 	            $sql9="DELETE FROM `mh_carrito_detalle` WHERE 	mh_carrito_cabc_carrit_id=$idcarrito";
@@ -140,9 +140,9 @@ $codigo = $_GET["codigo"];
                     alert('El pago se efectuo con exito');
                      location='../Controlador/catalogoUser.php?codigo=$codigo';
                      </script>";*/
-                 } else{
-                        echo "No eliminado";
-                 } 
+                 } else {
+                    echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+                }
 
 
                 /*header("Location:../Controlador/catalogoUser.php?codigo=" . $codigo . "");*/
