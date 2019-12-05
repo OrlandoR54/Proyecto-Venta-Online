@@ -68,10 +68,10 @@ $rol_admin = $_GET['rol_admin'];
                     <th class="tg-lboi">Total</th>
                     <th class="tg-lboi">Accion:</th>
                     </tr>
-
             <?php
 
             $sql = "SELECT * FROM mh_persons,mh_fact_cabec_vent WHERE mh_persons.per_id=mh_fact_cabec_vent.mh_persons_per_id and fc_estado='N'";
+            //comentario para vara hacer el push Funciona
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {

@@ -10,6 +10,7 @@
 <body>
     <?php
     //Incluir conexion a la BD
+    //comentario para hacer el push Funcioanado
     include '../../../config/conexionBD.php';
     $codigo =$_GET['codigo'];
     $sql = "UPDATE mh_fact_cabec_vent SET fc_estado = 'S' WHERE fc_vent_id = '$codigo'";

@@ -3,6 +3,9 @@ session_start();
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     header("Location: /SistemaDeGestion/public/vista/login.html");
 }
+if($_SESSION["per_rol"]!='A'){
+    header("Location:../../Public/Controlador/login.php ");  
+}
 ?>
 <!DOCTYPE html>
 <html>

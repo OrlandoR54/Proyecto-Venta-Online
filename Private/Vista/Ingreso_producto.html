@@ -4,64 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Ingresar Producto</title>
+    <link rel="stylesheet" href="../../css/tabla.css">
 </head>
 
 <body>
+    <div class="contenedor">
+        <form name="MiForm" id="MiForm" method="post" action="../Controlador/GestionProductos/ingresoProductos.php"
+            enctype="multipart/form-data">
 
-    <form name="MiForm" id="MiForm" method="post" action="../Controlador/GestionProductos/ingresoProductos.php"
-        enctype="multipart/form-data">
 
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Seleccione la imagen</label>
-            <div class="col-sm-8">
-                <input type="file" class="form-control" id="image" name="image" multiple>
+            <label for="image" class="col-sm-2 control-label">Seleccione la imagen</label>
+            <input class="archivo" type="file" id="image" name="image" multiple>
+
+
+            <label for="nombre" class="col-sm-2 control-label">Nombre Producto</label>
+            <input type="text" id="nombre" name="nombre" value="" placeholder="Ingrese el nombre del producto" required
+                class="registro" />
+
+
+            <label for="descripcion" class="col-sm-2 control-label">Descripcion del producto</label>
+            <input type="text" id="descripcion" name="descripcion" value=""
+                placeholder="Ingrese una breve descripcion del Producto" required class="registro" />
+
+
+            <label for="PrecioCompra" class="col-sm-2 control-label">Precio de Compra</label>
+            <input type="text" id="PrecioCompra" name="PrecioCompra" value="" placeholder="Ingrese el precio de Compra"
+                required class="registro" />
+
+
+            <label for="PrecioVenta" class="col-sm-2 control-label">Precio de venta</label>
+            <input type="text" id="PrecioVenta" name="PrecioVenta" value="" placeholder="Ingrese el precio de Venta"
+                required class="registro" />
+
+
+            <label for="StockProducto" class="col-sm-2 control-label">Stock</label>
+            <input type="text" id="StockProducto" name="StockProducto" value=""
+                placeholder="Cuantos productos va ingresar" required class="registro" />
+
+
+            <label for="FechaVencimiento" class="col-sm-2 control-label">Fecha de vencimiento</label>
+            <input type="date" id="FechaVencimiento" name="FechaVencimiento" value=""
+                placeholder="Ingrese la fecha de Vencimiento" required class="registro" />
+
+            <div>
+                <label for="Proveedor" class="col-sm-2 control-label">Proveedor</label>
+                <input class="btn-radio" type="radio" id="Proveedor" name="Proveedor" value="1">Cannabis.Csa<br>
+                <input class="btn-radio" type="radio" id="Proveedor" name="Proveedor" value="2">Ganesh GrowShop<br>
             </div>
-        </div>
 
-        <br>
-        <label class="col-sm-2 control-label">Nombre Producto</label>
-        <input type="text" id="nombre" name="nombre" value=""
-            placeholder="Ingrese el nombre del producto" required class="registro" />
-
-        <br>
-        <label class="col-sm-2 control-label">Descripcion del producto</label>
-        <input type="text" id="descripcion" name="descripcion" value=""
-            placeholder="Ingrese una breve descripcion del Producto" required class="registro" />
-
-        <br>
-        <label class="col-sm-2 control-label">Precio de Compra</label>
-        <input type="text" id="PrecioCompra" name="PrecioCompra" value="" placeholder="Ingrese el precio de Compra"
-            required class="registro" />
-
-        <br>
-        <label class="col-sm-2 control-label">Precio de venta</label>
-        <input type="text" id="PrecioVenta" name="PrecioVenta" value="" placeholder="Ingrese el precio de Venta"
-            required class="registro" />
-
-        <br>
-        <label class="col-sm-2 control-label">Stock</label>
-        <input type="text" id="StockProducto" name="StockProducto" value="" placeholder="Cuantos productos va ingresar"
-            required class="registro" />
-
-        <br>
-        <label class="col-sm-2 control-label">Fecha de vencimiento</label>
-        <input type="date" id="FechaVencimiento" name="FechaVencimiento" value=""
-            placeholder="Ingrese la fecha de Vencimiento" required class="registro" />
-
-        <br>
-        <label class="col-sm-2 control-label">Proveedor</label>
-        <br>
-        <input type="radio" id="Proveedor" name="Proveedor" value="1">Cannabis.Csa<br>
-        <input type="radio" id="Proveedor" name="Proveedor" value="2">Ganesh GrowShop<br>
-
-        <br>
-
-        <button name="submit" class="btn btn-primary">Cargar Imagen</button>
-        <input type="reset" id="cancelar" name="cancelar" value="Cancelar" class="boton"
-            onclick="location.href='../Controlador/GestionProductos/gestion_productos.php?rol_admin=<?php echo A ?'">
-          
+            <button name="submit" class="btn btn-primary">Cargar Imagen</button>
+           <center> <input type="reset" id="cancelar" name="cancelar" value="Cancelar" class="boton" onclick="location.href='../Controlador/GestionProductos/gestion_productos.php?rol_admin=<?php echo A ?'">
+           </center>
     </form>
-
+</div>
 </body>
 
 </html>

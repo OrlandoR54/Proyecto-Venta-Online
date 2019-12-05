@@ -86,7 +86,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     <div class="w3-col l3 s6">
                         <div class="w3-container  tam">
                             <div class="w3-display-container">
-                                <a href="calificacion.php?codigo=2"><img class="produc"
+                                <a href="calificacion/calificacion.php?codigo=2&codigoPersona=<?php echo $codigo ?>"><img class="produc"
                                         src="../../images/aceite-de-cbd-10-full-spectrum.jpg" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
                                     <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=2'" class="w3-button w3-black" value=''>Agregar <i
@@ -98,7 +98,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                         <div class="w3-container">
                             <div class="w3-display-container">
                                 
-                                <a href="calificacion.php?codigo=5"><img class="produc"
+                                <a href="calificacion/calificacion.php?codigo=5&codigoPersona=<?php echo $codigo ?>"><img class="produc"
                                         src="../../images/aceite-de-cbd-5-full-spectrum.jpg" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
                                     <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=5'" class="w3-button w3-black" value=''>Agregar <i
@@ -112,7 +112,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     <div class="w3-col l3 s6 tam">
                         <div class="w3-container">
                             <div class="w3-display-container">
-                                <a href="calificacion.php?codigo=1"><img class="produc" src="../../images/aceitecbd-5.jpg"
+                                <a href="calificacion/calificacion.php?codigo=1&codigoPersona=<?php echo $codigo ?>"><img class="produc" src="../../images/aceitecbd-5.jpg"
                                         style="width:100%"></a>
                                 <span class="w3-tag w3-display-topleft">New</span>
                                 <div class="w3-display-middle w3-display-hover">
@@ -124,7 +124,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                         </div>
                         <div class="w3-container">
                             <div class="w3-display-container">
-                                <a href="calificacion.php?codigo=12"><img class="produc"
+                                <a href="calificacion/calificacion.php?codigo=12&codigoPersona=<?php echo $codigo ?>"><img class="produc"
                                         src="../../images/Aceite_de_CBD_15_por_ciento_Sativida.jpg"
                                         style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
@@ -139,7 +139,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     <div class="w3-col l3 s6 tam">
                         <div class="w3-container">
                             <div class="w3-display-container">
-                                <a href="calificacion.php?codigo=3"><img class="produc" src="../../images/aceite-cbd-xl.png"
+                                <a href="calificacion/calificacion.php?codigo=3&codigoPersona=<?php echo $codigo ?>"><img class="produc" src="../../images/aceite-cbd-xl.png"
                                         style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
                                     <button type="submit"  onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=3'" class="w3-button w3-black">Agregar <i
@@ -150,7 +150,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                         </div>
                         <div class="w3-container">
                             <div class="w3-display-container">
-                                <a href="calificacion.php?codigo=6"><img class="produc" src="../../images/Aceite-CBD-5.jpg"
+                                <a href="calificacion/calificacion.php?codigo=6&codigoPersona=<?php echo $codigo ?>"><img class="produc" src="../../images/Aceite-CBD-5.jpg"
                                         style="width:100%"></a>
                                 <span class="w3-tag w3-display-topleft">Sale</span>
                                 <div class="w3-display-middle w3-display-hover">
@@ -165,7 +165,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     <div class="w3-col l3 s6 tam">
                         <div class="w3-container">
                             <div class="w3-display-container">
-                                <a href="calificacion.php?codigo=4"><img class="produc" src="../../images/Aceite-CBD-5-500mg.jpg"
+                                <a href="calificacion/calificacion.php?codigo=4&codigoPersona=<?php echo $codigo ?>"><img class="produc" src="../../images/Aceite-CBD-5-500mg.jpg"
                                         style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
                                     <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=4'" class="w3-button w3-black">Agregar <i
@@ -176,7 +176,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                         </div>
                         <div class="w3-container">
                             <div class="w3-display-container">
-                                <a href="calificacion.php?codigo=7"><img class="produc" src="../../images/Aceite-CBD-2.5.jpg"
+                                <a href="calificacion/calificacion.php?codigo=7&codigoPersona=<?php echo $codigo ?>"><img class="produc" src="../../images/Aceite-CBD-2.5.jpg"
                                         style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
                                     <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=7'" class="w3-button w3-black">Agregar <i
@@ -201,7 +201,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                         <div class="w3-container  tam">
                             <div class="w3-display-container">
                                 <span class="w3-tag w3-display-topleft">New</span>
-                                <a href="calificacion.php?codigo=8"> <img class="produc" src="../../images/crema-cbd-forte.jpg"
+                                <a href="calificacion/calificacion.php?codigo=8&codigoPersona=<?php echo $codigo ?>"> <img class="produc" src="../../images/crema-cbd-forte.jpg"
                                         style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
                                     <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=8'" class="w3-button w3-black">Agregar <i
@@ -241,7 +241,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     <div class="w3-col l3 s6 tam">
                         <div class="w3-container">
                             <div class="w3-display-container">
-                                <a href="calificacion.php?codigo=9"><img class="produc"
+                                <a href="calificacion/calificacion.php?codigo=9&codigoPersona=<?php echo $codigo ?>"><img class="produc"
                                         src="../../images/Crema  CBD-Healing-Balm.jpg" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
                                     <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=9'" class="w3-button w3-black">Agregar<i
@@ -264,7 +264,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     <div class="w3-col l3 s6 tam">
                         <div class="w3-container">
                             <div class="w3-display-container">
-                                <a href="calificacion.php?codigo=10"><img class="produc"
+                                <a href="calificacion/calificacion.php?codigo=10&codigoPersona=<?php echo $codigo ?>"><img class="produc"
                                         src="../../images/quality-cbd-healing-balm.jpg" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
                                     <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=10'" class="w3-button w3-black">Agregar <i
@@ -288,7 +288,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     <div class="w3-col l3 s6 tam">
                         <div class="w3-container">
                             <div class="w3-display-container">
-                                <a href="calificacion.php?codigo=11"><img class="produc"
+                                <a href="calificacion/calificacion.php?codigo=11&codigoPerson=<?php echo $codigo ?>"><img class="produc"
                                         src="../../images/cream-500mg-cbd-hemp-pain.png" style="width:100%"></a>
                                 <div class="w3-display-middle w3-display-hover">
                                     <button type="submit" onclick = "location='../Productos/addProductoCar.php?codigo=<?php echo $codigo ?>&value=11'"  class="w3-button w3-black">Agregar <i
