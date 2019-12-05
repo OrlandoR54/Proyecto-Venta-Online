@@ -110,9 +110,9 @@ $codigo = $_GET["codigo"];
                   // $result1 = $conn->query($sql6);
                    if ($conn->query($sql6) == TRUE){
                    echo "Detalle ingresado";
-                   } else{
-                       echo "No se ingreso el detalle";
-                   }   
+                   } else {
+                    echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+                }
                }
 
                $sql7="UPDATE `mh_fact_cabec_vent`  
