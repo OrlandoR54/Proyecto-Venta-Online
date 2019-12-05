@@ -10,7 +10,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
     <head>
         <meta charset="UTF-8">
-        <title>Pagina principal administrador</title>
+        <title>Confirmar Pago</title>
         <link rel="stylesheet" href="../../css/styles.css">
         <link rel="stylesheet" href="../../css/structure.css">
         <link rel="stylesheet" href="../../css/catalogo.css">
@@ -50,11 +50,6 @@ $codigo = $_GET["codigo"];
         <div class="barra-lateral barra-block barra-card w3-animate-left" style="display:none" id="mySidebar">
             <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
             <br>
-            <a href="gestion_user.php?rol_admin=<?php echo $rol_admin ?>" class="w3-bar-item w3-button">Gestionar Usuarios</a>
-            <a href="GestionProductos/gestion_productos.php?rol_admin=<?php echo $rol_admin ?>" class="w3-bar-item w3-button">Gestionar Productos</a>
-            <a href="GestionProductos/gestion_comentarios.php?rol_admin=<?php echo $rol_admin ?>" class="w3-bar-item w3-button">Gestionar Comentarios</a>
-            <a href="envios.php?rol_admin=<?php echo $rol_admin ?>" class="w3-bar-item w3-button">Gestion Pedidos</a>
-            <a href="GestionFacturas/gestion_factura.php?rol_admin=<?php echo $rol_admin ?>" class="w3-bar-item w3-button">Gestionar Facturas</a>
         </div>
 
         <div id="main">
@@ -68,12 +63,11 @@ $codigo = $_GET["codigo"];
 
             <!--Comienzo-->
             <div class="w3-container" id="aceite">
-            <button type="button"  onclick = "location='validarTarjeta.php?codigo=<?php echo $codigo ?>&value=5'">Pagar</button>
 
               <!--  <div class="w3-container w3-text-grey" id="jeans">
                     <p> </p>
                 </div> -->
-
+                <button type="button"  onclick = "location='AgregarTarjeta.php?codigo=<?php echo $codigo ?>&value=5'">AgregarTarjeta</button>
                 <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
                     <colgroup>
                         <col style="width: 105px">
@@ -83,42 +77,31 @@ $codigo = $_GET["codigo"];
                    
                     </colgroup>
                     <tr>
-                        <th class="tg-lboi">Producto</th>
-                        <th class="tg-lboi">Cantidad</th>
-                        <th class="tg-lboi">Subtotal</th>
-                        <th class="tg-lboi">Total a pagar</th>
+                        <th class="tg-lboi">Titular</th>
+                        <th class="tg-lboi">Estado de la tarjeta</th>
+                        <th class="tg-lboi">Accion</th>
+                       
                        
                     </tr>
 
             <?php
             /*SUM(columna)*/
-            $sql = "SELECT prod_nombre,SUM(carri_subt), count(mh_products_prod_id) FROM mh_carrito_cabc, mh_carrito_detalle,mh_products WHERE mh_persons_per_id=$codigo
-             and carrit_id=mh_carrito_cabc_carrit_id and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id GROUP BY prod_nombre";
+            $sql = "SELECT trajet_nomb_titular, tar_estado
+             FROM mh_tarjet_credit ,mh_persons 
+             WHERE mh_persons_per_id=$codigo 
+             GROUP BY trajet_nomb_titular";
             $result = $conn->query($sql);
-
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["prod_nombre"] . "</td>";
-                        echo "<td>" . $row["count(mh_products_prod_id)"] . "</td>";
-                        echo "<td>" . $row["SUM(carri_subt)"] . "</td>";
-
-                      
+                        echo "<td>" . $row["trajet_nomb_titular"] . "</td>";
+                        echo "<td>" . $row["tar_estado"] . "</td>";
+                        echo "<td class='accion'><a href='Pagar.php?codigo=" . $codigo . "'>Pagar</a></td>";
                 }
             }
-              $sql1 = "SELECT prod_nombre,SUM(carri_subt) FROM mh_carrito_cabc, mh_carrito_detalle,mh_products 
-                        WHERE mh_persons_per_id=$codigo
-                        and carrit_id=mh_carrito_cabc_carrit_id  and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id";
-                         $result = $conn->query($sql1);
-                         if($result->num_rows >0){
-                             while($row=$result->fetch_assoc()){
-                                echo "<td>" . $row["SUM(carri_subt)"] . "</td>";
-                             }
-                         }else {
-                            echo "<tr>";
-                            echo "<td colspan='10'>No hay valores a pagar</td>";
-                            echo "</tr>";
-                         }
+            else{
+                echo"Usted no tiene ninguna tarjeta registrada";
+            }
             $conn->close();
             ?>
         </table>   
