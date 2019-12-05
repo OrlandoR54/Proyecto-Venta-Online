@@ -16,16 +16,15 @@
     <!-- Barra navegador (acentada arriba) -->
     <div class="cabecera">
         <div class="barra cabColor espAmplio margRelleno sombra">
-            <a href="index.html" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
+            <a href="indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
             <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
             <div class="derecha">
-                <!-- <marquee behavior="slide" direction="right" scrollamount=”3″ loop=1 scrolldelay="2" > -->
-                <a href="index.html" class="barraItem boton">Home</a>
-                <a href="catalogo.html" class="barraItem boton">Productos</a>
-                <a href="about.html" class="barraItem boton">About</a>
-                <a href="login.html" class="barraItem boton">Log In/Sing up</a>
-                <a href="carrito.html"><i class="carro-compras carro-derecha"></i></a>
-                </marquee>
+                <a href="../indexUser.php" class="barraItem boton">Home</a>
+                <a href="../catalogoUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Productos</a>
+                <a href="aboutUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">About</a>
+                <a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi Cuenta</a>
+                <a href="../../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
+                <a href="../Productos/carrito.php?codigo=<?php echo $codigo ?>"><i class="carro-compras carro-derecha"></i></a>
             </div>
         </div>
     </div>
@@ -44,31 +43,70 @@
         <?php
         include '../../../config/conexionBD.php';
         $codigo = $_GET["codigo"];
-        $sql = "SELECT prod_nombre FROM mh_products WHERE prod_id = $codigo";
+        $sql = "SELECT prod_nombre,prod_descripcion FROM mh_products WHERE prod_id = $codigo";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
-        echo "<h1>". $row['prod_nombre'] ."</h1>";
+        echo "<h2>". $row['prod_nombre'] ."</h2>";
+        echo "<p>". $row['prod_descripcion'] ."</p>";
         ?>
+
+        <div class="descripcion">
+        <?php
+        include '../../../config/conexionBD.php';
+        $codigo = $_GET["codigo"];
+        $sql = "SELECT per_nombre, com_comentario
+        FROM  mh_comentarios, mh_persons
+        where  mh_comentarios.mh_products_prod_id = $codigo
+        AND mh_persons.per_id = mh_comentarios.mh_persons_per_id";
+        $result = $conn->query($sql);
+        echo "<h1>Comentarios: </h1>";
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<h3>". $row['per_nombre'] ."</h3>";
+                echo "<p>". $row['com_comentario'] ."</p>";
+            }
+        }
+        
+
+
+        ?>
+
+
+        </div>
         
         <div>
             <span>$30</span>
             <p>&#10004; En stock</p>
             <div class="cola">
-                <p class="cant"><label for="cantidad">Cantidad</label></p>
-                <input class="numero" type="number" name="cantidad" min="1">
-                <button type="submit" class="w3-button w3-black">Agregar <i class="fa carro-compras"></i></button>
+                
+                
+                
             </div>
             <div class="Comentario">
                 <br>
                     Comentario: 
                     <br>
-                    <textarea name="comentarios" rows="8" cols="40" placeholder="Escribe aqui tu Comentario:" ></textarea>
+                    <?php
+                    $codigoPro = $_GET["codigo"];
+                    $codigoPer = $_GET["codigoPersona"];
+                    echo "<form method='POST' action='insertarComentario.php?codigoProdcuto=$codigoPro&codigoPersona=$codigoPer'>
+                    <textarea name='comentario' rows='8' cols='40' placeholder='Escribe aqui tu Comentario:' ></textarea>
+                    <br>
+                    <label for='Calificacion' id='calificacion' name='calificacion'>Calificacion:</label>
+                    <select name='calificacion' id='calificacion'>
+                    <option value='excelente'>excelente</option>
+                    <option value='bueno'>bueno</option>
+                    <option value='malo'>malo</option>
+                    <option value='pesismo'>pesimo</option>
+                    </select>
+                    <input type='submit' id = 'comentar' name = 'comentar' value='calificar'>
+                    </form>";
+                    ?> 
             </div>
             <div class="Calificacion">
                 <br>
-                <label for="Calificacion" id="calificacion " name="calificacion">Calificacion: </label>
-                <input type="text" id="comentario" name="comanetario">
-                <input type="button" id="aceptar" name="aceptar" value="Aceptar." disabled="True">
+               
+                
             </div>
         </div>
     </div>
