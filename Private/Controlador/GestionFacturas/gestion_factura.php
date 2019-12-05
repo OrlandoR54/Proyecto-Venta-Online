@@ -33,7 +33,7 @@ $rol_admin = $_GET['rol_admin'];
     <!-- Barra navegador (acentada arriba) -->
     <div class="cabecera">
         <div class="barra cabColor espAmplio margRelleno sombra">
-            <a href="#home" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
+            <a href="../index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
             <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
             <div class="derecha">
                 <a href="../index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>
@@ -82,12 +82,10 @@ $rol_admin = $_GET['rol_admin'];
                         echo "<td>" . $row["fc_vent_iva"] . "</td>";
                         echo "<td>" . $row["fc_vent_total"] . "</td>";
                         echo "<td class='accion'><a href='anular_factura.php?codigo=".$row['fc_vent_id'] . "&rol_admin=" . $rol_admin . "'>Anular Factura</a></td>";
-                        echo "<td class='accion'><a href='../../Public/Controlador/eliminarUser.php?codigo=" . $row['per_id'] . "&rol_admin=" . $rol_admin . "'>Anular Factura</a></td>";
-
                 }
             } else {
                 echo "<tr>";
-                echo "<td colspan='10'>No existen usuarios</td>";
+                echo "<td colspan='6'>No existen usuarios</td>";
                 echo "</tr>";
             }
             $conn->close();

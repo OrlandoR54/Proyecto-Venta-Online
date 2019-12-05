@@ -49,6 +49,7 @@ $codigo =$_GET['codigo'];
     <main class="main">
         </section>
         <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
+        <div>
         <colgroup>
                     <col style="width: 105px">
                     <col style="width: 120px">
@@ -68,7 +69,7 @@ $codigo =$_GET['codigo'];
                     <th class="tg-lboi">Iva</th>
                     <th class="tg-lboi">Total</th>
                     </tr>
-
+        </div>
             <?php
 
             $sql = "SELECT * FROM mh_persons,mh_fact_cabec_vent WHERE mh_persons.per_id=mh_fact_cabec_vent.mh_persons_per_id and fc_vent_id='$codigo'";
@@ -90,7 +91,12 @@ $codigo =$_GET['codigo'];
             $conn->close();
             ?>
         </table>
-   
+        <form  method="POST" action="factura_anulada.php?codigo=<?php echo $codigo ?>?rol_admin=<?php echo $rol_admin ?>" >
+        <div class= "botones">
+                    <input class="boton" type="submit" id="eliminar" name="eliminar" value="Anular"  >
+                    <input class="boton" type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='gestion_factura.php?rol_admin=<?php echo $rol_admin ?>'" class="boton">
+                </div>
+                </form>
 </body>
 
 </html>
