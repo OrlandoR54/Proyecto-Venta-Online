@@ -91,9 +91,9 @@ $codigo =$_GET['codigo'];
             $conn->close();
             ?>
         </table>
-        <form action="" method="POST" >
+        <form  method="POST" action="factura_anulada.php?codigo=<?php echo $codigo ?>" >
         <div class= "botones">
-                    <input class="boton" type="submit" id="eliminar" name="eliminar" value="Eliminar">
+                    <input class="boton" type="submit" id="eliminar" name="eliminar" value="Anular"  >
                     <input class="boton" type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='gestion_factura.php?rol_admin=<?php echo $rol_admin ?>'" class="boton">
                 </div>
                 </form>
