@@ -60,7 +60,6 @@ CREATE TABLE mh_detal_vent (
     fd_vent_cantidad                INTEGER NOT NULL,
     fd_vent_precio                  FLOAT(7) NOT NULL,
     mh_fact_cabec_vent_fc_vent_id   INTEGER NOT NULL,
-    fc_vent_subtotal                FLOAT(7) NOT NULL,
     mh_products_prod_id             INTEGER NOT NULL,
     fd_vent_total                   FLOAT(7) NOT NULL
 );
