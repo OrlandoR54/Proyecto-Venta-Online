@@ -98,10 +98,10 @@ $codigo = $_GET["codigo"];
                 VALUES(
                     NULL,
                     1,
-                    $lista1[$i],
-                    $idcabecera,
-                    $lista[$i],
-                    $lista1[$i]
+                    '$lista1[$i]',
+                    '$idcabecera',
+                    '$lista[$i]',
+                    '$lista1[$i]'
 
                 );";
                   // $result1 = $conn->query($sql6);
