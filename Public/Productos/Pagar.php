@@ -59,15 +59,24 @@ $codigo = $_GET["codigo"];
             }
 
              /**Recuperar id de la factura cabecera */
-           $sql4="SELECT `fc_vent_id` FROM `mh_detal_vent`, `mh_fact_cabec_vent` 
-           WHERE mh_persons_per_id=$codigo 
-           ORDER BY mh_persons_per_id DESC";
+           $sql4="SELECT
+           `fc_vent_id`
+       FROM
+           `mh_detal_vent`,
+           `mh_fact_cabec_vent`
+       WHERE
+           mh_persons_per_id = $codigo
+       GROUP BY
+           mh_persons_per_id
+       DESC
+           ";
              $result = $conn->query($sql4);
              if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                    echo "ID DE LA FACTURA CABECERA", $idcabecera=$row["fc_vent_id"];
                 }
             }  else {
+             
                 echo "<p class='error'>Error2: " . mysqli_error($conn) . "</p>";
             }
 
