@@ -54,7 +54,7 @@
         <?php
         include '../../../config/conexionBD.php';
         $codigo = $_GET["codigo"];
-        $sql = "SELECT per_nombre, com_comentario
+        $sql = "SELECT per_nombre, com_comentario, com_calificacion
         FROM  mh_comentarios, mh_persons
         where  mh_comentarios.mh_products_prod_id = $codigo
         AND mh_persons.per_id = mh_comentarios.mh_persons_per_id";
@@ -63,6 +63,7 @@
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<h3>". $row['per_nombre'] ."</h3>";
+                echo "<b>". $row['com_calificacion'] ."</b>";
                 echo "<p>". $row['com_comentario'] ."</p>";
             }
         }
