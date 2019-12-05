@@ -72,34 +72,50 @@ $codigo = $_GET["codigo"];
             }   
 
                /* Recuperar productos*/
-               $sql5 = "SELECT carri_subt, mh_products_prod_id,	carrit_fecha_compr,carrit_prod_vent 
-               FROM mh_carrito_cabc, mh_carrito_detalle,mh_products 
-               WHERE mh_persons_per_id=$codigo
-               AND carrit_id=mh_carrito_cabc_carrit_id
-               AND mh_products_prod_id=prod_id";
+               $sql5 = "SELECT *
+           FROM
+               `mh_carrito_cabc`
+           LEFT JOIN `mh_carrito_detalle` ON `mh_carrito_detalle`.`mh_carrito_cabc_carrit_id` = `mh_carrito_cabc`.`carrit_id`
+           LEFT JOIN `mh_products` ON `mh_carrito_detalle`.`mh_products_prod_id` = `mh_products`.`prod_id`
+           WHERE
+               `mh_persons_per_id` = $codigo";
               /* AND mh_products_prod_id=mh_products_prod_id ";*/
                $result = $conn->query($sql5);
+               $lista=array();
+               $lista1=array();
                if ($result->num_rows > 0) {
                    while ($row = $result->fetch_assoc()) {
-                       $IDdelProductoA=$row["mh_products_prod_id"] ;
+                     array_push($lista,$row["mh_products_prod_id"]) ;
+                     array_push($lista1,$row["carri_subt"]) ;
+                   /* $IDdelProductoA=$row["mh_products_prod_id"] ;
                        $SubtotalCadaProductoA=$row["carri_subt"] ;
-                         $cant=$row["carrit_prod_vent"];
-                        /*Ingresar Detalles Factura */
-                       $sql6="INSERT INTO `mh_detal_vent`(`fd_vent_id`, `fd_vent_cantidad`, `fd_vent_precio`,
-                        `mh_fact_cabec_vent_fc_vent_id`, `fc_vent_subtotal`, `mh_products_prod_id`, `fd_vent_total`)
-                        VALUES (NULL,'$cant','$SubtotalCadaProductoA','$idcabecera', '$SubtotalCadaProductoA', '$IDdelProductoA', '$SubtotalCadaProductoA')";
-                        $result1 = $conn->query($sql6);
-                        if ($conn->query($sql6) == TRUE){
-                       /* echo "Detalle ingresado";*/
-                        } else{
-                           /* echo "No se ingreso el detalle";*/
-                        }  
-                       
+                         $cant=$row["carrit_prod_vent"];*/
                    }
-               }  
-              
+               }
+               /*Ingresar Detalles Factura */
+               for($i=0; $i<count($lista); $i++){
+                $a=$i+1;
+                $b=$i+2;
 
-             $sql7="UPDATE `mh_fact_cabec_vent`  
+                $sql6="INSERT INTO `mh_detal_vent`
+                VALUES(
+                    NULL,
+                    '1',
+                    $lista1[$i],
+                    $idcabecera,
+                    $lista[$i],
+                    $lista1[$i]
+
+                );";
+                  // $result1 = $conn->query($sql6);
+                   if ($conn->query($sql6) == TRUE){
+                   echo "Detalle ingresado";
+                   } else{
+                       echo "No se ingreso el detalle";
+                   }   
+               }
+
+               $sql7="UPDATE `mh_fact_cabec_vent`  
                SET `fc_vent_total`='$total'
                WHERE $idcabecera=fc_vent_id";
                 $result2 = $conn->query($sql7);
@@ -109,7 +125,7 @@ $codigo = $_GET["codigo"];
                         echo "No se modifica el total";*/
                  } 
 
-                   /**Recuperar id de la factura cabecera */
+                /**Recuperar id de la factura cabecera */
                 $sql8="SELECT `carrit_id`, `mh_persons_per_id` FROM `mh_carrito_cabc`,`mh_persons` WHERE mh_persons_per_id=$codigo";
                 $result3 = $conn->query($sql8);
                 if ($result3->num_rows > 0) {
@@ -120,8 +136,9 @@ $codigo = $_GET["codigo"];
                      echo "No recupero id de la cabecera";
                  }   
 
-                 $sql9="DELETE FROM `mh_carrito_detalle` WHERE 	mh_carrito_cabc_carrit_id=$idcarrito";
-                 $result4 = $conn->query($sql9);
+
+	            $sql9="DELETE FROM `mh_carrito_detalle` WHERE 	mh_carrito_cabc_carrit_id=$idcarrito";
+                $result4 = $conn->query($sql9);
                 if ($conn->query($sql9) == TRUE){
                     echo "Eliminado";
                     echo "<script type= 'text/javascript'>
@@ -132,6 +149,11 @@ $codigo = $_GET["codigo"];
                         echo "No eliminado";
                  } 
 
+
+               
+              
+              
+          
              
             $conn->close();
             ?>
