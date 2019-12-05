@@ -55,7 +55,7 @@ $codigo = $_GET["codigo"];
             if ($conn->query($sql2) == TRUE){
               /*  echo "Cabecera Ingresada";*/
              } else {
-                echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+                echo "<p class='error'>Error1: " . mysqli_error($conn) . "</p>";
             }
 
              /**Recuperar id de la factura cabecera */
@@ -68,7 +68,7 @@ $codigo = $_GET["codigo"];
                    echo "ID DE LA FACTURA CABECERA", $idcabecera=$row["fc_vent_id"];
                 }
             }  else {
-                echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+                echo "<p class='error'>Error2: " . mysqli_error($conn) . "</p>";
             }
 
                /* Recuperar productos*/
@@ -108,17 +108,17 @@ $codigo = $_GET["codigo"];
                    if ($conn->query($sql6) == TRUE){
                    echo "Detalle ingresado";
                    } else {
-                    echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+                    echo "<p class='error'>Error3: " . mysqli_error($conn) . "</p>";
                 }
                }
 
                $sql7="UPDATE `mh_fact_cabec_vent`  
                SET `fc_vent_total`='$total'
-               WHERE $idcabecera=fc_vent_id";
+               WHERE $idcabecera='fc_vent_id'";
                 if ($conn->query($sql7) == TRUE){
                     /*echo "Total Modificado";*/
                  } else {
-                    echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+                    echo "<p class='error'>Error4: " . mysqli_error($conn) . "</p>";
                 }
 
                 /**Recuperar id de la factura cabecera */
@@ -129,7 +129,7 @@ $codigo = $_GET["codigo"];
                  $idcarrito=$row["carrit_id"];
                 }
                 }else {
-                    echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+                    echo "<p class='error'>Error5: " . mysqli_error($conn) . "</p>";
                 }
 
 
@@ -141,7 +141,7 @@ $codigo = $_GET["codigo"];
                      location='../Controlador/catalogoUser.php?codigo=$codigo';
                      </script>";*/
                  } else {
-                    echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+                    echo "<p class='error'>Error6: " . mysqli_error($conn) . "</p>";
                 }
 
 
