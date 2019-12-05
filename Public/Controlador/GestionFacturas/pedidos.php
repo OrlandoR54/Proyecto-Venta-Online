@@ -19,7 +19,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Mis Facturas</title>
+    <title>Mis Pedidos</title>
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/structure.css">
     <link rel="stylesheet" href="../../../css/catalogo.css">

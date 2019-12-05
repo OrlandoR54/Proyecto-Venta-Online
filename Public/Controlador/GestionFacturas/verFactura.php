@@ -127,7 +127,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                       echo "<td>" .$row["prod_nombre"] . "</td>";
                       echo "<td>" .$row["fd_vent_precio"] . "</td>";
                       echo "<td>" .$row["fd_vent_cantidad"] . "</td>";
-                      echo "<td>" .$row["fc_vent_subtotal"] . "</td>";
+                      echo "<td>" .$row["fd_vent_total"] . "</td>";
                 }
             } else {
                 echo "<tr>";
