@@ -27,6 +27,8 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     <?php
     include '../../../config/conexionBD.php';
     $codigo = $_GET["codigo"];
+    $idFactura = $_GET["idFactura"];
+    
     ?>
 
 
@@ -71,7 +73,10 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
             $sql = "SELECT fc_vent_id,per_nombre,per_direccion, fc_fecha_vent,fc_vent_total
             FROM mh_fact_cabec_vent, mh_persons,mh_products,mh_detal_vent 
-            WHERE fc_vent_id=mh_fact_cabec_vent_fc_vent_id and mh_persons_per_id=$codigo and per_id=$codigo and prod_id=mh_products_prod_id 
+            WHERE fc_vent_id=mh_fact_cabec_vent_fc_vent_id 
+            and $idFactura=fc_vent_id
+             and mh_persons_per_id=$codigo and per_id=$codigo 
+             and prod_id=mh_products_prod_id 
             GROUP BY mh_fact_cabec_vent_fc_vent_id";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
@@ -115,6 +120,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
             $sql = "SELECT *
             FROM mh_fact_cabec_vent, mh_persons,mh_detal_vent, mh_products 
             WHERE fc_vent_id=mh_fact_cabec_vent_fc_vent_id 
+            and $idFactura=fc_vent_id
             and mh_persons_per_id=$codigo 
             and per_id=$codigo 
             and prod_id=mh_products_prod_id 
@@ -162,7 +168,10 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
             include '../../../config/conexionBD.php';
             $sql = "SELECT fc_vent_total
             FROM mh_fact_cabec_vent, mh_persons,mh_products,mh_detal_vent 
-            WHERE fc_vent_id=mh_fact_cabec_vent_fc_vent_id and mh_persons_per_id=$codigo and per_id=$codigo and prod_id=mh_products_prod_id 
+            WHERE fc_vent_id=mh_fact_cabec_vent_fc_vent_id
+            and $idFactura=fc_vent_id
+             and mh_persons_per_id=$codigo 
+             and per_id=$codigo and prod_id=mh_products_prod_id 
             GROUP BY mh_fact_cabec_vent_fc_vent_id";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {

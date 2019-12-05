@@ -84,7 +84,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                         echo "<td>" . $row["fc_vent_id"] . "</td>";
                         echo "<td>" . $row["fc_fecha_vent"] . "</td>";
                         echo "<td>" . $row["fc_vent_total"] . "</td>";
-                        echo "<td class='accion'><a href='verFactura.php?codigo=" . $row['mh_persons_per_id'] . "'>Imprimir Factura</a></td>";
+                        echo "<td class='accion'><a href='verFactura.php?codigo=" . $row['mh_persons_per_id'] . "&idFactura=". $row['fc_vent_id']. "'>Imprimir Factura</a></td>";
                     }
                 } else {
                     echo "<tr>";
