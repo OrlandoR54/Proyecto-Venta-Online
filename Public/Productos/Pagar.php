@@ -150,9 +150,9 @@ $codigo = $_GET["codigo"];
                  } 
 
 
-               
+                 header("Location:../Controlador/catalogoUser.php?codigo=" . $codigo . "");
               
-              
+               /* http://localhost/Proyecto-Venta-Online/Public/Controlador/catalogoUser.php?codigo=7*/
           
              
             $conn->close();
