@@ -46,23 +46,23 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
    
    
    
-   <div id="buzon">
-   <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px"> 
-        <colgroup>
-                    <col style="width: 25px">
-                    <col style="width: 100px">
-                    <col style="width: 120px">
-                    <col style="width: 80px">
-                    <col style="width: 80px">
-        </colgroup>
-                    <tr>
-                        <th class="tg-lboi">Numero de Factura</th>
+    <div id="buzon">
+        <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px"> 
+                <colgroup>
+                        <col style="width: 25px">
+                        <col style="width: 100px">
+                        <col style="width: 120px">
+                        <col style="width: 80px">
+                        <col style="width: 80px">
+                </colgroup>
+
+                <tr>
+                        <th class="tg-lboi"># Factura</th>
                         <th class="tg-lboi">Cliente</th>
                         <th class="tg-lboi">Direccion</th>
                         <th class="tg-lboi">Fecha</th>
-                        <th class="tg-lboi">Total</th>
-                  
-                    </tr>
+                        <th class="tg-lboi">Total</th>    
+                </tr>
 
             <?php
            /* SELECT fc_vent_id, fc_fecha_vent,fc_vent_total, per_nombre, prod_nombre FROM `mh_fact_cabec_vent`, `mh_detal_vent`, 
@@ -86,14 +86,14 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                 }
             } else {
                 echo "<tr>";
-                echo "<td colspan='10'>No existen productos</td>";
+                echo "<td colspan='5'>No existen productos</td>";
                 echo "</tr>";
             }
             $conn->close();
             ?>
         </table>
-   
-   <div id="buzon">
+   <!-- </div> -->
+    <div id="buzon">
         <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px"> 
         <colgroup>
                     <col style="width: 120px">
@@ -131,26 +131,69 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                 }
             } else {
                 echo "<tr>";
-                echo "<td colspan='10'>No existen productos</td>";
+                echo "<td colspan='4'>No existen productos</td>";
                 echo "</tr>";
             }
             $conn->close();
             ?>
         </table>
-        <script>
+    <!--</div>-->
 
+    <div id="buzon">
+        <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px"> 
+                <colgroup>
+                <col style="width: 120px">
+                    <col style="width: 100px">
+                    <col style="width: 75px">
+                    <col style="width: 75px">
+                </colgroup>
 
-function imprim2(){
-    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-    mywindow.document.write('<html><head>');
-    mywindow.document.write('</head><body >');
-    mywindow.document.write(document.getElementById('buzon').innerHTML);
-    mywindow.document.write('</body></html>');
-    mywindow.document.close(); // necesario para IE >= 10
-    mywindow.focus(); // necesario para IE >= 10
-    mywindow.print();
-    mywindow.close();
-    return true;}
+                <tr>
+                        <th class="tg-lboi"></th>
+                        <th class="tg-lboi"></th>
+                        <th class="tg-lboi"></th>
+                        <th class="tg-lboi">Total</th>    
+                </tr>
+
+            <?php
+           /* SELECT fc_vent_id, fc_fecha_vent,fc_vent_total, per_nombre, prod_nombre FROM `mh_fact_cabec_vent`, `mh_detal_vent`, 
+            `mh_persons`,`mh_products`
+             WHERE fc_vent_id=mh_fact_cabec_vent_fc_vent_id and per_id=mh_persons_per_id and prod_id=mh_products_prod_id*/
+            include '../../../config/conexionBD.php';
+            $sql = "SELECT fc_vent_total
+            FROM mh_fact_cabec_vent, mh_persons,mh_products,mh_detal_vent 
+            WHERE fc_vent_id=mh_fact_cabec_vent_fc_vent_id and mh_persons_per_id=$codigo and per_id=$codigo and prod_id=mh_products_prod_id 
+            GROUP BY mh_fact_cabec_vent_fc_vent_id";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                
+                      echo "<tr>";
+                      echo "<td>" .$row["fc_vent_total"] . "</td>";
+                }
+            } else {
+                echo "<tr>";
+                echo "<td colspan='4'>No existen productos</td>";
+                echo "</tr>";
+            }
+            $conn->close();
+            ?>
+        </table>
+    <!--</div>-->
+<script>
+
+    function imprim2(){
+        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+        mywindow.document.write('<html><head>');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(document.getElementById('buzon').innerHTML);
+        mywindow.document.write('</body></html>');
+        mywindow.document.close(); // necesario para IE >= 10
+        mywindow.focus(); // necesario para IE >= 10
+        mywindow.print();
+        mywindow.close();
+        return true;
+    }
 </script>
 
 
