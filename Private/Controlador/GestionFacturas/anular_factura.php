@@ -29,11 +29,12 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 <?php
     include '../../../config/conexionBD.php';
 $rol_admin = $_GET['rol_admin'];
+$codigo =$_GET['codigo'];
 ?>
     <!-- Barra navegador (acentada arriba) -->
     <div class="cabecera">
         <div class="barra cabColor espAmplio margRelleno sombra">
-            <a href="../index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
+            <a href="#home" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
             <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
             <div class="derecha">
                 <a href="../index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>
@@ -48,6 +49,7 @@ $rol_admin = $_GET['rol_admin'];
     <main class="main">
         </section>
         <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
+        <div>
         <colgroup>
                     <col style="width: 105px">
                     <col style="width: 120px">
@@ -66,12 +68,11 @@ $rol_admin = $_GET['rol_admin'];
                     <th class="tg-lboi">Fecha Venta</th>
                     <th class="tg-lboi">Iva</th>
                     <th class="tg-lboi">Total</th>
-                    <th class="tg-lboi">Accion:</th>
                     </tr>
-
+        </div>
             <?php
 
-            $sql = "SELECT * FROM mh_persons,mh_fact_cabec_vent WHERE mh_persons.per_id=mh_fact_cabec_vent.mh_persons_per_id and fc_estado='N'";
+            $sql = "SELECT * FROM mh_persons,mh_fact_cabec_vent WHERE mh_persons.per_id=mh_fact_cabec_vent.mh_persons_per_id and fc_vent_id='$codigo'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -81,17 +82,21 @@ $rol_admin = $_GET['rol_admin'];
                         echo "<td>" . $row["fc_fecha_vent"] . "</td>";
                         echo "<td>" . $row["fc_vent_iva"] . "</td>";
                         echo "<td>" . $row["fc_vent_total"] . "</td>";
-                        echo "<td class='accion'><a href='anular_factura.php?codigo=".$row['fc_vent_id'] . "&rol_admin=" . $rol_admin . "'>Anular Factura</a></td>";
                 }
             } else {
                 echo "<tr>";
-                echo "<td colspan='6'>No existen usuarios</td>";
+                echo "<td colspan='10'>No existen usuarios</td>";
                 echo "</tr>";
             }
             $conn->close();
             ?>
         </table>
-   
+        <form  method="POST" action="factura_anulada.php?codigo=<?php echo $codigo ?>?rol_admin=<?php echo $rol_admin ?>" >
+        <div class= "botones">
+                    <input class="boton" type="submit" id="eliminar" name="eliminar" value="Anular"  >
+                    <input class="boton" type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='gestion_factura.php?rol_admin=<?php echo $rol_admin ?>'" class="boton">
+                </div>
+                </form>
 </body>
 
 </html>
