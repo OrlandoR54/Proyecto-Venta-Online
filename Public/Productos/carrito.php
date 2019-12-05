@@ -51,6 +51,48 @@ $codigo = $_GET["codigo"];
       
 
     <div class="seccion">
+        <div class="barra-lateral barra-block barra-card w3-animate-left" style="display:none" id="mySidebar">
+            <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+            <br>
+            <a href="gestion_user.php?rol_admin=<?php echo $rol_admin ?>" class="w3-bar-item w3-button">Gestionar Usuarios</a>
+            <a href="GestionProductos/gestion_productos.php?rol_admin=<?php echo $rol_admin ?>" class="w3-bar-item w3-button">Gestionar Productos</a>
+            <a href="GestionProductos/gestion_comentarios.php?rol_admin=<?php echo $rol_admin ?>" class="w3-bar-item w3-button">Gestionar Comentarios</a>
+            <a href="envios.php?rol_admin=<?php echo $rol_admin ?>" class="w3-bar-item w3-button">Gestion Pedidos</a>
+            <a href="GestionFacturas/gestion_factura.php?rol_admin=<?php echo $rol_admin ?>" class="w3-bar-item w3-button">Gestionar Facturas</a>
+        </div>
+
+        <div id="main">
+          
+            <div class="w3-teal">
+                <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+                <div class="w3-container">
+                    <h1>Carrito de compras </h1>
+                </div>
+            </div>
+
+            <!--Comienzo-->
+            <div class="w3-container" id="aceite">
+            <button type="button"  onclick = "location='validarTarjeta.php?codigo=<?php echo $codigo ?>&value=5'">Pagar</button>
+
+              <!--  <div class="w3-container w3-text-grey" id="jeans">
+                    <p> </p>
+                </div> -->
+
+                <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
+                    <colgroup>
+                        <col style="width: 105px">
+                        <col style="width: 120px">
+                        <col style="width: 120px">
+                        <col style="width: 120px">
+                   
+                    </colgroup>
+                    <tr>
+                        <th class="tg-lboi">Producto</th>
+                        <th class="tg-lboi">Cantidad</th>
+                        <th class="tg-lboi">Subtotal</th>
+                        <th class="tg-lboi">Total a pagar</th>
+                       
+                    </tr>
         <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
             <colgroup>
                 <col style="width: 105px">
@@ -91,7 +133,7 @@ $codigo = $_GET["codigo"];
                              }
                          }else {
                             echo "<tr>";
-                            echo "<td colspan='10'>No existen usuarios</td>";
+                            echo "<td colspan='10'>No hay valores a pagar</td>";
                             echo "</tr>";
                          }
                 $conn->close();
