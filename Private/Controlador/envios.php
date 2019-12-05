@@ -20,7 +20,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Pagina principal administrador</title>
+    <title>Pedidos</title>
     
 </head>
 
@@ -123,7 +123,7 @@ $rol_admin = $_GET['rol_admin'];
                 }
             } else {
                 echo "<tr>";
-                echo "<td colspan='10'>No existen usuarios</td>";
+                echo "<td colspan='10'>No existen pedidos pendientes</td>";
                 echo "</tr>";
             }
             $conn->close();
