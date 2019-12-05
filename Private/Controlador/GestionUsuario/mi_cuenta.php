@@ -43,7 +43,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                 <a href="../../../Public/Controlador/aboutUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">About</a>
                 <a href="mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi Cuenta</a>
                 <a href="../../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
-                <a href="carrito.html"><i class="carro-compras carro-derecha"></i></a>
+                <a href="../../../Public/Productos/carrito.php?codigo=<?php echo $codigo ?>"><i class="carro-compras carro-derecha"></i></a>
             </div>
         </div>
     </div>
@@ -55,8 +55,6 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
             <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
             <a href="gestion_user.php?rol_user=<?php echo $rol_user ?>" class="w3-bar-item w3-button">Gestionar Pedidos</a>
             <a href="../../../Public/Controlador/GestionFacturas/facturas.php?codigo=<?php echo $codigo ?>" class="w3-bar-item w3-button">Mis Factura</a>
-
-            <a href="GestionProductos/gestion_productos.php?codigo=<?php echo $codigo ?>" class="w3-bar-item w3-button">Gestionar Productos</a>
         </div>
 
         <div id="main">

@@ -10,7 +10,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 <head>
     <meta charset="UTF-*">
     <title>Modificar</title>
-    <link rel="stylesheet" href="../../css/modificaUser.css">
+    <link rel="stylesheet" href="../../../css/modificaUser.css">
 </head>
 
 <body>
@@ -66,7 +66,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                 <br>
                 <div class= "botones">
                     <input class="boton" type="submit" id="modificar" name="modificar" value="Modificar">
-                    <input type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='../../Controlador/indexUser.php?codigo=<?php echo $codigo ?>'" class="boton">
+                    <input type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='../../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>'" class="boton">
                 </div>           
             </form>
     <?php

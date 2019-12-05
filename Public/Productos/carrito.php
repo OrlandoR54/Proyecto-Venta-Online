@@ -10,7 +10,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
     <head>
         <meta charset="UTF-8">
-        <title>Pagina principal administrador</title>
+        <title>Carrito de compras</title>
         <link rel="stylesheet" href="../../css/styles.css">
         <link rel="stylesheet" href="../../css/structure.css">
         <link rel="stylesheet" href="../../css/catalogo.css">
@@ -36,15 +36,19 @@ $codigo = $_GET["codigo"];
     <!-- Barra navegador (acentada arriba) -->
     <div class="cabecera">
         <div class="barra cabColor espAmplio margRelleno sombra">
-            <a href="#home" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
+            <a href="../Controlador/indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
             <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
             <div class="derecha">
-                <a href="index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>
+                <a href="../Controlador/indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Home</a>
+                <a href="../Controlador/catalogoUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Productos</a>
+                <a href="../Controlador/aboutUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">About</a>
+                <a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi Cuenta</a>
                 <a href="../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
             </div>
         </div>
     </div>
 
+      
 
     <div class="seccion">
         <div class="barra-lateral barra-block barra-card w3-animate-left" style="display:none" id="mySidebar">
@@ -89,24 +93,37 @@ $codigo = $_GET["codigo"];
                         <th class="tg-lboi">Total a pagar</th>
                        
                     </tr>
+        <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
+            <colgroup>
+                <col style="width: 105px">
+                <col style="width: 120px">
+                <col style="width: 120px">
+                <col style="width: 120px">       
+            </colgroup>
+            <tr>
+                <th class="tg-lboi">Producto</th>
+                <th class="tg-lboi">Cantidad</th>
+                <th class="tg-lboi">Subtotal</th>
+                <th class="tg-lboi">Total a pagar</th>           
+            </tr>
 
             <?php
             /*SUM(columna)*/
-            $sql = "SELECT prod_nombre,SUM(carri_subt), count(mh_products_prod_id) FROM mh_carrito_cabc, mh_carrito_detalle,mh_products WHERE mh_persons_per_id=$codigo
-             and carrit_id=mh_carrito_cabc_carrit_id and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id GROUP BY prod_nombre";
-            $result = $conn->query($sql);
+                $sql = "SELECT prod_nombre,SUM(carri_subt), count(mh_products_prod_id) FROM mh_carrito_cabc, mh_carrito_detalle,mh_products WHERE mh_persons_per_id=$codigo
+                and carrit_id=mh_carrito_cabc_carrit_id and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id GROUP BY prod_nombre";
+                $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $row["prod_nombre"] . "</td>";
-                        echo "<td>" . $row["count(mh_products_prod_id)"] . "</td>";
-                        echo "<td>" . $row["SUM(carri_subt)"] . "</td>";
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . $row["prod_nombre"] . "</td>";
+                            echo "<td>" . $row["count(mh_products_prod_id)"] . "</td>";
+                            echo "<td>" . $row["SUM(carri_subt)"] . "</td>";
 
-                      
+                        
+                    }
                 }
-            }
-              $sql1 = "SELECT prod_nombre,SUM(carri_subt) FROM mh_carrito_cabc, mh_carrito_detalle,mh_products 
+                $sql1 = "SELECT prod_nombre,SUM(carri_subt) FROM mh_carrito_cabc, mh_carrito_detalle,mh_products 
                         WHERE mh_persons_per_id=$codigo
                         and carrit_id=mh_carrito_cabc_carrit_id  and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id";
                          $result = $conn->query($sql1);
@@ -119,31 +136,11 @@ $codigo = $_GET["codigo"];
                             echo "<td colspan='10'>No hay valores a pagar</td>";
                             echo "</tr>";
                          }
-            $conn->close();
+                $conn->close();
             ?>
-        </table>   
-
-            </div>
-            <!----Final--->
-        </div>
+        </table> 
     </div>
-
-
-    <script>
-        function w3_open() {
-            document.getElementById("main").style.marginLeft = "20%";
-            document.getElementById("mySidebar").style.width = "20%";
-            document.getElementById("mySidebar").style.display = "block";
-            document.getElementById("openNav").style.display = 'none';
-        }
-        function w3_close() {
-            document.getElementById("main").style.marginLeft = "0%";
-            document.getElementById("mySidebar").style.display = "none";
-            document.getElementById("openNav").style.display = "inline-block";
-        }
-    </script>
-        
-   
+ 
 </body>
 
 </html>
