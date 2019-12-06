@@ -4,10 +4,16 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     header("Location: \Proyecto-Venta-Online\Public\Vista\login.html");
     
 }
+if($_SESSION["per_rol"]!='A'){
+    header("Location:../../Public/Controlador/login.php ");  
+}
 ?>
 <!DOCTYPE html>
 <html>
-
+<?php
+include '../../config/conexionBD.php';
+$rol_admin = $_GET['rol_admin'];
+?>
     <head>
         <meta charset="UTF-8">
         <title>Pagina principal administrador</title>
@@ -34,7 +40,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     <!-- Barra navegador (acentada arriba) -->
     <div class="cabecera">
         <div class="barra cabColor espAmplio margRelleno sombra">
-            <a href="#home" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
+            <a href="../index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
             <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
             <div class="derecha">
                 <a href="../index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>

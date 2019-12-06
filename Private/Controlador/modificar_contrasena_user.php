@@ -28,7 +28,8 @@
     } else {
         echo "<p>La contrasena actual no coincide con nuestros registros!!!</p>";
     }
-    echo "<a href='gestion_user.php?rol_admin=" . $rol_admin . "'>Regresar</a>";
+    //echo "<a href='gestion_user.php?rol_admin=" . $rol_admin . "'>Regresar</a>";
+    header("Location:gestion_user.php?codigo=<?php echo $codigo ?>?rol_admin=<?php echo $rol_admin ?>");
     $conn->close();
     ?>
 </body>
