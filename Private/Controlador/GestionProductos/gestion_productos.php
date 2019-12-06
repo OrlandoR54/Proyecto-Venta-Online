@@ -9,7 +9,10 @@ if($_SESSION["per_rol"]!='A'){
 ?>
 <!DOCTYPE html>
 <html>
-
+<?php
+include '../../config/conexionBD.php';
+$rol_admin = $_GET['rol_admin'];
+?>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
