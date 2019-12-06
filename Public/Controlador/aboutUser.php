@@ -13,6 +13,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Acerca de nosotros</title>
+    <link  rel="icon"   href="../../images/favicon.png" type="image/png">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/structure.css">
     <link rel="stylesheet" href="../../css/acerca.css">
