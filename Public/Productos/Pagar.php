@@ -63,7 +63,7 @@ $codigo = $_GET["codigo"];
              $result = $conn->query($sql4);
              if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                   echo "ID DE LA FACTURA CABECERA", $idcabecera=$row["fc_vent_id"];
+                   echo "ID DE LA FACTURA CABECERA", $idcabeceraA=$row["fc_vent_id"];
                 }
             }  else {
                 echo "<p class='error'>Error2: " . mysqli_error($conn) . "</p>";
@@ -92,14 +92,18 @@ $codigo = $_GET["codigo"];
                }
                /*Ingresar Detalles Factura */
                for($i=0; $i<count($lista); $i++){
-                $sql6="INSERT INTO `mh_detal_vent`
+                echo "VALOR1", $var1=$lista1[$i];
+                echo "VALOR2", $var2=$lista[$i];
+                echo "VALOR3", $var3=$lista1[$i];
+               
+               $sql6="INSERT INTO `mh_detal_vent`
                 VALUES(
                     NULL,
                     1,
-                    '$lista1[$i]',
-                    '$idcabecera',
-                    '$lista[$i]',
-                    '$lista1[$i]'
+                    '$var1',
+                    '$idcabeceraA',
+                    '$var2',
+                    '$var3'
 
                 );";
                   // $result1 = $conn->query($sql6);
@@ -112,7 +116,7 @@ $codigo = $_GET["codigo"];
 
                $sql7="UPDATE `mh_fact_cabec_vent`  
                SET `fc_vent_total`='$total'
-               WHERE '$idcabecera'=`fc_vent_id`";
+               WHERE '$idcabeceraA'=`fc_vent_id`";
                 if ($conn->query($sql7) == TRUE){
                     /*echo "Total Modificado";*/
                  } else {
