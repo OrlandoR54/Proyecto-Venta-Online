@@ -3,8 +3,8 @@ session_start();
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     header("Location: \Proyecto-Venta-Online\Public\Vista\login.html");
 }
-if($_SESSION["per_rol"]!='U'){
-    header("Location:../../Public/Controlador/login.php ");  
+if($_SESSION["per_id"]!='U'){
+    header("Location:login.php ");  
 }
 ?>
 <!DOCTYPE html>
