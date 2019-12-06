@@ -52,7 +52,6 @@ $rol_admin = $_GET['rol_admin'];
         <div id="main">
         
             <div class="w3-teal">
-                <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
                 <div class="w3-container">
                     <h1>Gestion De Facturas</h1>
                 </div>
