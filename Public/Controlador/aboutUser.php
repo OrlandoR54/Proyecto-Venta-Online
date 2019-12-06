@@ -38,7 +38,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                 <a href="catalogoUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Productos</a>
                 <a href="aboutUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">About</a>
                 <a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi Cuenta</a>
-                <a href="../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
+                <a href="../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
                 <a href="../Productos/carrito.php?codigo=<?php echo $codigo ?>"><i class="carro-compras carro-derecha"></i></a>
                 </marquee>
             </div>
