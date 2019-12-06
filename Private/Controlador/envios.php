@@ -37,7 +37,7 @@ $rol_admin = $_GET['rol_admin'];
     <!-- Barra navegador (acentada arriba) -->
     <div class="cabecera">
         <div class="barra cabColor espAmplio margRelleno sombra">
-            <a href="../index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
+            <a href="index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
             <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
             <div class="derecha">
                 <a href="index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>
@@ -53,7 +53,7 @@ $rol_admin = $_GET['rol_admin'];
         <div id="main">
         
             <div class="w3-teal">
-                <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+                
                 <div class="w3-container">
                     <h1>Gestion De Pedidos</h1>
                 </div>
@@ -73,10 +73,10 @@ $rol_admin = $_GET['rol_admin'];
                         <col style="width: 150px">
                         <col style="width: 121px">
                         <col style="width: 200px">
-                        <col style="width: 106px">
                         <col style="width: 95px">
                         <col style="width: 95px">
-                        <col style="width: 95px">
+                        <col style="width: 85px">
+                        <col style="width: 120px">
                     </colgroup>
                     <tr>
                         <th class="tg-lboi">ID cliente</th>
