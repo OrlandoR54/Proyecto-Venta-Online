@@ -3,12 +3,6 @@ session_start();
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     header("Location: \Proyecto-Venta-Online\Public\Vista\login.html");
 }
-include '../../config/conexionBD.php';
-//$per_id = $_GET['per_id'];
-$codigo=$_GET["codigo"];
-if($_SESSION["per_id"]!=$codigo){
-    header("Location:login.php ");  
-}
 ?>
 <!DOCTYPE html>
 <html>
