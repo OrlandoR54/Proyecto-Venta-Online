@@ -38,7 +38,6 @@ $codigo = $_GET["codigo"];
             AND mh_products_prod_id=mh_products_prod_id 
             GROUP BY prod_nombre";
             $result = $conn->query($sql2);
-            
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                         $nombreProducto=$row["prod_nombre"];
@@ -50,9 +49,8 @@ $codigo = $_GET["codigo"];
             
            /* Ingresar Factura cabecera*/ 
           $sql3="INSERT INTO `mh_fact_cabec_vent`(`fc_vent_id`, `fc_fecha_vent`, `fc_vent_iva`, `fc_vent_total`, `mh_persons_per_id`, `fc_vent_estado`, `fc_estado`) 
-            VALUES (NULL,'$fechaActual',0.12,'$total','$codigo','A','N') ";
-            $result = $conn->query($sql3);   
-            if ($conn1->query($sql2) == TRUE){
+            VALUES (NULL,'$fechaActual',0.12,'$total','$codigo','A','N');";
+            if ($conn->query($sql3) == TRUE){
                 echo "Cabecera Ingresada";
              } else {
                 echo "<p class='error'>Error1: " . mysqli_error($conn1) . "</p>";
@@ -106,10 +104,10 @@ $codigo = $_GET["codigo"];
                 VALUES(
                     NULL,
                     1,
-                    '$lista1[$i]',
-                    '$idcabecera',
-                    '$lista[$i]',
-                    '$lista1[$i]'
+                    $lista1[$i],
+                    $idcabecera,
+                    $lista[$i],
+                    $lista1[$i]
 
                 );";
                   // $result1 = $conn->query($sql6);
