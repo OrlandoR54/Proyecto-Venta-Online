@@ -39,7 +39,6 @@
         $codigo = $_GET["codigo"];
         echo "<img class='image' src='images/$codigo.jpg' alt='Aceite de cbd-10' />"
         ?>
-        
     </div>
 
     <div class="descripcion">
