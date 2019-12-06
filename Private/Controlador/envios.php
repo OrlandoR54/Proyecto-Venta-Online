@@ -84,7 +84,7 @@ $rol_admin = $_GET['rol_admin'];
                         <col style="width: 120px">
                     </colgroup>
                     <tr>
-                        <th class="tg-lboi">ID cliente</th>
+                        <th class="tg-lboi">ID Factura</th>
                         <th class="tg-lboi">Fecha de vencimiento de la tarjeta</th>
                         <th class="tg-lboi">Nombre del cliente</th>
                         <th class="tg-lboi">Nombre del producto</th>
