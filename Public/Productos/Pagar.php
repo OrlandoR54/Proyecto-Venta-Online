@@ -52,30 +52,22 @@ $codigo = $_GET["codigo"];
           $sql3="INSERT INTO `mh_fact_cabec_vent`(`fc_vent_id`, `fc_fecha_vent`, `fc_vent_iva`, `fc_vent_total`, `mh_persons_per_id`, `fc_vent_estado`, `fc_estado`) 
             VALUES (NULL,'$fechaActual',0.12,'$total','$codigo','A','N') ";
             $result = $conn->query($sql3);   
-            if ($conn1->query($sql2) == TRUE){
-                echo "Cabecera Ingresada";
+            if ($conn->query($sql2) == TRUE){
+              /*  echo "Cabecera Ingresada";*/
              } else {
-                echo "<p class='error'>Error1: " . mysqli_error($conn1) . "</p>";
+                echo "<p class='error'>Error1: " . mysqli_error($conn) . "</p>";
             }
 
              /**Recuperar id de la factura cabecera */
-           $sql4="SELECT
-           `fc_vent_id`
-       FROM
-           `mh_detal_vent`,
-           `mh_fact_cabec_vent`
-       WHERE
-           mh_persons_per_id = $codigo
-       GROUP BY
-           mh_persons_per_id
-       DESC;";
+           $sql4="SELECT `fc_vent_id` FROM `mh_detal_vent`, `mh_fact_cabec_vent` 
+           WHERE mh_persons_per_id=$codigo 
+           ORDER BY mh_persons_per_id DESC";
              $result = $conn->query($sql4);
              if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                    echo "ID DE LA FACTURA CABECERA", $idcabecera=$row["fc_vent_id"];
                 }
             }  else {
-             
                 echo "<p class='error'>Error2: " . mysqli_error($conn) . "</p>";
             }
 
@@ -86,7 +78,7 @@ $codigo = $_GET["codigo"];
            LEFT JOIN `mh_carrito_detalle` ON `mh_carrito_detalle`.`mh_carrito_cabc_carrit_id` = `mh_carrito_cabc`.`carrit_id`
            LEFT JOIN `mh_products` ON `mh_carrito_detalle`.`mh_products_prod_id` = `mh_products`.`prod_id`
            WHERE
-               `mh_persons_per_id` = $codigo;";
+               `mh_persons_per_id` = $codigo";
               /* AND mh_products_prod_id=mh_products_prod_id ";*/
                $result = $conn->query($sql5);
                $lista=array();
@@ -102,7 +94,7 @@ $codigo = $_GET["codigo"];
                }
                /*Ingresar Detalles Factura */
                for($i=0; $i<count($lista); $i++){
-                $sql6="INSERT INTO `mh_detal_vent`(`fd_vent_id`, `fd_vent_cantidad`, `fd_vent_precio`, `mh_fact_cabec_vent_fc_vent_id`, `mh_products_prod_id`, `fd_vent_total`)
+                $sql6="INSERT INTO `mh_detal_vent`
                 VALUES(
                     NULL,
                     1,
@@ -124,7 +116,7 @@ $codigo = $_GET["codigo"];
                SET `fc_vent_total`='$total'
                WHERE $idcabecera='fc_vent_id'";
                 if ($conn->query($sql7) == TRUE){
-                    echo "Total Modificado";
+                    /*echo "Total Modificado";*/
                  } else {
                     echo "<p class='error'>Error4: " . mysqli_error($conn) . "</p>";
                 }
@@ -156,8 +148,7 @@ $codigo = $_GET["codigo"];
                 /*header("Location:../Controlador/catalogoUser.php?codigo=" . $codigo . "");*/
               
                /* http://localhost/Proyecto-Venta-Online/Public/Controlador/catalogoUser.php?codigo=7*/
-          print_r($lista);
-          print_r($lista1);
+          
              
             $conn->close();
             ?>
