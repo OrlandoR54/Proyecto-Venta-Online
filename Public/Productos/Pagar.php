@@ -59,7 +59,7 @@ $codigo = $_GET["codigo"];
              /**Recuperar id de la factura cabecera */
            $sql4="SELECT `fc_vent_id` FROM `mh_detal_vent`, `mh_fact_cabec_vent` 
            WHERE mh_persons_per_id=$codigo 
-           ORDER BY mh_persons_per_id DESC";
+           GROUP BY mh_persons_per_id DESC";
              $result = $conn->query($sql4);
              if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
