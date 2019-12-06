@@ -3,10 +3,18 @@ session_start();
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     header("Location: /SistemaDeGestion/public/vista/login.html");
 }
+if($_SESSION["per_rol"]!='U'){
+    header("Location:login.php ");  
+}
 ?>
 <!DOCTYPE html>
 <html>
-
+<?php
+include '../../config/conexionBD.php';
+//$per_id = $_GET['per_id'];
+//$rol_user=$_GET['rol_user'];
+$codigo=$_GET["codigo"];
+?>
 <style type="text/css" id=style>
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
@@ -35,10 +43,10 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     <!-- Barra navegador (acentada arriba) -->
     <div class="cabecera">
         <div class="barra cabColor espAmplio margRelleno sombra">
-            <a href="#home" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
+            <a href="../indexUser.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
             <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
             <div class="derecha">
-                <a href="../index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>
+                <a href="../indexUser.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>
                 <a href="../../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
             </div>
         </div>
