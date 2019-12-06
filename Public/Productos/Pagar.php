@@ -103,7 +103,7 @@ $codigo = $_GET["codigo"];
                }
                /*Ingresar Detalles Factura */
                for($i=0; $i<count($lista); $i++){
-                $sql6="INSERT INTO `mh_detal_vent`
+                $sql6="INSERT INTO `mh_detal_vent`(`fd_vent_id`, `fd_vent_cantidad`, `fd_vent_precio`, `mh_fact_cabec_vent_fc_vent_id`, `mh_products_prod_id`, `fd_vent_total`)
                 VALUES(
                     NULL,
                     1,
