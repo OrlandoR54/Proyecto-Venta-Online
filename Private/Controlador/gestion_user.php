@@ -9,7 +9,10 @@ if($_SESSION["per_rol"]!='A'){
 ?>
 <!DOCTYPE html>
 <html>
-
+<?php
+include '../../config/conexionBD.php';
+$rol_admin = $_GET['rol_admin'];
+?>
     <head>
         <meta charset="UTF-8">
         <title>Pagina principal administrador</title>
