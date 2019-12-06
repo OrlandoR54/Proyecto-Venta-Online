@@ -41,7 +41,8 @@
     }
             
         $conn->close();
-        echo "<a href='gestion_productos.php?rol_admin=" . $rol_admin . "'>Regresar</a>";
+        //echo "<a href='gestion_productos.php?rol_admin=" . $rol_admin . "'>Regresar</a>";
+        header("Location:gestion_productos.php?rol_admin=<?php echo $rol_admin ?>");
         ?>
     </form>
 </body>

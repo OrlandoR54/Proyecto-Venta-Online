@@ -43,7 +43,7 @@ $codigo = $_GET["codigo"];
                 <a href="../Controlador/catalogoUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Productos</a>
                 <a href="../Controlador/aboutUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">About</a>
                 <a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi Cuenta</a>
-                <a href="../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
+                <a href="../../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
             </div>
         </div>
     </div>
@@ -84,52 +84,43 @@ $codigo = $_GET["codigo"];
                         <col style="width: 120px">
                         <col style="width: 120px">
                         <col style="width: 120px">
+                        <col style="width: 120px">
                    
                     </colgroup>
                     <tr>
                         <th class="tg-lboi">Producto</th>
                         <th class="tg-lboi">Cantidad</th>
                         <th class="tg-lboi">Subtotal</th>
+                        <th class="tg-lboi">Quitar Producto</th>
                         <th class="tg-lboi">Total a pagar</th>
                        
                     </tr>
-        <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
-            <colgroup>
-                <col style="width: 105px">
-                <col style="width: 120px">
-                <col style="width: 120px">
-                <col style="width: 120px">       
-            </colgroup>
-            <tr>
-                <th class="tg-lboi">Producto</th>
-                <th class="tg-lboi">Cantidad</th>
-                <th class="tg-lboi">Subtotal</th>
-                <th class="tg-lboi">Total a pagar</th>           
-            </tr>
 
             <?php
-            /*SUM(columna)*/
-                $sql = "SELECT prod_nombre,SUM(carri_subt), count(mh_products_prod_id) FROM mh_carrito_cabc, mh_carrito_detalle,mh_products WHERE mh_persons_per_id=$codigo
-                and carrit_id=mh_carrito_cabc_carrit_id and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id GROUP BY prod_nombre";
+            /*SUM(columna)*/SELECT prod_nombre,SUM(carri_subt), count(mh_carrito_cabc_carrit_id),mh_products_prod_id FROM mh_carrito_cabc, mh_carrito_detalle,mh_products WHERE mh_persons_per_id=$codigo
+                and carrit_id=mh_carrito_cabc_carrit_id and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id GROUP BY prod_nombre
+                $sql = "";
                 $result = $conn->query($sql);
-
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
                             echo "<td>" . $row["prod_nombre"] . "</td>";
-                            echo "<td>" . $row["count(mh_products_prod_id)"] . "</td>";
+                            echo "<td>" . $row["count(mh_carrito_cabc_carrit_id)"] . "</td>";
                             echo "<td>" . $row["SUM(carri_subt)"] . "</td>";
+                            echo "<td class='accion'><a href='listaModificarCarrito.php?idProducto=" . $row['mh_products_prod_id'] . "&codigo=". $codigo. "'>Modicar</a></td>";
+                         
 
                         
                     }
                 }
-                $sql1 = "SELECT prod_nombre,SUM(carri_subt) FROM mh_carrito_cabc, mh_carrito_detalle,mh_products 
+                $sql1 = "SELECT prod_nombre,SUM(carri_subt),mh_products_prod_id FROM mh_carrito_cabc, mh_carrito_detalle,mh_products 
                         WHERE mh_persons_per_id=$codigo
                         and carrit_id=mh_carrito_cabc_carrit_id  and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id";
                          $result = $conn->query($sql1);
                          if($result->num_rows >0){
                              while($row=$result->fetch_assoc()){
                                 echo "<td>" . $row["SUM(carri_subt)"] . "</td>";
+                              
                              }
                          }else {
                             echo "<tr>";

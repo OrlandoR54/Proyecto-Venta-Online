@@ -4,10 +4,16 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     header("Location: \Proyecto-Venta-Online\Public\Vista\login.html");
     
 }
+if($_SESSION["per_rol"]!='A'){
+    header("Location:../../Public/Controlador/login.php ");  
+}
 ?>
 <!DOCTYPE html>
 <html>
-
+<?php
+include '../../config/conexionBD.php';
+$rol_admin = $_GET['rol_admin'];
+?>
     <head>
         <meta charset="UTF-8">
         <title>Pagina principal administrador</title>
