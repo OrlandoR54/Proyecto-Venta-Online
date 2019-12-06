@@ -136,7 +136,7 @@ $rol_admin = $_GET['rol_admin'];
                                 echo " <td>" . $row['fc_estado'] . "</td>";
                                 echo " <td>
                                         ". $row['per_direccion'] ."
-                                        <form name = 'form2' action='../vista/ruta_de_envio.php?direccion=".$row['per_direccion']."' method='POST'>
+                                        <form name = 'form2' action='../Vista/ruta_de_envio.php?direccion=".$row['per_direccion']."' method='POST'>
 
 
                                         <input name = 's1' type = 'submit' value = 'generar ruta '>

@@ -3,8 +3,7 @@
     <head>
     <title>Leaflet Address Lookup and Coordinates</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
