@@ -132,6 +132,16 @@
     }
     
     </script>
+    <?php
+    
+        echo "<th>
+        <form  method='POST' action='../Controlador/index.php?rol_admin=A'>
+        <input type='submit' value='regresar'>
+        </form>
+        </th>";  
+    
+
+    ?>
     
     </body>
     </html>
