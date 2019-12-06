@@ -9,7 +9,9 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
 <head>
     <meta charset="UTF-*">
-    <title>Eliminar Usuario</title>
+    <title>Eliminar Comentario</title>
+    <link  rel="icon"   href="../../images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../../css/modificaUser.css">
 </head>
 
 <body>
@@ -26,15 +28,20 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
             ?>
             <form class="box" method="POST" action="../../Private/Controlador/GestionProductos/eliminar_comentario.php?rol_admin=<?php echo $rol_admin ?>">
                 <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>">
-
-                <label class="elimina" for="comentario">Comentario (*)</label>
-                <input type="text" id="comentario" name="comentario" value="<?php echo $row["com_comentario"]; ?>" disabled>
+                <div class="inf">
+                    <label class="elimina" for="comentario">Comentario (*)</label>
+                    <input class="txtUser" type="text" id="comentario" name="comentario" value="<?php echo $row["com_comentario"]; ?>" disabled>
+                </div>
                 <br>
-                <label class="elimina" for="calificacion">Calificacion (*)</label>
-                <input type="text" id="calificacion" name="calificacion" value="<?php echo $row["com_calificacion"]; ?>" disabled>
+                <div class="inf">
+                    <label class="elimina" for="calificacion">Calificacion (*)</label>
+                    <input class="txtUser" type="text" id="calificacion" name="calificacion" value="<?php echo $row["com_calificacion"]; ?>" disabled>
+                </div>
                 <br>
-                <input class="boton" type="submit" id="eliminar" name="eliminar" value="Eliminar">
-                <input type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='../../Private/Controlador/GestionProductos/gestion_comentarios.php?rol_admin=<?php echo $rol_admin ?>'" class="boton">
+                <div class="botones">
+                    <input class="boton" type="submit" id="eliminar" name="eliminar" value="Eliminar">
+                    <input class="boton" type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='../../Private/Controlador/GestionProductos/gestion_comentarios.php?rol_admin=<?php echo $rol_admin ?>'" class="boton">
+                </div>
             </form>
     <?php
         }

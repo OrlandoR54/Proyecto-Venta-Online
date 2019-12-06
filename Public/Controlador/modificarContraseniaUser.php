@@ -16,6 +16,7 @@
         <head>
             <meta charset="UTF-8">
             <title>Cambiar Contrasena</title>
+            <link  rel="icon"   href="../../images/favicon.png" type="image/png">
             <link rel="stylesheet" href="../../css/modificaUser.css">
         </head>
         <body>

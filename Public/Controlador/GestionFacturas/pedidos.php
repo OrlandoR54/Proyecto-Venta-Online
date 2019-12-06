@@ -3,10 +3,18 @@ session_start();
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     header("Location: /SistemaDeGestion/public/vista/login.html");
 }
+if($_SESSION["per_rol"]!='U'){
+    header("Location:login.php ");  
+}
 ?>
 <!DOCTYPE html>
 <html>
-
+<?php
+include '../../config/conexionBD.php';
+//$per_id = $_GET['per_id'];
+//$rol_user=$_GET['rol_user'];
+$codigo=$_GET["codigo"];
+?>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
@@ -20,6 +28,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 <head>
     <meta charset="UTF-8">
     <title>Mis Pedidos</title>
+    <link  rel="icon"   href="../../../images/favicon.png" type="image/png">
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/structure.css">
     <link rel="stylesheet" href="../../../css/catalogo.css">
