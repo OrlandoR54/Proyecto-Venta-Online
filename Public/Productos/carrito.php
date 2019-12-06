@@ -97,9 +97,9 @@ $codigo = $_GET["codigo"];
                     </tr>
 
             <?php
-            /*SUM(columna)*/SELECT prod_nombre,SUM(carri_subt), count(mh_carrito_cabc_carrit_id),mh_products_prod_id FROM mh_carrito_cabc, mh_carrito_detalle,mh_products WHERE mh_persons_per_id=$codigo
-                and carrit_id=mh_carrito_cabc_carrit_id and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id GROUP BY prod_nombre
-                $sql = "";
+            /*SUM(columna)*/
+                $sql = "SELECT prod_nombre,SUM(carri_subt), count(mh_carrito_cabc_carrit_id),mh_products_prod_id FROM mh_carrito_cabc, mh_carrito_detalle,mh_products WHERE mh_persons_per_id=$codigo
+                and carrit_id=mh_carrito_cabc_carrit_id and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id GROUP BY prod_nombre";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
