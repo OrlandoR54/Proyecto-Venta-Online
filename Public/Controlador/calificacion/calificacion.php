@@ -26,7 +26,7 @@
                 <a href="../catalogoUser.php?codigo=<?php echo $codigoPersona ?>" class="barraItem boton">Productos</a>
                 <a href="../aboutUser.php?codigo=<?php echo $codigoPersona ?>" class="barraItem boton">About</a>
                 <a href="../../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigoPersona ?>" class="barraItem boton">Mi Cuenta</a>
-                <a href="../../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
+                <a href="../../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
                 <a href="../../Productos/carrito.php?codigo=<?php echo $codigoPersona ?>"><i class="carro-compras carro-derecha"></i></a>
             </div>
         </div>
@@ -39,7 +39,6 @@
         $codigo = $_GET["codigo"];
         echo "<img class='image' src='images/$codigo.jpg' alt='Aceite de cbd-10' />"
         ?>
-        
     </div>
 
     <div class="descripcion">
@@ -62,7 +61,7 @@
         where  mh_comentarios.mh_products_prod_id = $codigo
         AND mh_persons.per_id = mh_comentarios.mh_persons_per_id";
         $result = $conn->query($sql);
-        echo "<h1>Comentarios: </h1>";
+        //echo "<h1>Comentarios: </h1>";
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<h3>". $row['per_nombre'] ."</h3>";

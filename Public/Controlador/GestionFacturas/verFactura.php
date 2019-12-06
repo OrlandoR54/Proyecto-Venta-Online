@@ -27,6 +27,7 @@ $codigo=$_GET["codigo"];
 <head>
     <meta charset="UTF-8">
     <title>Ver Factura</title>
+    <link  rel="icon"   href="../../../images/favicon.png" type="image/png">
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/structure.css">
 </head>

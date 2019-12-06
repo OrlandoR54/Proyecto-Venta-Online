@@ -25,8 +25,6 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
    
         $codigo = $_GET["codigo"];
       
-
-
     ?>
 
     <!-- Barra navegador (acentada arriba) -->
@@ -209,22 +207,6 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                                 </div>
                             </div>
                             <p>Crema Hidratante rica en CBD Volumen 100 ml<br><b>$30</b></p>
-                            <!----ESTRELLAS---->
-                            <form id="form">
-                                <p class="clasificacion">
-                                    <input class="star" id="radio1" type="radio" name="estrellas" value="5">
-                                    <label for="radio1">★</label>
-                                    <input class="star" id="radio2" type="radio" name="estrellas" value="4">
-                                    <label for="radio2">★</label>
-                                    <input class="star" id="radio3" type="radio" name="estrellas" value="3">
-                                    <label for="radio3">★</label>
-                                    <input class="star" id="radio4" type="radio" name="estrellas" value="2">
-                                    <label for="radio4">★</label>
-                                    <input class="star" id="radio5" type="radio" name="estrellas" value="1">
-                                    <label for="radio5">★</label>
-                                </p>
-                            </form>
-                            <!----Fin EStrellas---->
                         </div>
 
                         <!-- <div class="w3-container">
