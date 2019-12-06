@@ -15,7 +15,11 @@
     $codigo = $_POST["codigo"];
     $sql = "UPDATE mh_persons SET per_eliminado = 'S' WHERE per_id = '$codigo'";
     if ($conn->query($sql) == TRUE) {
-        echo "<p>Se ha eliminado los datos correctamente</p>";
+       /* echo "<p>Se ha eliminado los datos correctamente</p>";*/
+        echo "<script type= 'text/javascript'>
+        alert('Se ha eliminado los datos correctamente');
+         location='gestion_user.php?rol_admin=" . $rol_admin . "';
+         </script>";
     } else {
         echo "<p>Error" . $sql . "<br>" . mysqli_error($conn) . "</p>";
     }

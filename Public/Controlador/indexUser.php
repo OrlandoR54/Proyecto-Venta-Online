@@ -2,7 +2,9 @@
 session_start();
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     header("Location: \Proyecto-Venta-Online\Public\Vista\login.html");
-    
+}
+if($_SESSION["per_rol"]!='U'){
+    header("Location:login.php ");  
 }
 ?>
 <!DOCTYPE html>
@@ -18,6 +20,7 @@ $codigo=$_GET["codigo"];
 <head>
     <meta charset="UTF-8">
     <title>Pagina principal administrador</title> 
+    <link  rel="icon"   href="../../images/favicon.png" type="image/png">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/structure.css">
 </head>
@@ -34,7 +37,7 @@ $codigo=$_GET["codigo"];
                 <a href="catalogoUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Productos</a>
                 <a href="aboutUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">About</a>
                 <a href="../../Private/Controlador/GestionUsuario/mi_cuenta.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Mi Cuenta</a>
-                <a href="../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
+                <a href="../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
                 <a href="../Productos/carrito.php?codigo=<?php echo $codigo ?>"><i class="carro-compras carro-derecha"></i></a>
             </div>
         </div>
