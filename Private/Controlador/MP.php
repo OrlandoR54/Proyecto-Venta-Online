@@ -4,7 +4,7 @@ $codigo = $_GET["codigo"];
 include '../../config/conexionBD.php';
 
 
-$sql = "UPDATE mh_fact_cabec_vent SET fc_vent_estado = '$estado' WHERE mh_persons_per_id = '$codigo';";
+$sql = "UPDATE mh_fact_cabec_vent SET fc_vent_estado = '$estado' WHERE fc_vent_id = '$codigo';";
 if ($conn->query($sql) === TRUE) {
 echo "Se ha actualizado los datos personales correctamemte!!!<br>";
 } else {
