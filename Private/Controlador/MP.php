@@ -11,5 +11,6 @@ echo "Se ha actualizado los datos personales correctamemte!!!<br>";
 echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
 }
 echo "<a href='../../vista/usuario/index.php'>Regresar</a>";
+header("Location:index.php?rol_admin=A");
 $conn->close();
 ?>
