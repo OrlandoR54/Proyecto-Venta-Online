@@ -93,7 +93,7 @@ $codigo=$_GET["codigo"];
                         echo "<td>" . $row["fc_vent_id"] . "</td>";
                         echo "<td>" . $row["fc_fecha_vent"] . "</td>";
                         echo "<td>" . $row["fc_vent_total"] . "</td>";
-                        echo "<td class='accion'><a href='verFactura.php?codigo=" . $row['mh_persons_per_id'] . "'>Modificar</a></td>";
+                        echo "<td class='accion'><a href='verFactura.php?codigo=" . $row['mh_persons_per_id'] . "'>Ver detalle pedido</a></td>";
                     }
                 } else {
                     echo "<tr>";
