@@ -51,7 +51,7 @@ $codigo = $_GET["codigo"];
           $sql3="INSERT INTO `mh_fact_cabec_vent`(`fc_vent_id`, `fc_fecha_vent`, `fc_vent_iva`, `fc_vent_total`, `mh_persons_per_id`, `fc_vent_estado`, `fc_estado`) 
             VALUES (NULL,'$fechaActual',0.12,'$total','$codigo','A','N');";
             if ($conn->query($sql3) == TRUE){
-                echo "Cabecera Ingresada";
+                /*echo "Cabecera Ingresada";*/
              } else {
                 echo "<p class='error'>Error1: " . mysqli_error($conn) . "</p>";
             }
@@ -65,7 +65,7 @@ $codigo = $_GET["codigo"];
              $result = $conn->query($sql4);
              if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                   echo "ID DE LA FACTURA CABECERA", $idcabeceraA=$row["fc_vent_id"];
+                  $idcabeceraA=$row["fc_vent_id"];
                 }
             }  else {
                 echo "<p class='error'>Error2: " . mysqli_error($conn) . "</p>";
@@ -94,9 +94,9 @@ $codigo = $_GET["codigo"];
                }
                /*Ingresar Detalles Factura */
                for($i=0; $i<count($lista); $i++){
-                echo "VALOR1", $var1=$lista1[$i];
-                echo "VALOR2", $var2=$lista[$i];
-                echo "VALOR3", $var3=$lista1[$i];
+                $var1=$lista1[$i];
+                $var2=$lista[$i];
+                $var3=$lista1[$i];
                
                $sql6="INSERT INTO `mh_detal_vent`
                 VALUES(
@@ -110,7 +110,7 @@ $codigo = $_GET["codigo"];
                 );";
                   // $result1 = $conn->query($sql6);
                    if ($conn->query($sql6) == TRUE){
-                   echo "Detalle ingresado";
+                  /* echo "Detalle ingresado";*/
                    } else {
                     echo "<p class='error'>Error3: " . mysqli_error($conn) . "</p>";
                 }
@@ -140,18 +140,18 @@ $codigo = $_GET["codigo"];
 	            $sql9="DELETE FROM `mh_carrito_detalle` WHERE 	mh_carrito_cabc_carrit_id=$idcarrito";
                 if ($conn->query($sql9) == TRUE){
                     echo "Eliminado carrito detalles";
-                   /* echo "<script type= 'text/javascript'>
+                   echo "<script type= 'text/javascript'>
                     alert('El pago se efectuo con exito');
                      location='../Controlador/catalogoUser.php?codigo=$codigo';
-                     </script>";*/
+                     </script>";
                  } else {
                     echo "<p class='error'>Error6: " . mysqli_error($conn) . "</p>";
                 }
 
 
-                /*header("Location:../Controlador/catalogoUser.php?codigo=" . $codigo . "");*/
+               /* header("Location:../Controlador/catalogoUser.php?codigo=" . $codigo . "");*/
               
-               /* http://localhost/Proyecto-Venta-Online/Public/Controlador/catalogoUser.php?codigo=7*/
+            
           
              
             $conn->close();

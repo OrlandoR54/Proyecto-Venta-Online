@@ -10,7 +10,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
     <head>
         <meta charset="UTF-8">
-        <title>Carrito de compras</title>
+        <title>Eliminar Productos del carrito</title>
         <link rel="stylesheet" href="../../css/styles.css">
         <link rel="stylesheet" href="../../css/structure.css">
         <link rel="stylesheet" href="../../css/catalogo.css">
@@ -30,6 +30,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 <?php
 include '../../config/conexionBD.php';
 $codigo = $_GET["codigo"];
+$idProducto = $_GET["idProducto"];
 ?>
 
 
@@ -66,7 +67,7 @@ $codigo = $_GET["codigo"];
             <div class="w3-teal">
                 <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
                 <div class="w3-container">
-                    <h1>Carrito de compras </h1>
+                    <h1>Modificar Producto Agregado </h1>
                 </div>
             </div>
 
@@ -80,53 +81,43 @@ $codigo = $_GET["codigo"];
 
                 <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
                     <colgroup>
-                        <col style="width: 105px">
+                       
                         <col style="width: 120px">
                         <col style="width: 120px">
-                        <col style="width: 120px">
-                        <col style="width: 120px">
-                   
+                        
                     </colgroup>
                     <tr>
                         <th class="tg-lboi">Producto</th>
-                        <th class="tg-lboi">Cantidad</th>
-                        <th class="tg-lboi">Subtotal</th>
                         <th class="tg-lboi">Quitar Producto</th>
-                        <th class="tg-lboi">Total a pagar</th>
+                       
                        
                     </tr>
 
             <?php
-            /*SUM(columna)*/
-                $sql = "SELECT prod_nombre,SUM(carri_subt), count(mh_carrito_cabc_carrit_id),mh_products_prod_id FROM mh_carrito_cabc, mh_carrito_detalle,mh_products WHERE mh_persons_per_id=$codigo
-                and carrit_id=mh_carrito_cabc_carrit_id and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id GROUP BY prod_nombre";
+            /*SUM(columna) AND carrit_id = mh_carrito_cabc_carrit_id*/
+                $sql = "SELECT
+                `mh_carrito_detalle`.`mh_carrito_cabc_carrit_id`,
+                `mh_carrito_cabc`.`carrit_id`,
+                `mh_products`.`prod_nombre`,
+                `mh_products_prod_id`,
+                `carrit_det_id`
+            FROM
+                `mh_carrito_detalle`
+            LEFT JOIN `mh_carrito_cabc` ON `mh_carrito_detalle`.`mh_carrito_cabc_carrit_id` = `mh_carrito_cabc`.`carrit_id`
+            LEFT JOIN `mh_products` ON `mh_carrito_detalle`.`mh_products_prod_id` = `mh_products`.`prod_id`
+            WHERE
+                mh_persons_per_id = $codigo AND mh_products_prod_id = $idProducto";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
                             echo "<td>" . $row["prod_nombre"] . "</td>";
-                            echo "<td>" . $row["count(mh_carrito_cabc_carrit_id)"] . "</td>";
-                            echo "<td>" . $row["SUM(carri_subt)"] . "</td>";
-                            echo "<td class='accion'><a href='listaModificarCarrito.php?idProducto=" . $row['mh_products_prod_id'] . "&codigo=". $codigo. "'>Modicar</a></td>";
+                            echo "<td class='accion'><a href='modificarDetalleCarrito.php?idProducto=" . $row['mh_products_prod_id'] ."&carritD=" . $row['carrit_det_id'] . "&codigo=". $codigo. "'>Eliminar</a></td>";
                          
 
                         
                     }
                 }
-                $sql1 = "SELECT prod_nombre,SUM(carri_subt),mh_products_prod_id FROM mh_carrito_cabc, mh_carrito_detalle,mh_products 
-                        WHERE mh_persons_per_id=$codigo
-                        and carrit_id=mh_carrito_cabc_carrit_id  and mh_products_prod_id=prod_id and mh_products_prod_id=mh_products_prod_id";
-                         $result = $conn->query($sql1);
-                         if($result->num_rows >0){
-                             while($row=$result->fetch_assoc()){
-                                echo "<td>" . $row["SUM(carri_subt)"] . "</td>";
-                              
-                             }
-                         }else {
-                            echo "<tr>";
-                            echo "<td colspan='10'>No hay valores a pagar</td>";
-                            echo "</tr>";
-                         }
                 $conn->close();
             ?>
         </table> 
