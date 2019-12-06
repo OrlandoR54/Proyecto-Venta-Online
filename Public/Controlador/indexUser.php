@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     header("Location: \Proyecto-Venta-Online\Public\Vista\login.html");
 }
-if($_SESSION["per_id"]!='U'){
+if($_SESSION["per_rol"]!='U'){
     header("Location:login.php ");  
 }
 ?>
@@ -20,6 +20,7 @@ $codigo=$_GET["codigo"];
 <head>
     <meta charset="UTF-8">
     <title>Pagina principal administrador</title> 
+    <link  rel="icon"   href="../../images/favicon.png" type="image/png">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/structure.css">
 </head>
