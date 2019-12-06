@@ -24,11 +24,15 @@
     $sql = "UPDATE mh_persons SET per_num_ced = '$cedula', per_nombre = '$nombre', per_apellido = '$apellido', per_direccion = '$direccion', per_telefono = '$telefono', per_correo = '$correo', per_fechaNacimiento = '$fechaNacimiento' WHERE per_id = $codigo";
 
     if ($conn->query($sql) == TRUE) {
-        echo "Se ha actualizado los datos personales correctamente!!!<br>";
+       /* echo "Se ha actualizado los datos personales correctamente!!!<br>";*/
+       echo "<script type= 'text/javascript'>
+       alert('Se actualizaron correctamente los datos');
+        location='gestion_user.php?rol_admin=" . $rol_admin . "';
+        </script>";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
     }
-    echo "<a href='gestion_user.php?rol_admin=" . $rol_admin . "'>Regresar</a>";
+    /*echo "<a href='gestion_user.php?rol_admin=" . $rol_admin . "'>Regresar</a>";*/
 
     $conn->close();
     ?>
