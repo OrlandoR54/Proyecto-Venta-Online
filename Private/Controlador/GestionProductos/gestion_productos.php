@@ -9,7 +9,10 @@ if($_SESSION["per_rol"]!='A'){
 ?>
 <!DOCTYPE html>
 <html>
-
+<?php
+include '../../config/conexionBD.php';
+$rol_admin = $_GET['rol_admin'];
+?>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
@@ -22,8 +25,10 @@ if($_SESSION["per_rol"]!='A'){
 <head>
     <meta charset="UTF-8">
     <title>Gestion de Productos</title>
+    <link  rel="icon"   href="../../../images/favicon.png" type="image/png">
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/structure.css">
+    <link rel="stylesheet" href="../../../css/catalogo.css">
 </head>
 
 <body>
@@ -42,16 +47,28 @@ if($_SESSION["per_rol"]!='A'){
                 <a href="../index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>
                 <a href="../gestion_user.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Usuarios</a>
                 <a href="gestion_productos.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Productos</a>
-                <a href="../../Vista/ingreso_producto.html?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Ingresar Productos</a>
+                <a href="ingreso_productos.html?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Ingresar Productos</a>
                 <a href="../../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
             </div>
         </div>
     </div>
 
+    <div class="seccion">
 
-    
-    <main class="mainTabla">
-        <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
+        <div id="main">
+        
+            <div class="w3-teal">
+                <div class="w3-container">
+                    <h1>Gestion Productos</h1>
+                </div>
+            </div>
+
+            <!--Comienzo-->
+            <div class="w3-container" id="aceite">
+                <!--  <div class="w3-container w3-text-grey" id="jeans">
+                    <p> </p>
+                </div> -->
+                <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
         <colgroup>
                     <col style="width: 105px">
                     <col style="width: 120px">
@@ -109,7 +126,14 @@ if($_SESSION["per_rol"]!='A'){
             $conn->close();
             ?>
         </table>
-    </main>
+                   
+
+
+            </div>
+            <!----Final--->
+        </div>
+    </div>
+
 </body>
 
 </html>

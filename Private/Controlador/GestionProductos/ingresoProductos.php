@@ -12,6 +12,7 @@ if($_SESSION["per_rol"]!='A'){
 
 <head>
     <meta charset="UTF-8">
+    <link  rel="icon"   href="../../images/favicon.png" type="image/png">
     <title>Crear Nuevo Producto</title>
 </head>
 
@@ -48,7 +49,8 @@ if($_SESSION["per_rol"]!='A'){
     
     }
         $conn->close();
-        echo "<a href='../index.php?rol_admin=<?php echo $rol_admin ?'>Regresar</a>";
+        //echo "<a href='../index.php?rol_admin=<?php echo $rol_admin ?'>Regresar</a>";
+        header("Location:gestion_productos.php?rol_admin=<?php echo $rol_admin ?>");
         ?>
     </form>
 </body>

@@ -18,6 +18,7 @@ $rol_admin = $_GET['rol_admin'];
 <head>
     <meta charset="UTF-8">
     <title>Pagina principal administrador</title> 
+    <link  rel="icon"   href="../../images/favicon.png" type="image/png">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/structure.css">
     <link rel="stylesheet" href="../../css/catalogo.css">

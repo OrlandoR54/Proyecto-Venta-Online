@@ -4,15 +4,23 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     header("Location: \Proyecto-Venta-Online\Public\Vista\login.html");
     
 }
+if($_SESSION["per_rol"]!='A'){
+    header("Location:../../Public/Controlador/login.php ");  
+}
 ?>
 <!DOCTYPE html>
 <html>
-
+<?php
+include '../../config/conexionBD.php';
+$rol_admin = $_GET['rol_admin'];
+?>
     <head>
         <meta charset="UTF-8">
         <title>Pagina principal administrador</title>
+        <link  rel="icon"   href="../../../images/favicon.png" type="image/png">
         <link rel="stylesheet" href="../../../css/styles.css">
         <link rel="stylesheet" href="../../../css/structure.css">
+        <link rel="stylesheet" href="../../../css/catalogo.css">
     </head>
     
 <style type="text/css">
@@ -38,60 +46,78 @@ $rol_admin = $_GET['rol_admin'];
             <div class="derecha">
                 <a href="../index.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>
                 <a href="../gestion_user.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Usuarios</a>
-                <a href="GestionProductos/gestion_productos.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Productos</a>
+                <a href="../GestionProductos/gestion_productos.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Gestionar Productos</a>
                 <a href="../../../config/Cerrar_Sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
             </div>
         </div>
     </div>
 
 
-    <main class="main">
-        </section>
-        <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
-        <colgroup>
-                    <col style="width: 105px">
-                    <col style="width: 120px">
-                    <col style="width: 130px">
-                    <col style="width: 150px">
-                    <col style="width: 121px">
-                    <col style="width: 200px">
-                    <col style="width: 106px">
-                    <col style="width: 95px">
-                    <col style="width: 95px">
-                    <col style="width: 95px">
-                 </colgroup>
-                    <tr>
-                    <th class="tg-lboi">Nombre</th>
-                    <th class="tg-lboi">Apellido</th>
-                    <th class="tg-lboi">Fecha Venta</th>
-                    <th class="tg-lboi">Iva</th>
-                    <th class="tg-lboi">Total</th>
-                    <th class="tg-lboi">Accion:</th>
-                    </tr>
-            <?php
+    <div class="seccion">
 
-            $sql = "SELECT * FROM mh_persons,mh_fact_cabec_vent WHERE mh_persons.per_id=mh_fact_cabec_vent.mh_persons_per_id and fc_estado='N'";
-            //comentario para vara hacer el push Funciona
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $row["per_nombre"] . "</td>";
-                        echo "<td>" . $row["per_apellido"] . "</td>";
-                        echo "<td>" . $row["fc_fecha_vent"] . "</td>";
-                        echo "<td>" . $row["fc_vent_iva"] . "</td>";
-                        echo "<td>" . $row["fc_vent_total"] . "</td>";
-                        echo "<td class='accion'><a href='anular_factura.php?codigo=".$row['fc_vent_id'] . "&rol_admin=" . $rol_admin . "'>Anular Factura</a></td>";
-                }
-            } else {
-                echo "<tr>";
-                echo "<td colspan='6'>No existen usuarios</td>";
-                echo "</tr>";
-            }
-            $conn->close();
-            ?>
-        </table>
-   
+        <div id="main">
+        
+            <div class="w3-teal">
+                <div class="w3-container">
+                    <h1>Gestion De Facturas</h1>
+                </div>
+            </div>
+
+            <!--Comienzo-->
+            <div class="w3-container" id="aceite">
+                <!--  <div class="w3-container w3-text-grey" id="jeans">
+                    <p> </p>
+                </div> -->
+                <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
+                    <colgroup>
+                        <col style="width: 105px">
+                        <col style="width: 120px">
+                        <col style="width: 130px">
+                        <col style="width: 150px">
+                        <col style="width: 121px">
+                        <col style="width: 200px">
+                        <col style="width: 106px">
+                        <col style="width: 95px">
+                        <col style="width: 95px">
+                        <col style="width: 95px">
+                    </colgroup>
+                    <tr>
+                        <th class="tg-lboi">Nombre</th>
+                        <th class="tg-lboi">Apellido</th>
+                        <th class="tg-lboi">Fecha Venta</th>
+                        <th class="tg-lboi">Iva</th>
+                        <th class="tg-lboi">Total</th>
+                        <th class="tg-lboi">Accion:</th>
+                    </tr>
+                    <?php
+
+                        $sql = "SELECT * FROM mh_persons,mh_fact_cabec_vent WHERE mh_persons.per_id=mh_fact_cabec_vent.mh_persons_per_id and fc_estado='N'";
+                        //comentario para vara hacer el push Funciona
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row["per_nombre"] . "</td>";
+                                    echo "<td>" . $row["per_apellido"] . "</td>";
+                                    echo "<td>" . $row["fc_fecha_vent"] . "</td>";
+                                    echo "<td>" . $row["fc_vent_iva"] . "</td>";
+                                    echo "<td>" . $row["fc_vent_total"] . "</td>";
+                                    echo "<td class='accion'><a href='anular_factura.php?codigo=".$row['fc_vent_id'] . "&rol_admin=" . $rol_admin . "'>Anular Factura</a></td>";
+                            }
+                        } else {
+                            echo "<tr>";
+                            echo "<td colspan='6'>No existen usuarios</td>";
+                            echo "</tr>";
+                        }
+                        $conn->close();
+                        ?>
+                </table>
+
+            </div>
+            <!----Final--->
+        </div>
+    </div>
+
 </body>
 
 </html>
