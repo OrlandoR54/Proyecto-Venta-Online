@@ -98,7 +98,7 @@ $rol_admin = $_GET['rol_admin'];
 
                     <?php
             
-                        $sql = "SELECT mh_persons.per_id, mh_tarjet_credit.tarjet_cred_fech_venc, mh_persons.per_nombre, mh_products.prod_nombre, mh_detal_vent.fd_vent_cantidad, mh_detal_vent.fd_vent_precio, mh_detal_vent.fd_vent_total, mh_fact_cabec_vent.fc_vent_estado, mh_fact_cabec_vent.fc_estado, mh_persons.per_direccion
+                        $sql = "SELECT mh_persons.per_id, mh_tarjet_credit.tarjet_cred_fech_venc, mh_persons.per_nombre, mh_products.prod_nombre, mh_detal_vent.fd_vent_cantidad, mh_detal_vent.fd_vent_precio, mh_detal_vent.fd_vent_total, mh_fact_cabec_vent.fc_vent_estado, mh_fact_cabec_vent.fc_estado, mh_persons.per_direccion, fc_vent_id
                         from mh_detal_vent, mh_fact_cabec_vent, mh_products, mh_persons, mh_tarjet_credit
                         WHERE mh_detal_vent.mh_fact_cabec_vent_fc_vent_id = mh_fact_cabec_vent.fc_vent_id
                         AND mh_detal_vent.mh_products_prod_id = mh_products.prod_id
@@ -110,7 +110,7 @@ $rol_admin = $_GET['rol_admin'];
                             while ($row = $result->fetch_assoc()) {
                             
                                 echo "<tr>";
-                                echo " <td>" . $row['per_id'] . "</td>";
+                                echo " <td>" . $row['fc_vent_id'] . "</td>";
                                 echo " <td>" . $row['tarjet_cred_fech_venc'] ."</td>";
                                 echo " <td>" . $row['per_nombre'] . "</td>";
                                 echo " <td>" . $row['prod_nombre'] . "</td>";
@@ -122,7 +122,7 @@ $rol_admin = $_GET['rol_admin'];
                                 $estado = ' ';
                                 
                                 echo "<td>
-                                        <form name = 'form1' method='POST' action = 'MP.php?codigo=".$row['per_id']."'>
+                                        <form name = 'form1' method='POST' action = 'MP.php?codigo=".$row['fc_vent_id']."'>
                                         <select name = 'list'>
                                         <option>".$row['fc_vent_estado']."</option>
                                         <option value='C'>C</option>
