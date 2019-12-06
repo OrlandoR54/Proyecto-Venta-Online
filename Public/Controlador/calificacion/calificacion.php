@@ -62,7 +62,7 @@
         where  mh_comentarios.mh_products_prod_id = $codigo
         AND mh_persons.per_id = mh_comentarios.mh_persons_per_id";
         $result = $conn->query($sql);
-        echo "<h1>Comentarios: </h1>";
+        //echo "<h1>Comentarios: </h1>";
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<h3>". $row['per_nombre'] ."</h3>";
