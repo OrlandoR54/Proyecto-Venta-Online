@@ -50,10 +50,22 @@ if($_SESSION["per_rol"]!='A'){
         </div>
     </div>
 
+    <div class="seccion">
 
-    
-    <main class="mainTabla">
-        <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
+        <div id="main">
+        
+            <div class="w3-teal">
+                <div class="w3-container">
+                    <h1>Gestion Productos</h1>
+                </div>
+            </div>
+
+            <!--Comienzo-->
+            <div class="w3-container" id="aceite">
+                <!--  <div class="w3-container w3-text-grey" id="jeans">
+                    <p> </p>
+                </div> -->
+                <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
         <colgroup>
                     <col style="width: 105px">
                     <col style="width: 120px">
@@ -111,7 +123,14 @@ if($_SESSION["per_rol"]!='A'){
             $conn->close();
             ?>
         </table>
-    </main>
+                   
+
+
+            </div>
+            <!----Final--->
+        </div>
+    </div>
+
 </body>
 
 </html>
