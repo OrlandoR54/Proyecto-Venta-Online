@@ -1,8 +1,8 @@
 <?php
 $db_servername = "localhost";
-$db_username = "root";
-$db_userpassword = "";
-$db_name = "hipermedialproyecto";
+$db_username = "u755686168_root";
+$db_userpassword = "@dm1n.2019";
+$db_name = "u755686168_ventas";
 
 /*$db_servername = "localhost";
 $db_username = "u755686168_root";
