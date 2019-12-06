@@ -114,7 +114,7 @@ $codigo = $_GET["codigo"];
 
                $sql7="UPDATE `mh_fact_cabec_vent`  
                SET `fc_vent_total`='$total'
-               WHERE $idcabecera='fc_vent_id'";
+               WHERE '$idcabecera'=`fc_vent_id`";
                 if ($conn->query($sql7) == TRUE){
                     /*echo "Total Modificado";*/
                  } else {
