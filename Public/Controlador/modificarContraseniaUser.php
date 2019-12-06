@@ -3,9 +3,16 @@
     if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE){
         header("Location: \Proyecto-Venta-Online\Public\Vista\login.html");
     }
-    ?>
+    if($_SESSION["per_rol"]!='A'){
+        header("Location:../../Public/Controlador/login.php ");  
+    }
+?>
     <!DOCTYPE html>
     <html>
+    <?php
+    include '../../config/conexionBD.php';
+    $rol_admin = $_GET['rol_admin'];
+    ?>
         <head>
             <meta charset="UTF-8">
             <title>Cambiar Contrasena</title>
@@ -26,7 +33,7 @@
                 <br>
                 <div class= "botones">
                     <input class="boton" type="submit" id="modificar" name="modificar" value="Modificar">
-                    <input class="boton" type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='.../../Private/Controlador/gestion_user.php?rol_admin=<?php echo $rol_admin ?>'" class="boton">
+                    <input class="boton" type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='../../Private/Controlador/gestion_user.php?rol_admin=<?php echo $rol_admin ?>'" class="boton">
                 </div>
             </form>
         </body>
