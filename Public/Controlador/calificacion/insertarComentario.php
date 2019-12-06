@@ -15,6 +15,6 @@ if ($conn->query($sql) === TRUE) {
     }else{
     echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
     }
-}
-    
+    }
+    header("Location:../catalogoUser.php?codigo=$CP");
 ?>
