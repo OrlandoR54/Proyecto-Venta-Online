@@ -97,7 +97,7 @@ $codigo=$_GET["codigo"];
                     }
                 } else {
                     echo "<tr>";
-                    echo "<td colspan='4'>No existen facturas</td>";
+                    echo "<td colspan='4'>No existen pedidos</td>";
                     echo "</tr>";
                 }
                 $conn->close();
