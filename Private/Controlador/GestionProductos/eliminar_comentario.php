@@ -19,7 +19,7 @@
     } else {
         echo "<p>Error" . $sql . "<br>" . mysqli_error($conn) . "</p>";
     }
-    //echo "<a href='gestion_comentarios.php?rol_admin=" . $rol_admin . "'>Regresar</a>";
+    //Es la nueva ubicacion cuando se cumple la sentencia de arriba
     header("Location:gestion_comentarios.php?rol_admin=<?php echo $rol_admin ?>");
     $conn->close();
     ?>
