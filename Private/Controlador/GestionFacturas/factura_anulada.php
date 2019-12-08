@@ -10,7 +10,7 @@
 <body>
     <?php
     //Incluir conexion a la BD
-    //comentario para hacer el push Funcioanado
+    //Metodo que nos permite anular la factura solo si el estado de la factura esta en "S"
     include '../../../config/conexionBD.php';
     $codigo =$_GET['codigo'];
     $rol_admin = $_GET['rol_admin'];
@@ -20,6 +20,7 @@
     } else {
         echo "<p>Error" . $sql . "<br>" . mysqli_error($conn) . "</p>";
     }
+    //Es la nueva ubicacion cuando se cumple la sentencia de arriba
     header("Location:gestion_factura.php?codigo=<?php echo $codigo ?>?rol_admin=<?php echo $rol_admin ?>");
     $conn->close();
     ?>
