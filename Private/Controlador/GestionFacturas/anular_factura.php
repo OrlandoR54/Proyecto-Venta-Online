@@ -72,6 +72,7 @@ $rol_admin = $_GET['rol_admin'];
                 <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
                     <div>
                         <colgroup>
+                        <!--Estructura de la Tabla con cada uno de sus campos-->
                             <col style="width: 105px">
                             <col style="width: 120px">
                             <col style="width: 130px">
@@ -92,9 +93,8 @@ $rol_admin = $_GET['rol_admin'];
                         </tr>
                     </div>
                     <?php
-
+                        //Sentencia para recuperar de la BD
                         $sql = "SELECT * FROM mh_persons,mh_fact_cabec_vent WHERE mh_persons.per_id=mh_fact_cabec_vent.mh_persons_per_id and fc_vent_id='$codigo'";
-                        //cometario para el push Funcionanado
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
@@ -113,6 +113,8 @@ $rol_admin = $_GET['rol_admin'];
                         $conn->close();
                     ?>
                 </table>
+                <!--Se crea un form para el paso de parametros como son en este caso 
+                el codigo de la factura y el tipo de usuario que inicio sesion-->
                 <form  method="POST" action="factura_anulada.php?codigo=<?php echo $codigo ?>?rol_admin=<?php echo $rol_admin ?>" >
                     <div class= "botones">
                         <input class="boton" type="submit" id="eliminar" name="eliminar" value="Anular"  >
