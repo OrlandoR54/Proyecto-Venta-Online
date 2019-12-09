@@ -205,6 +205,9 @@ $codigo=$_GET["codigo"];
                                 while ($row = $result->fetch_assoc()) {
                                 
                                     echo "<tr>";
+                                    echo "<td> </td>";
+                                    echo "<td> </td>";
+                                    echo "<td> </td>";
                                     echo "<td>" .$row["fc_vent_total"] . "</td>";
                                 }
                             } else {
