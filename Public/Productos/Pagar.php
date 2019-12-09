@@ -49,7 +49,7 @@ $codigo = $_GET["codigo"];
             
            /* Ingresar Factura cabecera*/ 
           $sql3="INSERT INTO `mh_fact_cabec_vent`(`fc_vent_id`, `fc_fecha_vent`, `fc_vent_iva`, `fc_vent_total`, `mh_persons_per_id`, `fc_vent_estado`, `fc_estado`) 
-            VALUES (NULL,'$fechaActual',0.12,'$total','$codigo','A','N');";
+            VALUES (NULL,'$fechaActual',0.12,'$total','$codigo','C','N');";
             if ($conn->query($sql3) == TRUE){
                 /*echo "Cabecera Ingresada";*/
              } else {
