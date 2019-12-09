@@ -29,8 +29,7 @@
     }
   
     $conn->close();
-    echo "UPDATE mh_persons SET per_password=MD5($contrasena2) WHERE per_id=$codigo";
-    //header("Location:../../../Public/Controlador/indexUser.php?codigo=" . $codigo . "");
+    header("Location:../../../Public/Controlador/indexUser.php?codigo=" . $codigo . "");
     ?>
 </body>
 
