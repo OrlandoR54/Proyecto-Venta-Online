@@ -11,8 +11,7 @@
     <?php
     include '../../../config/conexionBD.php';
     $codigo = $_GET["codigo"];
-
-    
+    //Nos permite obtener toda la informacion de persona a modicar
     $cedula = isset($_POST["cedula"]) ? trim($_POST["cedula"]) : null;
     $nombre = isset($_POST["nombre"]) ? mb_strtoupper(trim($_POST["nombre"]), 'UTF-8') : null;
     $apellido = isset($_POST["apellido"]) ? mb_strtoupper(trim($_POST["apellido"]), 'UTF-8') : null;
