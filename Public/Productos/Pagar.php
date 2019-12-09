@@ -149,7 +149,7 @@ $codigo = $_GET["codigo"];
                 }
 
 
-               /* header("Location:../Controlador/catalogoUser.php?codigo=" . $codigo . "");*/
+                header("Location:../Controlador/catalogoUser.php?codigo=" . $codigo . "");
               
             
           

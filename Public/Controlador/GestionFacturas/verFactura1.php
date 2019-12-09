@@ -46,10 +46,10 @@ $idFactura=$_GET["idFactura"];
     <!-- Barra navegador (acentada arriba) -->
     <div class="cabecera">
         <div class="barra cabColor espAmplio margRelleno sombra">
-            <a href="../indexUser.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
+            <a href="../indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton"><b>CBD</b> Cannabidiol</a>
             <!-- enlaces flotantes a la derecha. Econdiendoles en una pantallas pequeñas -->
             <div class="derecha">
-                <a href="../indexUser.php?rol_admin=<?php echo $rol_admin ?>" class="barraItem boton">Inicio</a>
+                <a href="../indexUser.php?codigo=<?php echo $codigo ?>" class="barraItem boton">Inicio</a>
                 <a href="../../../config/cerrar_sesion.php" class="barraItem boton">&#128682;Cerrar Sesion</a>
             </div>
         </div>
@@ -62,7 +62,7 @@ $idFactura=$_GET["idFactura"];
         
             <div class="w3-teal">
                 <div class="w3-container">
-                    <h1>Factura</h1>
+                    <h1>Detalle Pedido</h1>
                     
                 </div>
             </div>
@@ -72,26 +72,19 @@ $idFactura=$_GET["idFactura"];
                 <!--  <div class="w3-container w3-text-grey" id="jeans">
                     <p> </p>
                 </div> -->
-
-                <button type="button" onclick="javascript:imprim2();">Imprimir</button>
-   
-   
-   
                 <div id="buzon">
                     <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px"> 
                             <colgroup>
-                                    <col style="width: 25px">
+                                    <col style="width: 100px">
                                     <col style="width: 100px">
                                     <col style="width: 120px">
-                                    <col style="width: 80px">
                                     <col style="width: 80px">
                             </colgroup>
 
                             <tr>
-                                    <th class="tg-lboi"># Factura</th>
-                                    <th class="tg-lboi">Cliente</th>
-                                    <th class="tg-lboi">Direccion</th>
-                                    <th class="tg-lboi">Fecha</th>
+                                    <th class="tg-lboi">Producto</th>
+                                    <th class="tg-lboi">Precio</th>
+                                    <th class="tg-lboi">Cantidad</th>
                                     <th class="tg-lboi">Total</th>    
                             </tr>
 
@@ -138,22 +131,6 @@ $idFactura=$_GET["idFactura"];
 
     <main class="mainTabla">
     
-<script>
-
-    function imprim2(){
-        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-        mywindow.document.write('<html><head>');
-        mywindow.document.write('</head><body >');
-        mywindow.document.write(document.getElementById('buzon').innerHTML);
-        mywindow.document.write('</body></html>');
-        mywindow.document.close(); // necesario para IE >= 10
-        mywindow.focus(); // necesario para IE >= 10
-        mywindow.print();
-        mywindow.close();
-        return true;
-    }
-</script>
-
 
     </main>
     
