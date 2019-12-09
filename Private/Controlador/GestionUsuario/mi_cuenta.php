@@ -1,4 +1,5 @@
 <?php
+//Nos permite crear una sesion para la seguridad de la informacion.
 session_start();
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     header("Location: /SistemaDeGestion/public/vista/login.html");
@@ -40,7 +41,6 @@ $codigo=$_GET["codigo"];
     
         $codigo = $_GET["codigo"];
     ?>
-
     <!-- Barra navegador (acentada arriba) -->
     <div class="cabecera">
         <div class="barra cabColor espAmplio margRelleno sombra">
@@ -82,7 +82,7 @@ $codigo=$_GET["codigo"];
                 </div> -->
 
                     <table id="buzon" class="tg" style="undefined;table-layout: fixed; width: 1062px">
-                        
+                    <!--Formato y diseño de la tabla-->                  
                         <colgroup>
                             <col style="width: 204px">
                             <col style="width: 164px">

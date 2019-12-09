@@ -1,4 +1,5 @@
 <?php
+//Nos permite crear una sesion para la seguridad de la informacion.
 session_start();
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     header("Location: /SistemaDeGestion/public/vista/login.html");
