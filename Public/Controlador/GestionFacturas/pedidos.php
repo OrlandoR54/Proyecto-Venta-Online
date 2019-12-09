@@ -70,6 +70,7 @@ $codigo=$_GET["codigo"];
                 <col style="width: 100px">
                 <col style="width: 100px">
                 <col style="width: 100px">
+                <col style="width: 100px">
             </colgroup>
             <tr>
                 <th class="tg-lboi">Numero de factura:</th>
