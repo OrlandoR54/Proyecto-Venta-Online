@@ -13,6 +13,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Catalogo</title>
+    <link  rel="icon"   href="../../images/favicon.png" type="image/png">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/structure.css">
     <link rel="stylesheet" href="../../css/catalogo.css">
@@ -307,7 +308,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
                     alt="Sígueme en Facebook" height="35" width="35"
                     src="https://2.bp.blogspot.com/-28mh2hZK3HE/XCrIxxSCW0I/AAAAAAAAH_M/XniFGT5c2lsaVNgf7UTbPufVmIkBPnWQQCLcBGAs/s1600/facebook.png"
                     title="Sígueme en Facebook" /></a>
-            <a href="https://www.instagram.com/dailyart_viral/" target="_blank"><img class="icono"
+            <a href="https://www.instagram.com/chr1st1an_lml_/" target="_blank"><img class="icono"
                     alt="Sígueme en Facebook" height="35" width="35"
                     src="https://4.bp.blogspot.com/-Ilxti1UuUuI/XCrIy6hBAcI/AAAAAAAAH_k/QV5KbuB9p3QB064J08W2v-YRiuslTZnLgCLcBGAs/s1600/instagram.png"
                     title="Sígueme en Instagram" /></a>

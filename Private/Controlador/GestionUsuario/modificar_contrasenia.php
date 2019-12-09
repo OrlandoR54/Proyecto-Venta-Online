@@ -29,7 +29,7 @@
     }
   
     $conn->close();
-    header("Location:../../../Public/Controlador/indexUser.php?codigo=" . $codigo . "");
+    header("Location:mi_cuenta.php?codigo=" . $codigo . "");
     ?>
 </body>
 

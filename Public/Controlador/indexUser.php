@@ -192,7 +192,7 @@ $codigo=$_GET["codigo"];
         <p class="w3-opacity">Cannabidiol</p>
         <p>Conoce la diferencia entre el THC y CBD y que efectos tienen en tu cuerpo. <br> <br> </p>
     </div>
-    <p> <a href="about.html"><button class="w3-button w3-light-grey w3-block">Contactanos</button></a></p>
+    <p> <a href="aboutUser.php"><button class="w3-button w3-light-grey w3-block">Contactanos</button></a></p>
     </div>
 
     <!-- End page content -->
@@ -210,7 +210,7 @@ $codigo=$_GET["codigo"];
         height="35" width="35"
         src="https://2.bp.blogspot.com/-28mh2hZK3HE/XCrIxxSCW0I/AAAAAAAAH_M/XniFGT5c2lsaVNgf7UTbPufVmIkBPnWQQCLcBGAs/s1600/facebook.png"
         title="Sígueme en Facebook" /></a>
-    <a href="https://www.instagram.com/dailyart_viral/" target="_blank"><img class="icono" alt="Sígueme en Facebook"
+    <a href="https://www.instagram.com/chr1st1an_lml_/" target="_blank"><img class="icono" alt="Sígueme en Facebook"
         height="35" width="35"
         src="https://4.bp.blogspot.com/-Ilxti1UuUuI/XCrIy6hBAcI/AAAAAAAAH_k/QV5KbuB9p3QB064J08W2v-YRiuslTZnLgCLcBGAs/s1600/instagram.png"
         title="Sígueme en Instagram" /></a>
