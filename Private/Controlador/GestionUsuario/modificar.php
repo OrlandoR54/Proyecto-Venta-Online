@@ -27,9 +27,10 @@
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
     }
-    echo "<a href='../../../Public/Controlador/indexUser.php?codigo=" . $codigo . "'>Regresar</a>";
+   
 
     $conn->close();
+    header("Location:../../../Public/Controlador/indexUser.php?codigo=" . $codigo . "");
     ?>
 </body>
 

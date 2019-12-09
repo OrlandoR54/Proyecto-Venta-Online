@@ -20,15 +20,16 @@
         $sqlContrasena2 = "UPDATE mh_persons SET per_password=MD5($contrasena2) WHERE per_id=$codigo";
 
         if ($conn->query($sqlContrasena2) === TRUE) {
-            echo "Se ha actualizado la contrasena correctamente";
+         /*   echo "Se ha actualizado la contrasena correctamente";*/
         } else {
             echo "<p>Error: " . mysqli_error($conn) . "</p>";
         }
     } else {
         echo "<p>La contrasena actual no coincide con nuestros registros!!!</p>";
     }
-    echo "<a href='../../../Public/Controlador/indexUser.php?codigo=" . $codigo . "'>Regresar</a>";
+  
     $conn->close();
+    header("Location:../../../Public/Controlador/indexUser.php?codigo=" . $codigo . "");
     ?>
 </body>
 
