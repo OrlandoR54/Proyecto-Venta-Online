@@ -75,6 +75,7 @@ $codigo=$_GET["codigo"];
                 <th class="tg-lboi">Numero de factura:</th>
                 <th class="tg-lboi">Fecha de venta:</th>
                 <th class="tg-lboi">Total de la factura:</th>
+                <th class="tg-lboi">Estado del pedido:</th>
                 <th class="tg-lboi">Accion:</th>
             </tr>
 
@@ -83,7 +84,7 @@ $codigo=$_GET["codigo"];
      
  
           
-                $sql = "SELECT * FROM mh_fact_cabec_vent WHERE mh_persons_per_id ='$codigo' and fc_vent_estado='A'";
+                $sql = "SELECT * FROM mh_fact_cabec_vent WHERE mh_persons_per_id ='$codigo' and fc_vent_estado !='F'";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -93,6 +94,8 @@ $codigo=$_GET["codigo"];
                         echo "<td>" . $row["fc_vent_id"] . "</td>";
                         echo "<td>" . $row["fc_fecha_vent"] . "</td>";
                         echo "<td>" . $row["fc_vent_total"] . "</td>";
+                        echo "<td>" . $row["fc_vent_estado"] . "</td>";
+
                         echo "<td class='accion'><a href='verFactura1.php?codigo=" . $row['mh_persons_per_id'] . "&idFactura=". $row['fc_vent_id']."'>Ver detalle pedido</a></td>";
                     }
                 } else {
