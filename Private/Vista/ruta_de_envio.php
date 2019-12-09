@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <link rel="stylesheet" rel="stylesheet" href="../../css/modificaUser.css">
     <style type="text/css">
     html, body { width:100%;padding:0;margin:0; }
     .container { width:95%;max-width:980px;padding:1% 2%;margin:0 auto }
@@ -16,6 +17,7 @@
     .address { cursor:pointer }
     .address:hover { color:#AA0000;text-decoration:underline }
     </style>
+    
     </head>
     <body>
 
